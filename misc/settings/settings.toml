@@ -204,7 +204,7 @@ panel_placement = "attached"
 enabled = [ "noctalia/screen_recorder", "noctalia/wallhaven", "avivbintangaringga/nix-monitor", "oldirtty/color_picker" ]
 
 [shell]
-avatar_path = "/home/elias/NixOS-Dots/misc/images/Alisa_Mikhailovna_Kujou_Manga.png"
+avatar_path = "/home/elias/dotfiles/misc/images/Alisa_Mikhailovna_Kujou_Manga.png"
 button_borders = false
 card_borders = false
 clipboard_image_action_command = "swash"
@@ -289,23 +289,23 @@ wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "niri", "qt" ]
-    community_ids = [ "pywalfox", "vscode", "discord", "papirus-icons" ]
+    community_ids = [ "pywalfox", "discord", "vscode", "papirus-icons" ]
 
 [wallpaper]
-directory = "~/Wallpapers/Walls"
+directory = "/home/elias/wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/Wallpapers/Walls/IOS26-4.png"
+    path = "/home/elias/wallpapers/Walls/Computer.jpg"
 
     [wallpaper.last]
-    path = "/home/elias/Wallpapers/Walls/IOS26-4.png"
+    path = "/home/elias/wallpapers/Walls/Computer.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/Wallpapers/Walls/IOS26-4.png"
+    path = "/home/elias/wallpapers/Walls/Computer.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/Wallpapers/Walls/IOS26-4.png"
+    path = "/home/elias/wallpapers/Walls/Computer.jpg"
 
 [widget.clock]
 format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
@@ -317,7 +317,7 @@ text = " |"
 type = "text"
 
 [widget.launcher]
-custom_image = "~/NixOS-Dots/misc/images/nixos.svg"
+custom_image = "~/dotfiles/misc/images/nixos.svg"
 custom_image_colorize = true
 
 [widget.nix-monitor]

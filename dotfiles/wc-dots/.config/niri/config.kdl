@@ -246,7 +246,7 @@ layer-rule {
 
 blur {
     passes 4 // (set to 1 to remove seam between attached panels and the bar for noctalia)
-    offset 6
+    offset 3
     noise 0
     saturation 1
 }
