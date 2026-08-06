@@ -44,7 +44,7 @@ output "HDMI-A-1" {
 }
 
 layout {
-    gaps 10
+    gaps 0
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333

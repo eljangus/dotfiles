@@ -39,6 +39,7 @@ order = [ "default" ]
     radius_top_left = 0
     radius_top_right = 0
     scale = 1.2500000111758709
+    shadow = false
     start = [
         "text_left_custom",
         "launcher",
@@ -72,6 +73,7 @@ launcher_icon = "rocket"
 pinned = [ "firefox", "org.gnome.Nautilus", "Vesktop", "steam", "codium" ]
 radius = 0
 reserve_space = false
+shadow = false
 show_dots = true
 show_instance_count = false
 
@@ -215,6 +217,7 @@ niri_overview_type_to_launch_enabled = true
 password_style = "random"
 polkit_agent = true
 popup_borders = false
+popup_shadows = false
 screen_time_enabled = true
 
     [shell.animation]
@@ -237,6 +240,7 @@ screen_time_enabled = true
     open_near_click_wallpaper = true
     polkit_placement = "attached"
     polkit_position = "auto"
+    shadow = false
 
     [shell.screenshot]
     directory = "~/Bilder/Bildschirmfotos"
@@ -281,7 +285,7 @@ builtin = "Rosé Pine"
 community_palette = "Rose Pine Moon"
 custom_palette = "Paradise"
 mode = "dark"
-source = "wallpaper"
+source = "builtin"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -293,16 +297,20 @@ directory = "/home/elias/wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/Walls/Alpen-Düster.jpg"
+    path = "/home/elias/wallpapers/Walls/Rose-Pine.jpg"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/Walls/Alpen-Düster.jpg"
+    path = "/home/elias/wallpapers/Walls/Rose-Pine.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/Walls/Alpen-Düster.jpg"
+    path = "/home/elias/wallpapers/Walls/Rose-Pine.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/Walls/Alpen-Düster.jpg"
+    path = "/home/elias/wallpapers/Walls/Rose-Pine.jpg"
+
+    [[wallpaper.favorite]]
+    path = "/home/elias/wallpapers/Walls/Arch-btw.png"
+    theme_mode = "auto"
 
 [widget.clock]
 format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
