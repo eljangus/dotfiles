@@ -69,7 +69,7 @@ enabled = true
 inactive_opacity = 0.99999997764825821
 inactive_scale = 1.0
 launcher_icon = "rocket"
-pinned = [ "firefox", "org.gnome.Nautilus", "Vesktop", "codium", "steam" ]
+pinned = [ "firefox", "org.gnome.Nautilus", "Vesktop", "steam", "codium" ]
 radius = 0
 reserve_space = false
 show_dots = true
@@ -276,12 +276,9 @@ screen_time_enabled = true
     shortcut = "5"
     variant = "destructive"
 
-[system.monitor]
-gpu_poll_seconds = 2
-
 [theme]
-builtin = "Catppuccin"
-community_palette = "Monochrome"
+builtin = "Rosé Pine"
+community_palette = "Rose Pine Moon"
 custom_palette = "Paradise"
 mode = "dark"
 source = "wallpaper"
@@ -296,16 +293,16 @@ directory = "/home/elias/wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/Walls/Computer.jpg"
+    path = "/home/elias/wallpapers/Walls/Alpen-Düster.jpg"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/Walls/Computer.jpg"
+    path = "/home/elias/wallpapers/Walls/Alpen-Düster.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/Walls/Computer.jpg"
+    path = "/home/elias/wallpapers/Walls/Alpen-Düster.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/Walls/Computer.jpg"
+    path = "/home/elias/wallpapers/Walls/Alpen-Düster.jpg"
 
 [widget.clock]
 format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
