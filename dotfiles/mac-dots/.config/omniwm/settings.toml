@@ -34,7 +34,7 @@ useGlobalGaps = true
 
 [focus]
 crossesMonitorAtEdge = false
-followsMouse = true
+followsMouse = false
 followsWindowToMonitor = false
 lockModifier = "off"
 moveCrossesMonitorAtEdge = false
@@ -664,11 +664,11 @@ binding = "Unassigned"
 id = "moveColumnToIndex.9"
 
 [[hotkeys]]
-binding = "Option+Z"
+binding = "Option+Y"
 id = "cycleSizeForward"
 
 [[hotkeys]]
-binding = "Option+Shift+Z"
+binding = "Option+Shift+Y"
 id = "cycleSizeBackward"
 
 [[hotkeys]]
@@ -680,7 +680,7 @@ binding = "Unassigned"
 id = "cycleWindowPrimarySpanBackward"
 
 [[hotkeys]]
-binding = "Control+Option+Shift+Z"
+binding = "Control+Option+Shift+Y"
 id = "cycleWindowSecondarySpanForward"
 
 [[hotkeys]]
@@ -696,7 +696,7 @@ binding = "Control+Option+F"
 id = "expandContainerToAvailablePrimarySpan"
 
 [[hotkeys]]
-binding = "Control+Option+Z"
+binding = "Control+Option+Y"
 id = "resetWindowSecondarySpan"
 
 [[hotkeys]]
