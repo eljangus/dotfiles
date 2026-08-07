@@ -94,7 +94,7 @@ visibleContainerCount = 2
 zoom = 1.0
 
 [overview.backdrop]
-alpha = 1.0
+alpha = 0.4
 blue = 0.18
 green = 0.114
 red = 0.122
