@@ -191,7 +191,6 @@ monitors = [ "DP-1" ]
 branch = "nixos-unstable"
 clean_command = "nh clean all"
 panel_placement = "attached"
-update_command = "nix flake update --flake ~/NixOS-Dots/nixos"
 
 [plugin_settings."noctalia/wallhaven"]
 browser_open_near_click = true
@@ -297,20 +296,16 @@ directory = "/home/elias/wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/Walls/Rose-Pine.jpg"
+    path = "/home/elias/wallpapers/Walls/Skelett.png"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/Walls/Rose-Pine.jpg"
+    path = "/home/elias/wallpapers/Walls/Skelett.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/Walls/Rose-Pine.jpg"
+    path = "/home/elias/wallpapers/Walls/Skelett.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/Walls/Rose-Pine.jpg"
-
-    [[wallpaper.favorite]]
-    path = "/home/elias/wallpapers/Walls/Arch-btw.png"
-    theme_mode = "auto"
+    path = "/home/elias/wallpapers/Walls/Skelett.png"
 
 [widget.clock]
 format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
