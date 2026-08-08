@@ -22,7 +22,6 @@
     }
   },
   "modules": [
-    "break",
     {
       "keyColor": "35;1",
       "outputColor": "35;1",
