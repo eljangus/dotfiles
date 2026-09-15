@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Ryujinx
+Comment=NSX Emulator
+Exec=/usr/bin/Ryujinx
+Icon=/home/elias/dotfiles/misc/application-icons/Ryujinx.png
+Terminal=false
+Categories=Media;Gaming
