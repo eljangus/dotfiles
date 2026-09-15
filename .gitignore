@@ -2,16 +2,9 @@
 *~
 .DS_Store
 .config/OpenRGB/logs/
-
-# Code - OSS is no longer a whole-dir stow symlink (see cleanup 2026-09-16):
-# only User/settings.json is tracked, everything else stays real app data
-# outside the repo. Kept as a safety net in case that ever changes again.
 .config/Code - OSS/*
 !.config/Code - OSS/User
 .config/Code - OSS/User/*
 !.config/Code - OSS/User/settings.json
-
-# Same deal for mpd: only mpd.conf is config, the rest (db, log, pid,
-# state, stickers, playlists) is runtime data mpd regenerates itself.
 .config/mpd/*
 !.config/mpd/mpd.conf
