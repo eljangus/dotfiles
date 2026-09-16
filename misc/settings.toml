@@ -16,13 +16,16 @@ order = [ "bar" ]
 
     [bar.bar]
     capsule = true
-    capsule_padding = 8.0
+    capsule_padding = 7.0
     enabled = true
     end = [ "tray", "notifications", "volume", "recorder_3", "session" ]
     font_family = "Maple Mono NF"
     font_scale = 1.0999999828636646
+    margin_ends = 0
     padding = 5
     radius = 20
+    radius_top_left = 0
+    radius_top_right = 0
     scale = 1.1000000089406967
     thickness = 42
     widget_spacing = 8
@@ -554,6 +557,7 @@ screen_time_enabled = true
     launcher_placement = "attached"
     open_near_click_clipboard = true
     open_near_click_control_center = true
+    open_near_click_launcher = true
     open_near_click_session = true
     open_near_click_wallpaper = true
     polkit_placement = "attached"
@@ -605,7 +609,7 @@ screen_time_enabled = true
 builtin = "Tokyo-Night"
 community_palette = "Paradise"
 mode = "dark"
-source = "builtin"
+source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -617,16 +621,16 @@ directory = "/home/elias/wallpapers/walls"
 transition = [ "disc", "fade", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/walls/cat-nightfox.png"
+    path = "/home/elias/wallpapers/walls/flying-ship.png"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/walls/cat-nightfox.png"
+    path = "/home/elias/wallpapers/walls/flying-ship.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/walls/cat-nightfox.png"
+    path = "/home/elias/wallpapers/walls/flying-ship.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/walls/cat-nightfox.png"
+    path = "/home/elias/wallpapers/walls/flying-ship.png"
 
 [widget.Clock-default]
 font_weight = 700

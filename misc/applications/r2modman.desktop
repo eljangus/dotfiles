@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=R2modman
+Exec=/usr/bin/r2modman
+Icon=/home/elias/dotfiles/misc/application-icons/r2modman.png
+Terminal=false
+Categories=Text;
