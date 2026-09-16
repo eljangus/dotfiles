@@ -21,7 +21,7 @@ order = [ "bar" ]
     end = [ "tray", "notifications", "volume", "recorder_3", "session" ]
     font_family = "Maple Mono NF"
     font_scale = 1.0999999828636646
-    padding = 8
+    padding = 5
     radius = 20
     scale = 1.1000000089406967
     thickness = 42
@@ -65,10 +65,9 @@ item_spacing = 10
 launcher_icon = "noctalia"
 launcher_position = "start"
 main_axis_padding = 10
-margin_edge = 10
 margin_ends = 10
 pinned = [ "zen-twilight", "org.gnome.Nautilus", "dev.vencord.Vesktop", "steam" ]
-radius = 10
+radius = 20
 reserve_space = false
 show_dots = true
 
@@ -603,10 +602,10 @@ screen_time_enabled = true
         variant = "destructive"
 
 [theme]
-builtin = "Gruvbox"
+builtin = "Tokyo-Night"
 community_palette = "Paradise"
 mode = "dark"
-source = "wallpaper"
+source = "builtin"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -618,16 +617,16 @@ directory = "/home/elias/wallpapers/walls"
 transition = [ "disc", "fade", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/walls/anime-red.png"
+    path = "/home/elias/wallpapers/walls/cat-nightfox.png"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/walls/anime-red.png"
+    path = "/home/elias/wallpapers/walls/cat-nightfox.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/walls/anime-red.png"
+    path = "/home/elias/wallpapers/walls/cat-nightfox.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/walls/anime-red.png"
+    path = "/home/elias/wallpapers/walls/cat-nightfox.png"
 
 [widget.Clock-default]
 font_weight = 700
