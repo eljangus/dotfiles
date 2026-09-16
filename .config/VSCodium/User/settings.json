@@ -34,5 +34,5 @@
   "window.openFoldersInNewWindow": "off",
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "off",
-  "git.confirmSync": false
+  "git.confirmSync": false,
 }

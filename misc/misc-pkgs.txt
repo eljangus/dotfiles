@@ -7,3 +7,4 @@ Vesktop (Flatpak)
 claude
 downgrade
 ryujinx
+vscodium

@@ -11,7 +11,6 @@ cava
 chromium
 cliphist
 cmake
-code
 dconf-editor
 ddcutil
 decibels
@@ -29,6 +28,7 @@ fzf
 gamescope
 gcc
 git
+gnome-keyring
 gnome-themes-extra
 gpu-screen-recorder
 grub
