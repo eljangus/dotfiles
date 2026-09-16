@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=VSCodium
+Exec=/usr/bin/codium
+Icon=/home/elias/dotfiles/misc/application-icons/VSCodium.png
+Terminal=false
+Categories=Text;

@@ -309,7 +309,7 @@ binds {
     //XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
     //XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     //XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
-    Mod+W { spawn "code"; }
+    Mod+W { spawn "codium"; }
     Mod+Shift+Space { switch-layout "next"; }
     Mod+Q repeat=false { spawn "kitty"; }
     Mod+E repeat=false { spawn-sh "nautilus --new-window"; }

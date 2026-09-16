@@ -2,9 +2,9 @@
 *~
 .DS_Store
 .config/OpenRGB/logs/
-.config/Code - OSS/*
-!.config/Code - OSS/User
-.config/Code - OSS/User/*
-!.config/Code - OSS/User/settings.json
+.config/VSCodium/*
+!.config/VSCodium/User
+.config/VSCodium/User/*
+!.config/VSCodium/User/settings.json
 .config/mpd/*
 !.config/mpd/mpd.conf
