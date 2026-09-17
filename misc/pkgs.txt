@@ -28,7 +28,6 @@ fzf
 gamescope
 gcc
 git
-gnome-keyring
 gnome-themes-extra
 gpu-screen-recorder
 grub
@@ -57,6 +56,7 @@ noto-fonts-emoji
 noto-fonts-extra
 nwg-look
 obs-studio
+obsidian
 opencode
 openrgb
 openssh
@@ -91,4 +91,5 @@ wl-clipboard
 wpa_supplicant
 xdg-user-dirs
 xwayland-satellite
+zed
 zram-generator

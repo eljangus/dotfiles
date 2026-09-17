@@ -51,10 +51,10 @@
   "vim_mode": true,
   "buffer_font_family": "Maple Mono NF",
   "terminal": {
-    "font_size": 16.0
+    "font_size": 18.0
   },
   "ui_font_family": "Maple Mono NF",
-  "ui_font_size": 19.0,
+  "ui_font_size": 20.0,
   "buffer_font_size": 17.0,
   "theme": {
     "mode": "system",
