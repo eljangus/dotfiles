@@ -8,3 +8,4 @@ claude
 downgrade
 ryujinx
 r2modman
+vscodium
