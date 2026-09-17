@@ -1,9 +1,10 @@
 return {
-  { "ellisonleao/gruvbox.nvim" },
+  { "ellisonleao/gruvbox.nvim", lazy = true },
+  { "RRethy/nvim-base16",       lazy = true },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "paradise",
     },
-  },
+  }
 }

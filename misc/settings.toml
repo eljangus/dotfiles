@@ -614,7 +614,7 @@ wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "niri", "qt" ]
-    community_ids = [ "zen-browser", "discord", "vscode" ]
+    community_ids = [ "zen-browser", "discord" ]
 
 [wallpaper]
 directory = "/home/elias/wallpapers/walls"
