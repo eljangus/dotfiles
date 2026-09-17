@@ -91,5 +91,4 @@ wl-clipboard
 wpa_supplicant
 xdg-user-dirs
 xwayland-satellite
-zed
 zram-generator

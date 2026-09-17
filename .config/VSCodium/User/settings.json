@@ -35,4 +35,5 @@
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "off",
   "git.confirmSync": false,
+  "explorer.confirmDelete": false,
 }
