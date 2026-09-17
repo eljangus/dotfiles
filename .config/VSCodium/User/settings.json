@@ -20,7 +20,7 @@
   "workbench.editor.tabActionLocation": "right",
   "workbench.startupEditor": "none",
 
-  // --- vim bindings (vscodevim), matching Zed's vim config ---
+  // --- vim bindings (vscodevim) ---
   "vim.smartcase": true,
   "vim.smartRelativeLine": true,
   "editor.lineNumbers": "relative",

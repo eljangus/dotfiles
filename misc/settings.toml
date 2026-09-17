@@ -609,28 +609,28 @@ screen_time_enabled = true
 builtin = "Tokyo-Night"
 community_palette = "Paradise"
 mode = "dark"
-source = "wallpaper"
+source = "community"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "niri", "qt" ]
-    community_ids = [ "zen-browser", "discord", "vscode" ]
+    community_ids = [ "zen-browser", "discord", "vscode", "zed" ]
 
 [wallpaper]
 directory = "/home/elias/wallpapers/walls"
 transition = [ "disc", "fade", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/walls/flying-ship.png"
+    path = "/home/elias/wallpapers/walls/alps-gloomy.jpg"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/walls/flying-ship.png"
+    path = "/home/elias/wallpapers/walls/alps-gloomy.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/walls/flying-ship.png"
+    path = "/home/elias/wallpapers/walls/alps-gloomy.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/walls/flying-ship.png"
+    path = "/home/elias/wallpapers/walls/alps-gloomy.jpg"
 
 [widget.Clock-default]
 font_weight = 700
