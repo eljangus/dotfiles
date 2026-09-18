@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "/home/elias/dotfiles"
+		},
+		{
+			"path": "/home/elias/Pkgs"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}

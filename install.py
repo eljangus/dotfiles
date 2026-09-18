@@ -9,7 +9,7 @@ class Install:
         self.platform = platform.system()
         self.home = Path.home()
         self.rootdir = self.home / "dotfiles"
-        self.zeddir = self.home / ".config/zed"
+        # self.zeddir = self.home / ".config/zed" # not using Zed currently
         self.paths = [
             (self.home / ".config"),
             (self.home / ".local"),
@@ -25,8 +25,10 @@ class Install:
         # Special case: Zed, ~/.config/zed may never be a symlink due to the way zed works
         # if ~/.config/zed is a symlink then live theme reloading won't work for whatever fuckass reason
         # TS PMO 💢😭
-        if self.zeddir.is_symlink():
-            os.unlink(self.zeddir)
+        # though currently commented out as I do not use zed anymore (in favor of neovim)
+        # if self.zeddir.is_symlink():
+        #    os.unlink(self.zeddir)
+
         # check if the necessary paths exists, if not create them
         for path in self.paths:
             if path.is_dir() == False:

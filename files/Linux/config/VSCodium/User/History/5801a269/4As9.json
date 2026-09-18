@@ -1,0 +1,38 @@
+{
+  // Mirrors .config/zed/settings.json: same font, theme, cursor and layout
+  // choices, translated to VSCodium + vscodevim settings.
+
+  // --- appearance ---
+  "workbench.colorTheme": "NoctaliaTheme",
+  "workbench.iconTheme": "material-icon-theme",
+  "window.zoomLevel": 1.5,
+  "editor.fontFamily": "Maple Mono NF",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.6,
+  "terminal.integrated.fontFamily": "Maple Mono NF",
+  "terminal.integrated.fontSize": 14,
+  "editor.stickyScroll.enabled": true,
+  // "native" (server-side) decorations render broken under niri, which
+  // doesn't draw SSD itself — use a custom title bar and hide it entirely
+  "window.titleBarStyle": "custom",
+  "window.customTitleBarVisibility": "never",
+  "window.menuBarVisibility": "compact",
+  "workbench.editor.tabActionLocation": "right",
+  "workbench.startupEditor": "none",
+
+  // --- vim bindings (vscodevim) ---
+  "vim.smartcase": true,
+  "vim.smartRelativeLine": true,
+  "editor.lineNumbers": "relative",
+  "vim.cursorStylePerMode.normal": "line",
+  "vim.cursorStylePerMode.visual": "line",
+  // not set in Zed's config, but standard vim ergonomics worth having
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+
+  // --- behavior ---
+  "window.openFoldersInNewWindow": "off",
+  "security.workspace.trust.enabled": false,
+  "telemetry.telemetryLevel": "off",
+  "git.confirmSync": false,
+}

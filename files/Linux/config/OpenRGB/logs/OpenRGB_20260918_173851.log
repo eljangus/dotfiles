@@ -1,0 +1,63 @@
+    OpenRGB v1.0
+    Commit:  from 
+    Launched: 20260918_173851
+====================================================================================================
+
+[1         ][Info   ][ProfileManager] Found file: 1.json attempting to validate header
+[3         ][Info   ][ProfileManager] Found file: 1.json attempting to validate header
+[4         ][Info   ][NetworkClient] Connection attempt failed
+[56        ][Info   ]------------------------------------------------------
+[56        ][Info   ]|               Start device detection               |
+[56        ][Info   ]------------------------------------------------------
+[62        ][Info   ]------------------------------------------------------
+[62        ][Info   ]|             Detecting I2C interfaces               |
+[62        ][Info   ]------------------------------------------------------
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU SMU 1 (/dev/i2c-3) Device 1002:7550 Subsystem: 1458:2437
+[62        ][Info   ][i2c_smbus_linux] Failed to read i2c device PCI device ID
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM aux hw bus 1 (/dev/i2c-10) Device 0000:0000 Subsystem: 0000:0000
+[62        ][Info   ][DetectionManager] Registering I2C interface: Synopsys DesignWare I2C adapter (/dev/i2c-1) Device 0000:0000 Subsystem: 0000:0000
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c OEM bus (/dev/i2c-8) Device 1002:7550 Subsystem: 1458:2437
+[62        ][Info   ][i2c_smbus_linux] Failed to read i2c device PCI device ID
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM aux hw bus 1 (/dev/i2c-15) Device 0000:0000 Subsystem: 0000:0000
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 2 (/dev/i2c-6) Device 1002:7550 Subsystem: 1458:2437
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 2 (/dev/i2c-13) Device 1002:13C0 Subsystem: 1458:D000
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 0 (/dev/i2c-4) Device 1002:7550 Subsystem: 1458:2437
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 0 (/dev/i2c-11) Device 1002:13C0 Subsystem: 1458:D000
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU SMU 0 (/dev/i2c-2) Device 1002:7550 Subsystem: 1458:2437
+[62        ][Info   ][DetectionManager] Registering I2C interface: Synopsys DesignWare I2C adapter (/dev/i2c-0) Device 0000:0000 Subsystem: 0000:0000
+[62        ][Info   ][i2c_smbus_linux] Failed to read i2c device PCI device ID
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM aux hw bus 0 (/dev/i2c-9) Device 0000:0000 Subsystem: 0000:0000
+[62        ][Info   ][i2c_smbus_linux] Failed to read i2c device PCI device ID
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM aux hw bus 2 (/dev/i2c-16) Device 0000:0000 Subsystem: 0000:0000
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 3 (/dev/i2c-7) Device 1002:7550 Subsystem: 1458:2437
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 3 (/dev/i2c-14) Device 1002:13C0 Subsystem: 1458:D000
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 1 (/dev/i2c-5) Device 1002:7550 Subsystem: 1458:2437
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 1 (/dev/i2c-12) Device 1002:13C0 Subsystem: 1458:D000
+[62        ][Info   ]------------------------------------------------------
+[62        ][Info   ]|               Detecting I2C devices                |
+[62        ][Info   ]------------------------------------------------------
+[109       ][Info   ]------------------------------------------------------
+[109       ][Info   ]|            Detecting I2C DRAM modules              |
+[109       ][Info   ]------------------------------------------------------
+[109       ][Info   ]------------------------------------------------------
+[109       ][Info   ]|               Detecting I2C PCI devices            |
+[109       ][Info   ]------------------------------------------------------
+[119       ][Info   ][DetectionManager] Registering RGB controller Gigabyte Radeon RX 9070 XT GAMING OC ICE
+[119       ][Info   ]------------------------------------------------------
+[119       ][Info   ]|               Detecting HID devices                |
+[119       ][Info   ]------------------------------------------------------
+[171       ][Info   ][DetectionManager] Registering RGB controller Corsair Lighting Node Core
+[224       ][Info   ][DetectionManager] Registering RGB controller Corsair Lighting Node Core
+[466       ][Info   ][DetectionManager] Registering RGB controller X870E AORUS ELITE WIFI7 ICE
+[468       ][Info   ]------------------------------------------------------
+[468       ][Info   ]|            Detecting libusb HID devices            |
+[468       ][Info   ]------------------------------------------------------
+[566       ][Info   ]------------------------------------------------------
+[566       ][Info   ]|              Detecting other devices               |
+[566       ][Info   ]------------------------------------------------------
+[576       ][Info   ]------------------------------------------------------
+[576       ][Info   ]|                Detection completed                 |
+[576       ][Info   ]------------------------------------------------------
+[588       ][Info   ][OpenRGBEffectsPlugin] version 1.0 (0e0f1b4708c302bad4270ab62349b2efe5dcc439), build date 2026-09-12 01:21:49 -0500
+[588       ][Info   ][OpenRGBEffectsPlugin] 58 effects registered
+[594       ][Warning][OpenRGBEffectsPlugin] Exception during profile migration: filesystem error: directory iterator cannot open directory: Datei oder Verzeichnis nicht gefunden [/home/elias/.config/OpenRGB/plugins/settings/effect-profiles]

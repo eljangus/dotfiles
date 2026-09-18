@@ -1,0 +1,11 @@
+Miscellaneous packages through either flatpak or from source:
+Zen
+qt6ct-kde
+Maple Mono NF
+SilentSDDM
+Vesktop (Flatpak)
+claude
+downgrade
+ryujinx
+r2modman
+vscodium

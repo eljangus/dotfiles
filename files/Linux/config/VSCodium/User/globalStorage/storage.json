@@ -1,0 +1,101 @@
+{
+    "telemetry.sqmId": "",
+    "telemetry.machineId": "ba49f03c1aa1b808162c7616fefb3b4c1a68acf71d9ea912af5e674a1cb29f20",
+    "telemetry.devDeviceId": "af732b49-ebe3-4429-a7e0-967ed6747e43",
+    "backupWorkspaces": {
+        "workspaces": [],
+        "folders": [],
+        "emptyWindows": [
+            {
+                "backupFolder": "1789673738751"
+            }
+        ]
+    },
+    "windowControlHeight": 46,
+    "profileAssociations": {
+        "workspaces": {
+            "file:///home/elias/dotfiles": "__default__profile__",
+            "file:///home/elias/dotfiles/.config/VSCodium/User/dotfiles.code-workspace": "__default__profile__",
+            "file:///home/elias/.local/share/Steam/steamapps/compatdata/2060160/pfx/drive_c/users/steamuser/AppData/LocalLow/TheFarmerWasReplaced/TheFarmerWasReplaced/Saves/Save0": "__default__profile__",
+            "file:///home/elias/Projekte/Save0.code-workspace": "__default__profile__",
+            "file:///home/elias/.config/niri": "__default__profile__"
+        },
+        "emptyWindows": {
+            "1789673728164": "__default__profile__",
+            "1789673738751": "__default__profile__"
+        }
+    },
+    "theme": "vs-dark",
+    "themeBackground": "#151515",
+    "windowSplash": {
+        "zoomLevel": 1.5,
+        "baseTheme": "vs-dark",
+        "colorInfo": {
+            "foreground": "#e8e3e3",
+            "background": "#151515",
+            "editorBackground": "#151515",
+            "titleBarBackground": "#151515",
+            "titleBarBorder": "rgba(99, 99, 99, 0)",
+            "activityBarBackground": "#151515",
+            "sideBarBackground": "#222222",
+            "panelBackground": "#151515",
+            "editorGroupBorder": "#636363",
+            "agentsPanelBackground": "#222222",
+            "agentsPanelBorder": "rgba(232, 227, 227, 0.15)",
+            "statusBarBackground": "#222222",
+            "statusBarNoFolderBackground": "#151515"
+        },
+        "layoutInfo": {
+            "sideBarSide": "left",
+            "editorPartMinWidth": 220,
+            "titleBarHeight": 35,
+            "activityBarWidth": 48,
+            "sideBarWidth": 0,
+            "auxiliaryBarWidth": 0,
+            "statusBarHeight": 22,
+            "windowBorder": false,
+            "modernUI": false
+        }
+    },
+    "windowsState": {
+        "lastActiveWindow": {
+            "backupPath": "/home/elias/.config/VSCodium/Backups/1789673738751",
+            "uiState": {
+                "mode": 1,
+                "x": 16,
+                "y": 10,
+                "width": 1261,
+                "height": 1374
+            }
+        },
+        "openedWindows": []
+    },
+    "windowSplashWorkspaceOverride": {
+        "layoutInfo": {
+            "sideBarWidth": 290,
+            "auxiliaryBarWidth": 300,
+            "workspaces": {
+                "427cc7c7387bef2bb0522867c85d95fe": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "aa6f01743df3c00661686abb7a0f8598": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "e54dbede117f59275fdddaeedd4fa6c5": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "84c62c962084f089a2d4c69d0fd65343": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "35049402c5615cb8cbc49aa2bf217a42": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                }
+            }
+        }
+    }
+}
