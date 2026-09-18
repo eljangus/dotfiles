@@ -1,5 +1,5 @@
-[catalog.neovim-custom]
-name = "Neovim (custom)"
+[catalog.neovim-nvf]
+name = "Neovim NVF"
 category = "editor"
 
 [templates.nvim]

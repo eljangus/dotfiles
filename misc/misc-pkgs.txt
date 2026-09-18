@@ -1,4 +1,3 @@
-Miscellaneous packages through either flatpak or from source:
 Zen
 qt6ct-kde
 Maple Mono NF

@@ -47,6 +47,7 @@ mkinitcpio
 mpd
 mpv
 nano
+neovim
 networkmanager
 niri
 noctalia
@@ -91,4 +92,5 @@ wl-clipboard
 wpa_supplicant
 xdg-user-dirs
 xwayland-satellite
+yt-dlp
 zram-generator

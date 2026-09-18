@@ -5,10 +5,18 @@ A complete Neovim colorscheme generated from your noctalia colors.
 `matugen-template.lua` renders to `~/.config/nvim/lua/matugen.lua` — a
 self-contained colorscheme (no plugins required) covering the editor UI,
 syntax, tree-sitter, LSP semantic tokens, diagnostics and the common plugin
-ecosystem (bufferline, neo-tree, telescope, blink.cmp, gitsigns, which-key,
-noice, trouble, indent-blankline, todo-comments, flash, render-markdown,
-lualine, toggleterm, …). Both the light and dark palettes are embedded, and
-a running Neovim repaints live on every wallpaper / mode change.
+ecosystem (bufferline, neo-tree, telescope, snacks, blink.cmp, gitsigns,
+which-key, noice, trouble, indent-blankline, todo-comments, flash,
+render-markdown, lualine, toggleterm, …). Both the light and dark palettes
+are embedded, and a running Neovim repaints live on every wallpaper / mode
+change.
+
+This is the **Neovim NVF** catalog entry: a frozen snapshot from before
+snacks.nvim (LazyVim's default explorer/picker) and neo-tree got their own
+flush-background treatment, so both still use the elevated surface-container
+tone. The sibling `../neovim-lazy` directory is a separate catalog entry with
+that fix applied. Enable only one at a time in noctalia's template settings;
+both write to the same output path.
 
 ## Pick a wallpaper scheme with some spread
 
