@@ -200,7 +200,7 @@ function M.get_palette()
 end
 
 local function make_lualine_theme(p)
-  local c = { bg = p.bg, fg = p.fg_dim }
+  local c = { bg = p.tab_bg, fg = p.fg_dim }
   -- `b` steps down from the mode colour rather than a fixed tone, so it's
   -- always readable as "between `a` and `c`" regardless of the accent. `a`'s
   -- text picks whichever ink actually contrasts against that hue, rather
@@ -217,7 +217,7 @@ local function make_lualine_theme(p)
     inactive = {
       a = { bg = p.bg_low, fg = p.muted, gui = 'bold' },
       b = { bg = p.bg_low, fg = p.muted },
-      c = { bg = p.bg, fg = p.muted },
+      c = { bg = p.tab_bg, fg = p.muted },
     },
   }
 end
@@ -465,21 +465,32 @@ local function build(p, transparent)
   t.WhichKeyBorder = { fg = p.muted, bg = fl }
   t.WhichKeyTitle = { fg = p.cyan, bg = fl, bold = true }
   t.WhichKeyIcon = { fg = p.cyan }
-  local icon_hue = { Blue = p.blue, Cyan = p.cyan, Green = p.green, Grey = p.fg_dim, Orange = p.orange, Purple = p.magenta, Red = p.red, Yellow = p.yellow }
+  local icon_hue = {
+    Blue = p.blue,
+    Cyan = p.cyan,
+    Green = p.green,
+    Grey = p.fg_dim,
+    Orange = p.orange,
+    Purple = p
+        .magenta,
+    Red = p.red,
+    Yellow = p.yellow
+  }
   for name, hue in pairs(icon_hue) do
     t['WhichKeyIcon' .. name] = { fg = hue }
     t['MiniIcons' .. name] = { fg = hue }
   end
 
-  -- snacks.nvim / neo-tree.nvim (flush, same as every other float)
-  t.SnacksNormal = { fg = p.fg, bg = ed }
-  t.SnacksNormalNC = { fg = p.fg, bg = ed }
-  t.SnacksPicker = { fg = p.fg, bg = ed }
-  t.SnacksPickerBorder = { fg = p.muted, bg = ed }
-  t.SnacksPickerTitle = { fg = p.cyan, bg = ed, bold = true }
-  t.SnacksPickerFooter = { fg = p.muted, bg = ed }
-  t.SnacksTitle = { fg = p.cyan, bg = ed, bold = true }
-  t.SnacksFooter = { fg = p.muted, bg = ed }
+  -- snacks.nvim (slightly elevated, same bg as an unfocused tab) / neo-tree.nvim (flush, same as every other float)
+  local snacks_bg = transparent and 'NONE' or p.tab_bg
+  t.SnacksNormal = { fg = p.fg, bg = snacks_bg }
+  t.SnacksNormalNC = { fg = p.fg, bg = snacks_bg }
+  t.SnacksPicker = { fg = p.fg, bg = snacks_bg }
+  t.SnacksPickerBorder = { fg = p.muted, bg = snacks_bg }
+  t.SnacksPickerTitle = { fg = p.cyan, bg = snacks_bg, bold = true }
+  t.SnacksPickerFooter = { fg = p.muted, bg = snacks_bg }
+  t.SnacksTitle = { fg = p.cyan, bg = snacks_bg, bold = true }
+  t.SnacksFooter = { fg = p.muted, bg = snacks_bg }
   t.NeoTreeNormal = { fg = p.fg, bg = ed }
   t.NeoTreeNormalNC = { fg = p.fg, bg = ed }
   t.NeoTreeWinSeparator = { fg = p.muted, bg = ed }
@@ -504,11 +515,28 @@ local function build(p, transparent)
   t.BlinkCmpDoc = { fg = p.fg, bg = fl }
   t.BlinkCmpDocBorder = { fg = p.muted, bg = fl }
   local kind_hue = {
-    Method = p.blue, Function = p.blue, Constructor = p.yellow, Field = p.cyan, Variable = p.fg,
-    Property = p.cyan, Class = p.yellow, Interface = p.yellow, Struct = p.yellow, Module = p.cyan,
-    Enum = p.yellow, EnumMember = p.cyan, Constant = p.orange, Value = p.orange, Keyword = p.magenta,
-    Snippet = p.magenta, Color = p.red, File = p.cyan, Folder = p.cyan, Event = p.yellow,
-    Operator = p.fg_dim, TypeParameter = p.magenta,
+    Method = p.blue,
+    Function = p.blue,
+    Constructor = p.yellow,
+    Field = p.cyan,
+    Variable = p.fg,
+    Property = p.cyan,
+    Class = p.yellow,
+    Interface = p.yellow,
+    Struct = p.yellow,
+    Module = p.cyan,
+    Enum = p.yellow,
+    EnumMember = p.cyan,
+    Constant = p.orange,
+    Value = p.orange,
+    Keyword = p.magenta,
+    Snippet = p.magenta,
+    Color = p.red,
+    File = p.cyan,
+    Folder = p.cyan,
+    Event = p.yellow,
+    Operator = p.fg_dim,
+    TypeParameter = p.magenta,
   }
   for kind, hue in pairs(kind_hue) do
     t['BlinkCmpKind' .. kind] = { fg = hue }
@@ -550,9 +578,9 @@ local function build(p, transparent)
   local bl_off = p.tab_bg
   local bl_sel = p.tab_sel
   local states = {
-    { suf = '', bg = bl_off, fg = p.muted, accent = p.fg_dim },
-    { suf = 'Visible', bg = bl_off, fg = p.fg_dim, accent = p.fg_dim },
-    { suf = 'Selected', bg = bl_sel, fg = p.fg, accent = p.blue, bold = true },
+    { suf = '',         bg = bl_off, fg = p.muted,  accent = p.fg_dim },
+    { suf = 'Visible',  bg = bl_off, fg = p.fg_dim, accent = p.fg_dim },
+    { suf = 'Selected', bg = bl_sel, fg = p.fg,     accent = p.blue,  bold = true },
   }
   for _, s in ipairs(states) do
     t['BufferLineBackground' .. s.suf] = { fg = p.muted, bg = s.bg }
@@ -572,7 +600,16 @@ local function build(p, transparent)
   t.BufferLineTabClose = { fg = p.red, bg = bl_fill }
 
   -- todo-comments.nvim
-  local todo = { FIX = p.red, TODO = p.magenta, HACK = p.yellow, WARN = p.yellow, PERF = p.cyan, NOTE = p.blue, TEST = p.green }
+  local todo = {
+    FIX = p.red,
+    TODO = p.magenta,
+    HACK = p.yellow,
+    WARN = p.yellow,
+    PERF = p.cyan,
+    NOTE = p.blue,
+    TEST = p
+        .green
+  }
   for key, hue in pairs(todo) do
     t['TodoFg' .. key] = { fg = hue }
     t['TodoBg' .. key] = { fg = p.bg, bg = hue, bold = true }

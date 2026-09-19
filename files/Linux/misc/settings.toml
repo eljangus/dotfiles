@@ -532,7 +532,7 @@ offset_y = 10
 enabled = [ "noctalia/screen_recorder" ]
 
 [shell]
-avatar_path = "/home/elias/dotfiles/misc/images/pfp.jpg"
+avatar_path = "/home/elias/dotfiles/files/Linux/misc/images/pfp.jpg"
 button_borders = false
 card_borders = false
 clipboard_auto_paste = "ctrl_v"
@@ -606,7 +606,7 @@ screen_time_enabled = true
         variant = "destructive"
 
 [theme]
-builtin = "Gruvbox"
+builtin = "Tokyo-Night"
 community_palette = "Paradise"
 mode = "dark"
 source = "community"

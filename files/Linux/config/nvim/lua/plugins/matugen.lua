@@ -4,6 +4,6 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    require('matugen').setup()
+    require('matugen').setup({ transparent = false })
   end,
 }

@@ -1,16 +1,18 @@
     OpenRGB v1.0
     Commit:  from 
-    Launched: 20260915_043655
+    Launched: 20260919_144016
 ====================================================================================================
 
-[2         ][Info   ][NetworkClient] Connection attempt failed
-[54        ][Info   ]------------------------------------------------------
-[54        ][Info   ]|               Start device detection               |
-[54        ][Info   ]------------------------------------------------------
-[61        ][Info   ]------------------------------------------------------
-[61        ][Info   ]|             Detecting I2C interfaces               |
-[61        ][Info   ]------------------------------------------------------
-[61        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU SMU 1 (/dev/i2c-3) Device 1002:7550 Subsystem: 1458:2437
+[1         ][Info   ][ProfileManager] Found file: 1.json attempting to validate header
+[3         ][Info   ][ProfileManager] Found file: 1.json attempting to validate header
+[5         ][Info   ][NetworkClient] Connection attempt failed
+[57        ][Info   ]------------------------------------------------------
+[57        ][Info   ]|               Start device detection               |
+[57        ][Info   ]------------------------------------------------------
+[62        ][Info   ]------------------------------------------------------
+[62        ][Info   ]|             Detecting I2C interfaces               |
+[62        ][Info   ]------------------------------------------------------
+[62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU SMU 1 (/dev/i2c-3) Device 1002:7550 Subsystem: 1458:2437
 [62        ][Info   ][i2c_smbus_linux] Failed to read i2c device PCI device ID
 [62        ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM aux hw bus 1 (/dev/i2c-10) Device 0000:0000 Subsystem: 0000:0000
 [62        ][Info   ][DetectionManager] Registering I2C interface: Synopsys DesignWare I2C adapter (/dev/i2c-1) Device 0000:0000 Subsystem: 0000:0000
@@ -34,27 +36,28 @@
 [62        ][Info   ]------------------------------------------------------
 [62        ][Info   ]|               Detecting I2C devices                |
 [62        ][Info   ]------------------------------------------------------
-[108       ][Info   ]------------------------------------------------------
-[108       ][Info   ]|            Detecting I2C DRAM modules              |
-[108       ][Info   ]------------------------------------------------------
-[108       ][Info   ]------------------------------------------------------
-[108       ][Info   ]|               Detecting I2C PCI devices            |
-[108       ][Info   ]------------------------------------------------------
+[109       ][Info   ]------------------------------------------------------
+[109       ][Info   ]|            Detecting I2C DRAM modules              |
+[109       ][Info   ]------------------------------------------------------
+[109       ][Info   ]------------------------------------------------------
+[109       ][Info   ]|               Detecting I2C PCI devices            |
+[109       ][Info   ]------------------------------------------------------
 [119       ][Info   ][DetectionManager] Registering RGB controller Gigabyte Radeon RX 9070 XT GAMING OC ICE
-[122       ][Info   ]------------------------------------------------------
-[122       ][Info   ]|               Detecting HID devices                |
-[122       ][Info   ]------------------------------------------------------
-[179       ][Info   ][DetectionManager] Registering RGB controller Corsair Lighting Node Core
-[234       ][Info   ][DetectionManager] Registering RGB controller Corsair Lighting Node Core
-[408       ][Info   ][DetectionManager] Registering RGB controller X870E AORUS ELITE WIFI7 ICE
-[411       ][Info   ]------------------------------------------------------
-[411       ][Info   ]|            Detecting libusb HID devices            |
-[411       ][Info   ]------------------------------------------------------
-[512       ][Info   ]------------------------------------------------------
-[512       ][Info   ]|              Detecting other devices               |
-[512       ][Info   ]------------------------------------------------------
-[789       ][Info   ]------------------------------------------------------
-[789       ][Info   ]|                Detection completed                 |
-[789       ][Info   ]------------------------------------------------------
-[791       ][Warning][PluginManager] Plugin /home/elias/.config/OpenRGB/plugins/OpenRGBEffectsPlugin_1.0rc2_Linux_amd64_415dc20.so does not have a MetaData field, skipping.
-[130545    ][Info   ][DetectionManager] Cleaning up detected devices
+[119       ][Info   ]------------------------------------------------------
+[119       ][Info   ]|               Detecting HID devices                |
+[119       ][Info   ]------------------------------------------------------
+[171       ][Info   ][DetectionManager] Registering RGB controller Corsair Lighting Node Core
+[225       ][Info   ][DetectionManager] Registering RGB controller Corsair Lighting Node Core
+[439       ][Info   ][DetectionManager] Registering RGB controller X870E AORUS ELITE WIFI7 ICE
+[448       ][Info   ]------------------------------------------------------
+[448       ][Info   ]|            Detecting libusb HID devices            |
+[448       ][Info   ]------------------------------------------------------
+[549       ][Info   ]------------------------------------------------------
+[549       ][Info   ]|              Detecting other devices               |
+[549       ][Info   ]------------------------------------------------------
+[558       ][Info   ]------------------------------------------------------
+[558       ][Info   ]|                Detection completed                 |
+[558       ][Info   ]------------------------------------------------------
+[569       ][Info   ][OpenRGBEffectsPlugin] version 1.0 (0e0f1b4708c302bad4270ab62349b2efe5dcc439), build date 2026-09-12 01:21:49 -0500
+[569       ][Info   ][OpenRGBEffectsPlugin] 58 effects registered
+[575       ][Warning][OpenRGBEffectsPlugin] Exception during profile migration: filesystem error: directory iterator cannot open directory: Datei oder Verzeichnis nicht gefunden [/home/elias/.config/OpenRGB/plugins/settings/effect-profiles]

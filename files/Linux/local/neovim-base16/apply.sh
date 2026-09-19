@@ -71,12 +71,36 @@ return {
         return {}
       end
       local p = matugen.get_palette()
-      return {
+      -- Every state-based group (text, icons, diagnostics, numbers, modified
+      -- dot, close button, ...) gets the same background as its tab, so a
+      -- warning/error counter never punches a differently-coloured hole in
+      -- the tab. Only bg is set; bufferline keeps deriving fg / sp itself.
+      local families = {
+        'buffer', 'numbers', 'close_button', 'modified',
+        'duplicate', 'pick', 'separator', 'diagnostic',
+        'hint', 'hint_diagnostic', 'info', 'info_diagnostic',
+        'warning', 'warning_diagnostic', 'error', 'error_diagnostic',
+      }
+      local hl = {
         fill = { bg = p.nc },
         background = { bg = p.tab_bg },
-        buffer_visible = { bg = p.tab_bg },
-        buffer_selected = { bg = p.tab_sel, bold = true, italic = false },
+        tab = { bg = p.tab_bg },
+        tab_close = { bg = p.nc },
       }
+      for _, name in ipairs(families) do
+        hl[name] = { bg = p.tab_bg }
+        hl[name .. '_visible'] = { bg = p.tab_bg }
+        hl[name .. '_selected'] = { bg = p.tab_sel }
+      end
+      hl.buffer_selected.bold = true
+      hl.buffer_selected.italic = false
+      -- separators blend into the fill; the selected indicator stays accented
+      for _, sfx in ipairs({ '', '_visible', '_selected' }) do
+        hl['separator' .. sfx].fg = p.nc
+      end
+      hl.indicator_visible = { fg = p.tab_bg, bg = p.tab_bg }
+      hl.indicator_selected = { fg = p.blue, bg = p.tab_sel }
+      return hl
     end
   end,
 }
