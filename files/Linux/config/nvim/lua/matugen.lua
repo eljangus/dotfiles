@@ -491,6 +491,10 @@ local function build(p, transparent)
   t.SnacksPickerFooter = { fg = p.muted, bg = snacks_bg }
   t.SnacksTitle = { fg = p.cyan, bg = snacks_bg, bold = true }
   t.SnacksFooter = { fg = p.muted, bg = snacks_bg }
+  -- the snacks terminal is flush with the editor; swapped in via winhighlight
+  -- by the snacks_terminal autocmd below
+  t.SnacksTerminalNormal = { fg = p.fg, bg = ed }
+  t.SnacksTerminalNormalNC = { fg = p.fg, bg = ed }
   t.NeoTreeNormal = { fg = p.fg, bg = ed }
   t.NeoTreeNormalNC = { fg = p.fg, bg = ed }
   t.NeoTreeWinSeparator = { fg = p.muted, bg = ed }
@@ -666,6 +670,32 @@ if not _G.__matugen_lualine_autocmd then
           retheme_lualine(lualine_theme)
         end)
       end
+    end,
+  })
+end
+
+-- snacks.nvim windows all map Normal -> SnacksNormal (the elevated colour) and
+-- its terminal style has no highlight group of its own, so repoint just the
+-- terminal windows at the flush SnacksTerminalNormal groups.
+if not _G.__matugen_snacks_term_autocmd then
+  _G.__matugen_snacks_term_autocmd = true
+  -- BufWinEnter fires before snacks applies the window's options (so
+  -- winhighlight is still empty then), TermOpen fires after; the rewrite is
+  -- idempotent, and scheduling covers both orderings.
+  vim.api.nvim_create_autocmd({ 'BufWinEnter', 'TermOpen' }, {
+    callback = function(ev)
+      vim.schedule(function()
+        if not vim.api.nvim_buf_is_valid(ev.buf) or vim.bo[ev.buf].filetype ~= 'snacks_terminal' then
+          return
+        end
+        local win = vim.fn.bufwinid(ev.buf)
+        if win == -1 then
+          return
+        end
+        local whl = vim.wo[win].winhighlight
+        whl = whl:gsub('Normal:SnacksNormal', 'Normal:SnacksTerminalNormal'):gsub('NormalNC:SnacksNormalNC', 'NormalNC:SnacksTerminalNormalNC')
+        vim.wo[win].winhighlight = whl
+      end)
     end,
   })
 end

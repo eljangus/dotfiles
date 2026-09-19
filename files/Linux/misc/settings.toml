@@ -606,7 +606,7 @@ screen_time_enabled = true
         variant = "destructive"
 
 [theme]
-builtin = "Tokyo-Night"
+builtin = "Catppuccin"
 community_palette = "Paradise"
 mode = "dark"
 source = "community"

@@ -42,9 +42,9 @@ class Install:
                 # add zed to the list if using zed
                 if (e.is_file() or e.is_dir()) and e.name not in ["mimeapps.list"]:
                     self.dots_list.append(e.path)
+                    return self.dots_list
         elif self.platform == "MacOS":
-            print("placeholder")
-        return self.dots_list
+            return self.dots_list
 
     # symlink my dotfiles
     def symlink_dots(self):

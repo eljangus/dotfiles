@@ -61,3 +61,64 @@
 [569       ][Info   ][OpenRGBEffectsPlugin] version 1.0 (0e0f1b4708c302bad4270ab62349b2efe5dcc439), build date 2026-09-12 01:21:49 -0500
 [569       ][Info   ][OpenRGBEffectsPlugin] 58 effects registered
 [575       ][Warning][OpenRGBEffectsPlugin] Exception during profile migration: filesystem error: directory iterator cannot open directory: Datei oder Verzeichnis nicht gefunden [/home/elias/.config/OpenRGB/plugins/settings/effect-profiles]
+[3745444   ][Info   ]------------------------------------------------------
+[3745444   ][Info   ]|               Start device detection               |
+[3745444   ][Info   ]------------------------------------------------------
+[3745452   ][Info   ]------------------------------------------------------
+[3745452   ][Info   ]|             Detecting I2C interfaces               |
+[3745452   ][Info   ]------------------------------------------------------
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU SMU 1 (/dev/i2c-3) Device 1002:7550 Subsystem: 1458:2437
+[3745452   ][Info   ][i2c_smbus_linux] Failed to read i2c device PCI device ID
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM aux hw bus 1 (/dev/i2c-10) Device 0000:0000 Subsystem: 0000:0000
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: Synopsys DesignWare I2C adapter (/dev/i2c-1) Device 0000:0000 Subsystem: 0000:0000
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c OEM bus (/dev/i2c-8) Device 1002:7550 Subsystem: 1458:2437
+[3745452   ][Info   ][i2c_smbus_linux] Failed to read i2c device PCI device ID
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM aux hw bus 1 (/dev/i2c-15) Device 0000:0000 Subsystem: 0000:0000
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 2 (/dev/i2c-6) Device 1002:7550 Subsystem: 1458:2437
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 2 (/dev/i2c-13) Device 1002:13C0 Subsystem: 1458:D000
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 0 (/dev/i2c-4) Device 1002:7550 Subsystem: 1458:2437
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 0 (/dev/i2c-11) Device 1002:13C0 Subsystem: 1458:D000
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU SMU 0 (/dev/i2c-2) Device 1002:7550 Subsystem: 1458:2437
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: Synopsys DesignWare I2C adapter (/dev/i2c-0) Device 0000:0000 Subsystem: 0000:0000
+[3745452   ][Info   ][i2c_smbus_linux] Failed to read i2c device PCI device ID
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM aux hw bus 0 (/dev/i2c-9) Device 0000:0000 Subsystem: 0000:0000
+[3745452   ][Info   ][i2c_smbus_linux] Failed to read i2c device PCI device ID
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM aux hw bus 2 (/dev/i2c-16) Device 0000:0000 Subsystem: 0000:0000
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 3 (/dev/i2c-7) Device 1002:7550 Subsystem: 1458:2437
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 3 (/dev/i2c-14) Device 1002:13C0 Subsystem: 1458:D000
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 1 (/dev/i2c-5) Device 1002:7550 Subsystem: 1458:2437
+[3745452   ][Info   ][DetectionManager] Registering I2C interface: AMDGPU DM i2c hw bus 1 (/dev/i2c-12) Device 1002:13C0 Subsystem: 1458:D000
+[3745452   ][Info   ]------------------------------------------------------
+[3745452   ][Info   ]|               Detecting I2C devices                |
+[3745452   ][Info   ]------------------------------------------------------
+[3745499   ][Info   ]------------------------------------------------------
+[3745499   ][Info   ]|            Detecting I2C DRAM modules              |
+[3745499   ][Info   ]------------------------------------------------------
+[3745499   ][Info   ]------------------------------------------------------
+[3745499   ][Info   ]|               Detecting I2C PCI devices            |
+[3745499   ][Info   ]------------------------------------------------------
+[3745509   ][Info   ][DetectionManager] Registering RGB controller Gigabyte Radeon RX 9070 XT GAMING OC ICE
+[3745616   ][Info   ]------------------------------------------------------
+[3745616   ][Info   ]|               Detecting HID devices                |
+[3745616   ][Info   ]------------------------------------------------------
+[3745668   ][Info   ][DetectionManager] Registering RGB controller Corsair Lighting Node Core
+[3745827   ][Info   ][DetectionManager] Registering RGB controller Corsair Lighting Node Core
+[3746155   ][Info   ][DetectionManager] Registering RGB controller X870E AORUS ELITE WIFI7 ICE
+[3746382   ][Info   ][Wooting] Detected Wooting device type 2 for device at path /dev/hidraw0
+[3746400   ][Info   ][Wooting] Detected Wooting device type 2 for device at path /dev/hidraw1
+[3746463   ][Info   ][Wooting] Detected Wooting device type 2 for device at path /dev/hidraw2
+[3746515   ][Info   ][DetectionManager] Registering RGB controller Wooting 60HE+ zone
+[3746672   ][Info   ][Wooting] Detected Wooting device type 2 for device at path /dev/hidraw13
+[3746672   ][Info   ][Wooting] Detected Wooting device type 2 for device at path /dev/hidraw13
+[3746672   ][Info   ][Wooting] Detected Wooting device type 2 for device at path /dev/hidraw13
+[3746724   ][Info   ][Wooting] Detected Wooting device type 2 for device at path /dev/hidraw14
+[3746735   ][Info   ]------------------------------------------------------
+[3746735   ][Info   ]|            Detecting libusb HID devices            |
+[3746735   ][Info   ]------------------------------------------------------
+[3747000   ][Info   ]------------------------------------------------------
+[3747000   ][Info   ]|              Detecting other devices               |
+[3747000   ][Info   ]------------------------------------------------------
+[3747006   ][Info   ]------------------------------------------------------
+[3747006   ][Info   ]|                Detection completed                 |
+[3747006   ][Info   ]------------------------------------------------------
+[3753590   ][Info   ][ProfileManager] Found file: 1.json attempting to validate header
