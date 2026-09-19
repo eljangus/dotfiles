@@ -38,6 +38,7 @@ application/x-extension-xht=userapp-Twilight-XVKRV3.desktop
 application/toml=nvim.desktop
 application/schema+json=nvim.desktop
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/ror2mm=r2modman.desktop
 
 [Added Associations]
 x-scheme-handler/http=userapp-Twilight-XVKRV3.desktop;

@@ -35,16 +35,20 @@ class Install:
                 path.mkdir(parents=True, exist_ok=True)
 
     # read a dir and return a list containing the files and dirs in that dir
-    def read_dir(self):
+    def read_config_dir(self):
         self.dots_list = []
-        for e in os.scandir(Path(f"{self.rootdir}/.config")):
-            if (e.is_file() or e.is_dir()) and e.name not in ("mimeapps.list", "zed"):
-                self.dots_list.append(e.path)
+        if self.platform == "Linux":
+            for e in os.scandir(Path(f"{self.rootdir}/files/Linux/config")):
+                # add zed to the list if using zed
+                if (e.is_file() or e.is_dir()) and e.name not in ["mimeapps.list"]:
+                    self.dots_list.append(e.path)
+        elif self.platform == "MacOS":
+            print("placeholder")
         return self.dots_list
 
     # symlink my dotfiles
     def symlink_dots(self):
-        self.read_dir()
+        self.read_config_dir()
         for entry in self.dots_list:
             print(entry)
             # os.symlink(e.path, f"{self.home}/.config")
