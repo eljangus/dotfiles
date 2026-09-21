@@ -125,12 +125,23 @@ class Install:
             )
             self.pkgs_ok = result.returncode == 0
 
+    def install_brewfile(self):
+        if shutil.which("brew") is None:
+            print("brew not found, skipping packages")
+            return
+        brewfile = self.rootdir / "files/Darwin/misc/Brewfile"
+        result = subprocess.run(
+            ["brew", "bundle", "--file", str(brewfile)], check=False
+        )
+        self.pkgs_ok = result.returncode == 0
+
     def finish(self):
         if self.pkgs_ok:
             print("\nInstallation complete!\n")
         else:
+            pkg_manager = "pacman" if self.platform == "Linux" else "brew"
             print(
-                "\nInstallation finished, but pacman failed: packages were not installed.\n"
+                f"\nInstallation finished, but {pkg_manager} failed: packages were not installed.\n"
             )
         if self.platform == "Linux":
             print("Fonts changed: run `fc-cache -f`, if you haven't already done so.\n")
@@ -172,4 +183,6 @@ if __name__ == "__main__":
         obj.symlink_dots(obj.misc)
         obj.symlink_noctalia_settings()
         obj.install_arch_pkgs()
+    elif obj.platform == "Darwin":
+        obj.install_brewfile()
     obj.finish()
