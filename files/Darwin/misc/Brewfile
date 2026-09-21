@@ -1,0 +1,28 @@
+# Homebrew dependencies for these dotfiles on macOS
+# Install with: brew bundle --file files/Darwin/misc/Brewfile
+
+# core
+brew "git"
+brew "fish"
+brew "starship"
+brew "neovim"
+
+# nvim (LazyVim) runtime deps
+brew "ripgrep"
+brew "fd"
+brew "lazygit"
+brew "fzf"
+brew "tree-sitter" # required by neovim itself
+brew "tree-sitter-cli" # the `tree-sitter` CLI LazyVim's healthcheck wants
+brew "node" # npm, needed by Mason for LSPs like pyright, tsserver, etc.
+
+# shell / cli tools referenced in config.fish
+brew "eza"
+brew "fastfetch"
+brew "btop"
+brew "cava"
+brew "rmpc"
+
+# terminal + fonts
+cask "kitty"
+cask "font-maple-mono-nf"

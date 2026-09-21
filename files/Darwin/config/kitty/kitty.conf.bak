@@ -1,12 +1,10 @@
-# kitty terminal config — macOS
-# theme selection: this repo ships one-dark/rose-pine/rose-pine-dawn/paradise
-# as static themes. Point `include` below (or current-theme.conf) at whichever
-# you want.
+# kitty terminal config — Niri/Noctalia desktop on Arch
+# theme selection: noctalia generates its own kitty theme at runtime via
+# templates; this repo ships one-dark/rose-pine/rose-pine-dawn as static
+# fallbacks. Point `include` below at whichever you want.
 
 font_family      Maple Mono NF
 font_size        14.0
-
-shell /opt/homebrew/bin/fish
 
 allow_remote_control socket-only
 listen_on        unix:/tmp/kitty-{kitty_pid}
@@ -28,6 +26,6 @@ map shift+ctrl+i         previous_window
 map shift+ctrl+o         next_window
 
 # BEGIN_KITTY_THEME
-# Paradise
+# Tokyo Night Moon
 include current-theme.conf
 # END_KITTY_THEME

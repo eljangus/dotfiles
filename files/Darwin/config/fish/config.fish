@@ -21,14 +21,14 @@ function ps5 --description 'Show PS5 controller battery level'
     echo "🎮 PS5 Controller: [$bar] $capacity% ($battery_status)"
 end
 
-
 alias lg='lazygit'
 alias ls='eza -la --icons --'
 alias cff='reset && fastfetch'
-alias i='sudo pacman -S'
-alias u='sudo pacman -Syu'
-alias r='sudo pacman -Rns'
-alias s='sudo pacman -Ss'
+alias i='brew install'
+alias u='brew update && brew upgrade'
+alias r='brew uninstall'
+alias s='brew search'
 
-starship init fish | source
+/opt/homebrew/bin/starship init fish | source
 export PATH="$HOME/.local/bin:$PATH"
+/opt/homebrew/bin/brew shellenv | source

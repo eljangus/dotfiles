@@ -1,10 +1,10 @@
 # Installation script for my dotfiles
 import os
+from pathlib import Path
 import platform
 import shutil
-import time
 import subprocess
-from pathlib import Path
+import time
 
 
 class Install:
