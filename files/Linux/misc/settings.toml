@@ -12,12 +12,12 @@ enabled = true
 tint_intensity = 0.0
 
 [bar]
-order = [ "bar" ]
+order = [ "bar", "flush" ]
 
     [bar.bar]
     capsule = true
     capsule_padding = 7.0
-    enabled = true
+    enabled = false
     end = [ "tray", "notifications", "volume", "recorder_3", "session" ]
     font_family = "Maple Mono NF"
     font_scale = 1.0999999828636646
@@ -28,6 +28,62 @@ order = [ "bar" ]
     scale = 1.1000000089406967
     thickness = 42
     widget_spacing = 8
+
+    [bar.flush]
+    center = [ "clock_2" ]
+    concave_edge_corners = false
+    enabled = true
+    end = [ "group:g1", "seperator", "group:g2", "seperator", "group:g3", "seperator", "group:g4" ]
+    font_family = "Maple Mono NF"
+    font_scale = 1.0999999828636646
+    hover_highlight = false
+    margin_ends = 0
+    padding = 10
+    radius = 0
+    scale = 1.1500000096857548
+    start = [ "workspaces_2" ]
+    thickness = 42
+    widget_spacing = 10
+
+        [[bar.flush.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "text_2", "temp" ]
+        opacity = 0.0
+        padding = 6.0
+
+        [[bar.flush.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "text_3", "cpu" ]
+        opacity = 0.0
+        padding = 6.0
+
+        [[bar.flush.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g3"
+        members = [ "text_4", "sysmon_2" ]
+        opacity = 0.0
+        padding = 6.0
+
+        [[bar.flush.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g4"
+        members = [ "text_5", "sysmon_3" ]
+        opacity = 0.0
+        padding = 6.0
 
 [brightness]
 enable_ddcutil = true
@@ -661,6 +717,15 @@ show_label = false
 [widget.clock]
 format = "   {:%H:%M,   󰃭   %d.%m.%y}"
 
+[widget.clock_2]
+type = "clock"
+
+[widget.cpu]
+color = "primary"
+font_weight = 700
+show_glyph = false
+visualization = "none"
+
 [widget.recorder]
 capsule = true
 capsule_fill = "secondary"
@@ -673,6 +738,57 @@ type = "noctalia/screen_recorder:recorder"
 
 [widget.recorder_3]
 type = "noctalia/screen_recorder:recorder"
+
+[widget.seperator]
+color = "outline"
+text = "|"
+type = "text"
+
+[widget.sysmon_2]
+color = "secondary"
+font_weight = 700
+show_glyph = false
+stat = "gpu_usage"
+type = "sysmon"
+visualization = "none"
+
+[widget.sysmon_3]
+color = "tertiary"
+font_weight = 700
+show_glyph = false
+stat = "ram_pct"
+type = "sysmon"
+visualization = "none"
+
+[widget.temp]
+color = "error"
+font_weight = 700
+show_glyph = false
+visualization = "none"
+
+[widget.text_2]
+color = "error"
+font_weight = 700
+text = "Temperature :"
+type = "text"
+
+[widget.text_3]
+color = "primary"
+font_weight = 700
+text = "CPU :"
+type = "text"
+
+[widget.text_4]
+color = "secondary"
+font_weight = 700
+text = "GPU :"
+type = "text"
+
+[widget.text_5]
+color = "tertiary"
+font_weight = 700
+text = "MEM :"
+type = "text"
 
 [widget.tray]
 drawer = true
@@ -687,3 +803,8 @@ label_source = "name"
 labels_only_when_occupied = true
 scroll_repeat = "steps"
 show_labels = false
+
+[widget.workspaces_2]
+label_source = "name"
+style = "minimal"
+type = "workspaces"

@@ -10,3 +10,4 @@ r2modman
 vscodium
 eden
 protonup-qt (Flatpak)
+shadPS4
