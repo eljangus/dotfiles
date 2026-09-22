@@ -122,3 +122,5 @@
 [3747006   ][Info   ]|                Detection completed                 |
 [3747006   ][Info   ]------------------------------------------------------
 [3753590   ][Info   ][ProfileManager] Found file: 1.json attempting to validate header
+[49068340  ][Info   ][OpenRGBEffectsPlugin] Unloading
+[49069257  ][Info   ][DetectionManager] Cleaning up detected devices

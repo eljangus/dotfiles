@@ -8,3 +8,5 @@ downgrade
 ryujinx
 r2modman
 vscodium
+eden
+protonup-qt (Flatpak)

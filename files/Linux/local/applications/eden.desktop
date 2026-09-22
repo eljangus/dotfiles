@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Eden
+Exec=/usr/bin/eden
+Icon=/home/elias/dotfiles/files/Linux/misc/application-icons/eden.png
+Terminal=false
+Categories=Game;

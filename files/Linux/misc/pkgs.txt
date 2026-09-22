@@ -9,6 +9,7 @@ brightnessctl
 btop
 cava
 chromium
+clang
 cliphist
 cmake
 dconf-editor
@@ -17,6 +18,7 @@ decibels
 direnv
 easyeffects
 efibootmgr
+ex-vi-compat
 eza
 fastfetch
 fd
@@ -55,6 +57,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+npm
 nwg-look
 obs-studio
 obsidian
@@ -84,8 +87,10 @@ steam
 stow
 sudo
 tree
+unzip
 vim
 vulkan-radeon
+vulkan-validation-layers
 wireplumber
 wl-clip-persist
 wl-clipboard
