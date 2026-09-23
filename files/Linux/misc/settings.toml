@@ -593,7 +593,7 @@ button_borders = false
 card_borders = false
 clipboard_auto_paste = "ctrl_v"
 clipboard_image_action_command = "swash {path}"
-corner_radius_scale = 2.0
+corner_radius_scale = 0.0
 font_family = "Maple Mono NF"
 input_borders = false
 niri_overview_type_to_launch_enabled = true
@@ -747,6 +747,7 @@ type = "text"
 [widget.sysmon_2]
 color = "secondary"
 font_weight = 700
+highlight_color = "secondary"
 show_glyph = false
 stat = "gpu_usage"
 type = "sysmon"
