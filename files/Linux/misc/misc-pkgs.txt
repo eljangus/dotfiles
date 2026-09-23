@@ -2,7 +2,7 @@ Zen
 qt6ct-kde
 Maple Mono NF
 SilentSDDM
-Vesktop (Flatpak)
+Vesktop
 claude
 downgrade
 ryujinx

@@ -1,4 +1,5 @@
 return {
   "IogaMaster/neocord",
-  event = "VeryLazy",
+  lazy = false,
+  opts = {},
 }

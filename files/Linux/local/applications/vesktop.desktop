@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Vesktop
+Exec=vesktop
+Icon=/home/elias/dotfiles/files/Linux/misc/application-icons/vesktop.svg
+Terminal=false
+Categories=Text;Development;
+MimeType=Media;

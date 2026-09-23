@@ -1,7 +1,0 @@
-#!/bin/sh
-# Remove arRPC's stale socket from the last run; otherwise bwrap refuses to start
-# because ~/.config/user-tmpfiles.d/discord-rpc.conf symlinks discord-ipc-0 into the sandbox dir.
-if ! pgrep -x vesktop.bin >/dev/null; then
-    rm -f "$XDG_RUNTIME_DIR/.flatpak/dev.vencord.Vesktop/xdg-run/discord-ipc-0"
-fi
-exec /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=startvesktop dev.vencord.Vesktop "$@"
