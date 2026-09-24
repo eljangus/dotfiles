@@ -40,6 +40,7 @@ application/schema+json=nvim.desktop
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 x-scheme-handler/ror2mm=r2modman.desktop
 x-scheme-handler/discord=vesktop.desktop
+x-scheme-handler/discord-1397286652128264252=discord-1397286652128264252.desktop
 
 [Added Associations]
 x-scheme-handler/http=userapp-Twilight-XVKRV3.desktop;

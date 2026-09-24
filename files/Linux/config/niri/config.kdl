@@ -64,7 +64,7 @@ layout {
 
     border {
         on
-        width 3
+        width 2
         active-color "#ffc87f"
         inactive-color "#505050"
         urgent-color "#9b0000"
@@ -185,7 +185,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 0
+    geometry-corner-radius 20
     clip-to-geometry true
     open-maximized-to-edges false
     draw-border-with-background false
@@ -254,7 +254,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"^org\.gnome\.Nautilus$"#
-    opacity 1.0
+    opacity 0.8
     }
 
 layer-rule {

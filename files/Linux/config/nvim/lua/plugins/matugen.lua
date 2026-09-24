@@ -1,9 +1,9 @@
 return {
-  dir = vim.fn.stdpath('config'),
-  name = 'matugen',
+  dir = vim.fn.stdpath("config"),
+  name = "matugen",
   lazy = false,
   priority = 1000,
   config = function()
-    require('matugen').setup({ transparent = false })
+    require("matugen").setup({ transparent = true })
   end,
 }

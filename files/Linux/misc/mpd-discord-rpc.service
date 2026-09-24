@@ -1,0 +1,10 @@
+[Unit]
+Description=Discord Rich Presence for MPD
+After=mpd.service
+
+[Service]
+ExecStart=%h/.cargo/bin/mpd-discord-rpc
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

@@ -17,7 +17,6 @@ order = [ "bar", "flush" ]
     [bar.bar]
     capsule = true
     capsule_padding = 7.0
-    enabled = false
     end = [ "tray", "notifications", "volume", "recorder_3", "session" ]
     font_family = "Maple Mono NF"
     font_scale = 1.0999999828636646
@@ -32,7 +31,7 @@ order = [ "bar", "flush" ]
     [bar.flush]
     center = [ "clock_2" ]
     concave_edge_corners = false
-    enabled = true
+    enabled = false
     end = [ "group:g1", "seperator", "group:g2", "seperator", "group:g3", "seperator", "group:g4" ]
     font_family = "Maple Mono NF"
     font_scale = 1.0999999828636646
@@ -593,7 +592,7 @@ button_borders = false
 card_borders = false
 clipboard_auto_paste = "ctrl_v"
 clipboard_image_action_command = "swash {path}"
-corner_radius_scale = 0.0
+corner_radius_scale = 2.0
 font_family = "Maple Mono NF"
 input_borders = false
 niri_overview_type_to_launch_enabled = true
@@ -665,7 +664,7 @@ screen_time_enabled = true
 builtin = "Catppuccin"
 community_palette = "Paradise"
 mode = "dark"
-source = "community"
+source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -677,16 +676,16 @@ directory = "/home/elias/wallpapers/walls"
 transition = [ "disc", "fade", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/walls/alps-gloomy.jpg"
+    path = "/home/elias/wallpapers/walls/eva-mountains.png"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/walls/alps-gloomy.jpg"
+    path = "/home/elias/wallpapers/walls/eva-mountains.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/walls/alps-gloomy.jpg"
+    path = "/home/elias/wallpapers/walls/eva-mountains.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/walls/alps-gloomy.jpg"
+    path = "/home/elias/wallpapers/walls/eva-mountains.png"
 
 [widget.Clock-default]
 font_weight = 700

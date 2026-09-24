@@ -11,3 +11,4 @@ vscodium
 eden
 protonup-qt (Flatpak)
 shadPS4
+mpd-discord-rpc
