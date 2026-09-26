@@ -663,7 +663,7 @@ screen_time_enabled = true
 [theme]
 builtin = "Catppuccin"
 community_palette = "Paradise"
-mode = "dark"
+mode = "light"
 source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
@@ -676,16 +676,16 @@ directory = "/home/elias/wallpapers/walls"
 transition = [ "disc", "fade", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/walls/eva-mountains.png"
+    path = "/home/elias/wallpapers/walls/star-system.png"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/walls/eva-mountains.png"
+    path = "/home/elias/wallpapers/walls/star-system.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/walls/eva-mountains.png"
+    path = "/home/elias/wallpapers/walls/star-system.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/walls/eva-mountains.png"
+    path = "/home/elias/wallpapers/walls/star-system.png"
 
 [widget.Clock-default]
 font_weight = 700
