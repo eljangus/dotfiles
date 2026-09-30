@@ -1,5 +1,5 @@
 import QtQuick
-import qs.processes
+import qs.Processes
 
 Text {
   text: `${Time.time} Uhr`

@@ -1,6 +1,6 @@
 import Quickshell
 
-Scope {
+ShellRoot {
   Bar {}
   Dock {}
 }

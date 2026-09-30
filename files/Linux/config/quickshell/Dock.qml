@@ -14,7 +14,6 @@ Scope {
       visible: false
       exclusionMode: ExclusionMode.Normal
       exclusiveZone: 0
-      
       color: "#1a1b26"
 
       anchors {

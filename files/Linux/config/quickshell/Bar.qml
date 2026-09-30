@@ -1,6 +1,8 @@
 import Quickshell
+import Quickshell.Widgets
+import QtQuick.Shapes
 import QtQuick
-import "widgets"
+import "Widgets"
 
 Scope {
   Variants {
@@ -10,15 +12,31 @@ Scope {
       required property var modelData
       screen: modelData
 
-      color: "#1a1b26"
-
       anchors {
         top: true
         left: true
         right: true
       }
 
-      implicitHeight: 40
+      color: "transparent"
+
+      implicitHeight: rectangle.implicitHeight
+
+      ClippingRectangle {
+        id: rectangle
+        bottomRightRadius: -20
+        contentInsideBorder: true
+        implicitHeight: 40
+        anchors.fill: parent
+        color: "#1a1b26"
+      }
+
+      Text {
+        anchors.centerIn: parent
+        text: "Twinkshell uwaaa"
+        font.pointSize: 14
+        color: "#c0caf5"
+      }
 
       ClockWidget {
         font.pointSize: 14
