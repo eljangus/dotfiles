@@ -32,7 +32,11 @@ Scope {
       }
 
       Text {
-        anchors.centerIn: parent
+        anchors { 
+          right: parent.right
+          verticalCenter: parent.verticalCenter
+          margins: 10
+        }
         text: "Twinkshell uwaaa"
         font.pointSize: 14
         color: "#c0caf5"
@@ -43,7 +47,7 @@ Scope {
         color: "#c0caf5"
         anchors {
           verticalCenter: parent.verticalCenter
-          right: parent.right
+          centerIn: parent
           margins: 10
         }
       }

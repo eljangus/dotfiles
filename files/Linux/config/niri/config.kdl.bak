@@ -317,8 +317,8 @@ binds {
     Mod+R repeat=false { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+T repeat=false { spawn-sh "noctalia msg session lock"; }
     Mod+Shift+P repeat=false { spawn-sh "hyprpicker -la"; }
-    Mod+Shift+C repeat=false { spawn-sh "noctalia msg panel-toggle oldirtty/color_picker:panel"; }
-    Mod+Y repeat=false { spawn-sh "noctalia msg panel-toggle clipboard"; }
+    Ctrl+Shift+T repeat=false { spawn-sh "noctalia msg panel-toggle oldirtty/color_picker:panel"; }
+    Ctrl+Shift+Y repeat=false { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+Ctrl+Space repeat=false { spawn-sh "noctalia msg panel-toggle wallpaper"; }
     Mod+Shift+N repeat=false { spawn-sh "noctalia msg screenshot-region"; }
     Mod+N repeat=false { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
