@@ -493,6 +493,10 @@ local function build(p, transparent)
   t.SnacksPickerFooter = { fg = p.muted, bg = snacks_bg }
   t.SnacksTitle = { fg = p.cyan, bg = snacks_bg, bold = true }
   t.SnacksFooter = { fg = p.muted, bg = snacks_bg }
+  -- toggle badges in picker titles (h hidden, i ignored, ...); snacks links
+  -- these to DiagnosticVirtualTextInfo, which is fg-only here, so give them a
+  -- chip on bg_sel like TroubleCount
+  t.SnacksPickerToggle = { fg = p.cyan, bg = p.bg_sel, bold = true }
   -- lazy.nvim's :Lazy window sits on the same elevated bg as snacks windows
   t.LazyNormal = { fg = p.fg, bg = snacks_bg }
   -- the snacks terminal is flush with the editor; swapped in via winhighlight
