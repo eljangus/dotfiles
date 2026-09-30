@@ -1,8 +1,7 @@
 import Quickshell
 import Quickshell.Widgets
-import QtQuick.Shapes
 import QtQuick
-import "Widgets"
+import qs.config
 
 Scope {
   Variants {
@@ -28,28 +27,22 @@ Scope {
         contentInsideBorder: true
         implicitHeight: 40
         anchors.fill: parent
-        color: "#1a1b26"
+        color: Theme.background
       }
 
       Text {
-        anchors { 
+        anchors {
           right: parent.right
           verticalCenter: parent.verticalCenter
           margins: 10
         }
         text: "Twinkshell uwaaa"
-        font.pointSize: 14
-        color: "#c0caf5"
+        font.pointSize: Theme.fontSize
+        color: Theme.foreground
       }
 
-      ClockWidget {
-        font.pointSize: 14
-        color: "#c0caf5"
-        anchors {
-          verticalCenter: parent.verticalCenter
-          centerIn: parent
-          margins: 10
-        }
+      Clock {
+        anchors.centerIn: parent
       }
     }
   }

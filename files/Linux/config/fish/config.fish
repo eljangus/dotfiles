@@ -21,7 +21,6 @@ function ps5 --description 'Show PS5 controller battery level'
     echo "🎮 PS5 Controller: [$bar] $capacity% ($battery_status)"
 end
 
-
 alias lg='lazygit'
 alias ls='eza -la --icons --'
 alias cff='reset && fastfetch'
@@ -33,6 +32,7 @@ alias i='sudo pacman -S'
 alias u='sudo pacman -Syu'
 alias r='sudo pacman -Rns'
 alias s='sudo pacman -Ss'
+alias qs='killall quickshell; sleep 1; setsid -f quickshell >/dev/null 2>&1'
 
 starship init fish | source
 export PATH="$HOME/.local/bin:$PATH"

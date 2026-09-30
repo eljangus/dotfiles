@@ -1,6 +1,7 @@
 *.swp
 *~
 .DS_Store
+.qmlls.ini
 files/Linux/config/OpenRGB/logs/
 files/Linux/config/VSCodium/*
 !files/Linux/config/VSCodium/User
