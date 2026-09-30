@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=osu!
+Exec=/usr/bin/osu
+Icon=/home/elias/dotfiles/files/Linux/misc/application-icons/osu.svg
+Terminal=false
+Categories=Text;

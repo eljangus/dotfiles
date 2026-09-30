@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Neovim
+Exec=kitty nvim %F
+Icon=nvim
+Terminal=false
+Categories=Text;Development;
+MimeType=text/plain;text/css;application/json;application/x-shellscript;application/x-zerosize;text/x-chdr;text/x-csrc;text/x-c++hdr;text/x-c++src;application/toml;application/schema+json;
