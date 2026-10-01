@@ -4,49 +4,48 @@ import QtQuick
 import qs.config
 
 Scope {
-  id: root
+    id: root
 
-  Variants {
-    model: Quickshell.screens
+    Variants {
+        model: Quickshell.screens
 
-    PanelWindow {
-      required property var modelData
-      screen: modelData
-      visible: false
-      exclusionMode: ExclusionMode.Normal
-      exclusiveZone: 0
-      color: "transparent"
+        PanelWindow {
+            required property var modelData
+            screen: modelData
+            visible: false
+            exclusionMode: ExclusionMode.Normal
+            exclusiveZone: 0
+            color: "transparent"
 
-      implicitHeight: rectangle.implicitHeight
+            implicitHeight: dock.implicitHeight
 
-      anchors {
-        bottom: true
-        left: true
-        right: true
-      }
+            anchors {
+                bottom: true
+                left: true
+                right: true
+            }
 
-      ClippingRectangle {
-        id: dock
-        radius: 20
-        contentInsideBorder: true
-        implicitHeight: 100
-        anchors.fill: parent
-        color: Theme.background
-      }
+            ClippingRectangle {
+                id: dock
+                radius: 20
+                contentInsideBorder: true
+                implicitHeight: 100
+                anchors.fill: parent
+                color: Theme.background
+            }
 
-      margins {
-        bottom: 10
-        left: 700
-        right: 700
-      }
+            margins { // qmllint disable unqualified unresolved-type
+                bottom: 10
+                left: 700
+                right: 700
+            }
 
-
-      Text {
-        color: Theme.foreground
-        font.pointSize: 30
-        anchors.centerIn: parent
-        text: "Dock"
-      }
+            Text {
+                color: Theme.foreground
+                font.pointSize: 30
+                anchors.centerIn: parent
+                text: "Dock"
+            }
+        }
     }
-  }
 }
