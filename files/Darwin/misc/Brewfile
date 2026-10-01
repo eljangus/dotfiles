@@ -5,7 +5,6 @@
 brew "git"
 brew "fish"
 brew "starship"
-brew "neovim"
 brew "syncthing"
 
 # nvim (LazyVim) runtime deps
@@ -28,3 +27,6 @@ brew "rmpc"
 cask "kitty"
 cask "font-maple-mono-nf"
 cask "steam"
+
+# text editor
+cask "zed"
