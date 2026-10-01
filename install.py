@@ -57,7 +57,7 @@ class Install:
     # entries of a source dir, or nothing if it doesn't exist (git doesn't track empty dirs)
     def _scan(self, path):
         if not Path(path).is_dir():
-            print(f"skipping missing dir: {path}")
+            print(f"\nskipping missing dir: {path}\n")
             return []
         return [e for e in os.scandir(path) if e.name not in [".DS_Store", "zed"]]
 
