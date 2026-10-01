@@ -88,4 +88,15 @@
     "light": "Noctalia Light",
     "dark": "Noctalia Dark",
   },
+  "languages": {
+    "QML": {
+      "formatter": {
+        "external": {
+          "command": "qmlformat",
+          "arguments": ["/dev/stdin"],
+        },
+      },
+      "format_on_save": "on",
+    },
+  },
 }

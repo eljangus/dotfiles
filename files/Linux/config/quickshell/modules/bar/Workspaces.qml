@@ -11,6 +11,7 @@ Rectangle {
 
     Rectangle {
         id: workspaceLayout
+
         anchors {
             verticalCenter: parent.verticalCenter
             left: parent.left
@@ -19,10 +20,11 @@ Rectangle {
         }
 
         RowLayout {
+            spacing: 5
+
             anchors {
                 verticalCenter: parent.verticalCenter
             }
-            spacing: 5
 
             Repeater {
                 model: niri.workspaces
@@ -33,13 +35,19 @@ Rectangle {
                     height: 15
                     radius: 10
                     color: model.isActive ? Theme.foreground : Theme.inactiveForeground
+
                     MouseArea {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: niri.focusWorkspaceById(model.id)
                     }
+
                 }
+
             }
+
         }
+
     }
+
 }

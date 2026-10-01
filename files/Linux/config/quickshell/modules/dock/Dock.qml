@@ -1,6 +1,6 @@
+import QtQuick
 import Quickshell
 import Quickshell.Widgets
-import QtQuick
 import qs.config
 
 Scope {
@@ -11,12 +11,12 @@ Scope {
 
         PanelWindow {
             required property var modelData
+
             screen: modelData
             visible: false
             exclusionMode: ExclusionMode.Normal
             exclusiveZone: 0
             color: "transparent"
-
             implicitHeight: dock.implicitHeight
 
             anchors {
@@ -27,6 +27,7 @@ Scope {
 
             ClippingRectangle {
                 id: dock
+
                 radius: 20
                 contentInsideBorder: true
                 implicitHeight: 100
@@ -34,7 +35,8 @@ Scope {
                 color: Theme.background
             }
 
-            margins { // qmllint disable unqualified unresolved-type
+            // qmllint disable unqualified unresolved-type
+            margins {
                 bottom: 10
                 left: 700
                 right: 700
@@ -46,6 +48,9 @@ Scope {
                 anchors.centerIn: parent
                 text: "Dock"
             }
+
         }
+
     }
+
 }
