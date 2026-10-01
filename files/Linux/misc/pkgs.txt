@@ -30,6 +30,7 @@ fzf
 gamescope
 gcc
 git
+gnome-music
 gnome-themes-extra
 gpu-screen-recorder
 grub
@@ -50,7 +51,6 @@ mkinitcpio
 mpd
 mpv
 nano
-neovim
 networkmanager
 ninja
 niri
@@ -77,6 +77,7 @@ prismlauncher
 qt5-wayland
 qt5ct
 qt6-5compat
+qt6-languageserver
 qt6-virtualkeyboard
 qt6-wayland
 qt6ct
@@ -104,4 +105,5 @@ wpa_supplicant
 xdg-user-dirs
 xwayland-satellite
 yt-dlp
+zed
 zram-generator
