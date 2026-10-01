@@ -1,10 +1,10 @@
 # Installation script for my dotfiles
 import os
-from pathlib import Path
 import platform
 import shutil
 import subprocess
 import time
+from pathlib import Path
 
 
 class Install:
@@ -25,12 +25,22 @@ class Install:
             (self.home / ".local/state/noctalia/community-templates"),
             (self.home / ".backup"),
         ]
+        self.common_paths = [
+            (self.home / ".config/zed"),
+        ]
 
     def check_dirs(self):
         # check if the necessary paths exists, if not create them
         match self.platform:
             case "Linux":
                 for path in self.paths:
+                    if path.is_symlink():
+                        path.unlink()
+                    if path.is_dir() == False:
+                        path.mkdir(parents=True, exist_ok=True)
+                for path in self.common_paths:
+                    if path.is_symlink():
+                        path.unlink()
                     if path.is_dir() == False:
                         path.mkdir(parents=True, exist_ok=True)
             case "Darwin":
@@ -38,13 +48,18 @@ class Install:
                     Path(self.home / ".config").mkdir(parents=True, exist_ok=True)
                 if Path(self.home / ".backup").is_dir() == False:
                     Path(self.home / ".backup").mkdir(parents=True, exist_ok=True)
+                for path in self.common_paths:
+                    if path.is_symlink():
+                        path.unlink()
+                    if path.is_dir() == False:
+                        path.mkdir(parents=True, exist_ok=True)
 
     # entries of a source dir, or nothing if it doesn't exist (git doesn't track empty dirs)
     def _scan(self, path):
         if not Path(path).is_dir():
             print(f"skipping missing dir: {path}")
             return []
-        return [e for e in os.scandir(path) if e.name != ".DS_Store"]
+        return [e for e in os.scandir(path) if e.name not in [".DS_Store", "zed"]]
 
     # read a dir and return a list containing the files and dirs in that dir
     def read_dotfiles(self):
@@ -52,6 +67,7 @@ class Install:
         self.local_applications = []
         self.local_icons = []
         self.local_templates = []
+        self.zed_dir = []
         self.misc = []
         if self.platform == "Linux":
             for e in self._scan(Path(f"{self.rootdir}/files/Linux/local/applications")):
@@ -99,12 +115,22 @@ class Install:
                     self.dots.append(
                         (Path(e.path), Path(f"{self.home}/.config/{e.name}"), e.name)
                     )
+            for e in self._scan(Path(f"{self.rootdir}/files/Linux/config/zed")):
+                if (e.is_file() or e.is_dir()):
+                    self.zed_dir.append(
+                        (
+                            Path(e.path),
+                            Path(f"{self.home}/.config/zed/{e.name}"),
+                            e.name,
+                        )
+                    )
             return (
                 self.dots,
                 self.local_applications,
                 self.local_icons,
                 self.local_templates,
                 self.misc,
+                self.zed_dir,
             )
         elif self.platform == "Darwin":
             for e in self._scan(Path(f"{self.rootdir}/files/Darwin/config")):
@@ -112,7 +138,16 @@ class Install:
                     self.dots.append(
                         (Path(e.path), Path(f"{self.home}/.config/{e.name}"), e.name)
                     )
-            return self.dots
+            for e in self._scan(Path(f"{self.rootdir}/files/Darwin/config/zed")):
+                if e.is_file() or e.is_dir():
+                    self.zed_dir.append(
+                        (
+                            Path(e.path),
+                            Path(f"{self.home}/.config/zed/{e.name}"),
+                            e.name,
+                        )
+                    )
+            return self.dots, self.zed_dir
 
     def install_arch_pkgs(self):
         if shutil.which("pacman") is None:
@@ -176,6 +211,7 @@ if __name__ == "__main__":
     obj.check_dirs()
     obj.read_dotfiles()
     obj.symlink_dots(obj.dots)
+    obj.symlink_dots(obj.zed_dir)
     if obj.platform == "Linux":
         obj.symlink_dots(obj.local_applications)
         obj.symlink_dots(obj.local_icons)

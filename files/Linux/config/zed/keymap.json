@@ -1,0 +1,209 @@
+// Zed keymap — mirrors the LazyVim keymaps in ~/.config/nvim/lua/config/keymaps.lua
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+//
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+      "ctrl-/": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+      // move lines
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp"
+    }
+  },
+  {
+    // completion menu: accept only with ctrl-space; enter = newline, tab = indent
+    "context": "Editor && mode == full && showing_completions",
+    "bindings": {
+      "ctrl-space": "editor::ConfirmCompletion",
+      "enter": "editor::Newline",
+      "shift-enter": "editor::Newline",
+      "tab": "editor::Tab"
+    }
+  },
+  {
+    // inline edit predictions (ghost text): same rule, ctrl-space accepts, tab just indents
+    "context": "Editor && mode == full && edit_prediction && !showing_completions",
+    "bindings": {
+      "ctrl-space": "editor::AcceptEditPrediction",
+      "tab": "editor::Tab"
+    }
+  },
+  {
+    // normal + visual mode (the <leader> = space layer)
+    "context": "VimControl && !menu",
+    "bindings": {
+      // windows
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-up": "vim::ResizePaneUp",
+      "ctrl-down": "vim::ResizePaneDown",
+      "ctrl-left": "vim::ResizePaneLeft",
+      "ctrl-right": "vim::ResizePaneRight",
+      "space -": "pane::SplitDown",
+      "space |": "pane::SplitRight",
+      "space w d": "pane::CloseAllItems",
+      "space w m": "workspace::ToggleZoom",
+      "space u Z": "workspace::ToggleZoom",
+      "space u z": "workspace::ToggleCenteredLayout",
+
+      // move lines
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+
+      // buffers
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      "[ b": "pane::ActivatePreviousItem",
+      "] b": "pane::ActivateNextItem",
+      "space b b": "pane::AlternateFile",
+      "space `": "pane::AlternateFile",
+      "space b d": "pane::CloseActiveItem",
+      "space b D": "pane::CloseActiveItem",
+      "space b o": "pane::CloseOtherItems",
+      "space ,": "tab_switcher::Toggle",
+      "space f b": "tab_switcher::Toggle",
+
+      // files / find
+      "space space": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle",
+      "space f F": "file_finder::Toggle",
+      "space f n": "workspace::NewFile",
+      "space f p": "projects::OpenRecent",
+      "space f c": "zed::OpenSettings",
+      "space e": "project_panel::Toggle",
+      "space E": "project_panel::Toggle",
+
+      // terminal
+      "space f t": "terminal_panel::Toggle",
+      "space f T": "workspace::NewCenterTerminal",
+
+      // search
+      "space /": "pane::DeploySearch",
+      "space s g": "pane::DeploySearch",
+      "space s G": "pane::DeploySearch",
+      "space s b": "buffer_search::Deploy",
+      "space s s": "outline::Toggle",
+      "space s S": "project_symbols::Toggle",
+      "space s C": "command_palette::Toggle",
+      "space s k": "zed::OpenKeymap",
+      "space s d": "diagnostics::Deploy",
+      "space x x": "diagnostics::Deploy",
+
+      // code
+      "space c f": "editor::Format",
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space c d": "editor::Hover",
+      "space c s": "outline::Toggle",
+
+      // git
+      "space g g": "git_panel::Toggle",
+      "space g b": "editor::BlameHover",
+      "space g f": "git::FileHistory",
+      "space g B": "editor::OpenPermalinkToLine",
+      "space g Y": "editor::CopyPermalinkToLine",
+      "] h": "editor::GoToHunk",
+      "[ h": "editor::GoToPreviousHunk",
+      "space g h s": "git::ToggleStaged",
+      "space g h r": "git::Restore",
+      "space g h p": "editor::ToggleSelectedDiffHunks",
+      "space g h b": "git::Blame",
+
+      // ui toggles
+      "space u w": "editor::ToggleSoftWrap",
+      "space u l": "editor::ToggleLineNumbers",
+      "space u L": "editor::ToggleRelativeLineNumbers",
+      "space u h": "editor::ToggleInlayHints",
+      "space u g": "editor::ToggleIndentGuides",
+      "space u d": "editor::ToggleDiagnostics",
+      "space u C": "theme_selector::Toggle",
+
+      // quit
+      "space q q": "zed::Quit"
+    }
+  },
+  {
+    // no file open — keep the leader layer usable
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "space space": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle",
+      "space f n": "workspace::NewFile",
+      "space f p": "projects::OpenRecent",
+      "space f t": "terminal_panel::Toggle",
+      "space e": "project_panel::Toggle",
+      "space g g": "git_panel::Toggle",
+      "space q q": "zed::Quit"
+    }
+  },
+  {
+    // no file open — ctrl-hjkl still reaches the docks
+    "context": "EmptyPane",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "space e": "project_panel::Toggle",
+      "space g g": "git_panel::ToggleFocus",
+      "space f f": "file_finder::Toggle",
+      // panels aren't panes, so ActivatePaneRight does nothing here; hand focus back to the editor
+      "ctrl-l": "project_panel::ToggleFocus",
+      "ctrl-h": "project_panel::ToggleFocus",
+      "ctrl-j": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    // git panel file list
+    "context": "GitPanel && ChangesList && !GitBranchSelector && !GitRepositorySelector",
+    "bindings": {
+      // bare space stages the file by default, which swallowed every space-chord; stage with x instead
+      "space": null,
+      "space g g": "git_panel::Toggle",
+      "space e": "project_panel::ToggleFocus",
+      "space f f": "file_finder::Toggle",
+      "space g h s": "git::ToggleStaged",
+      "space g h r": "git::Restore",
+      "space q q": "zed::Quit",
+      "ctrl-l": "git_panel::ToggleFocus",
+      "ctrl-h": "git_panel::ToggleFocus",
+      "ctrl-j": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    // git panel commit message box (an editor, so it must override the VimControl block above)
+    "context": "CommitEditor > Editor && VimControl && !menu",
+    "bindings": {
+      "space g g": "git_panel::Toggle",
+      "ctrl-l": "git_panel::ToggleFocus",
+      "ctrl-h": "git_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-/": "terminal_panel::Toggle",
+      "space f t": "terminal_panel::Toggle"
+    }
+  }
+]
