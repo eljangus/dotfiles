@@ -1,5 +1,6 @@
 import Quickshell
 import Quickshell.Widgets
+import QtQuick.Layouts
 import QtQuick
 import qs.config
 
@@ -28,6 +29,14 @@ Scope {
         implicitHeight: 40
         anchors.fill: parent
         color: Theme.background
+      }
+      RowLayout {
+        anchors {
+          left: parent.left
+          verticalCenter: parent.verticalCenter
+          margins: 10
+        }
+        Workspaces { id: workspaces }
       }
 
       Text {

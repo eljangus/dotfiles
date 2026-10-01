@@ -12,7 +12,7 @@ Scope {
     PanelWindow {
       required property var modelData
       screen: modelData
-      visible: true
+      visible: false
       exclusionMode: ExclusionMode.Normal
       exclusiveZone: 0
       color: "transparent"
@@ -27,7 +27,7 @@ Scope {
 
       ClippingRectangle {
         id: dock
-        bottomRightRadius: -20
+        radius: 20
         contentInsideBorder: true
         implicitHeight: 100
         anchors.fill: parent
