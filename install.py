@@ -61,93 +61,33 @@ class Install:
             return []
         return [e for e in os.scandir(path) if e.name not in [".DS_Store", "zed"]]
 
-    # read a dir and return a list containing the files and dirs in that dir
-    def read_dotfiles(self):
-        self.dots = []
-        self.local_applications = []
-        self.local_icons = []
-        self.local_templates = []
-        self.zed_dir = []
-        self.misc = []
-        if self.platform == "Linux":
-            for e in self._scan(Path(f"{self.rootdir}/files/Linux/local/applications")):
-                if e.is_file() or e.is_dir():
-                    self.local_applications.append(
-                        (
-                            Path(e.path),
-                            Path(f"{self.home}/.local/share/applications/{e.name}"),
-                            e.name,
-                        )
-                    )
-            for e in self._scan(Path(f"{self.rootdir}/files/Linux/local/icons")):
-                if e.is_file() or e.is_dir():
-                    self.local_icons.append(
-                        (
-                            Path(e.path),
-                            Path(f"{self.home}/.local/share/icons/{e.name}"),
-                            e.name,
-                        )
-                    )
+    # method to generate lists that contain the desired path tuples
+    def _collect(self, src_path: str, dest_path: str):
+        return [
+            (Path(e.path), Path(f"{self.home}/{dest_path}/{e.name}"), e.name)
             for e in self._scan(
-                Path(f"{self.rootdir}/files/Linux/local/community-templates")
-            ):
-                if e.is_file() or e.is_dir():
-                    self.local_templates.append(
-                        (
-                            Path(e.path),
-                            Path(
-                                f"{self.home}/.local/state/noctalia/community-templates/{e.name}"
-                            ),
-                            e.name,
-                        )
-                    )
-            for e in self._scan(Path(f"{self.rootdir}/files/Linux/misc/fonts")):
-                if e.is_file() or e.is_dir():
-                    self.misc.append(
-                        (
-                            Path(e.path),
-                            Path(self.home / f".local/share/fonts/{e.name}"),
-                            e.name,
-                        )
-                    )
-            for e in self._scan(Path(f"{self.rootdir}/files/Linux/config")):
-                if e.is_file() or e.is_dir():
-                    self.dots.append(
-                        (Path(e.path), Path(f"{self.home}/.config/{e.name}"), e.name)
-                    )
-            for e in self._scan(Path(f"{self.rootdir}/files/Linux/config/zed")):
-                if (e.is_file() or e.is_dir()):
-                    self.zed_dir.append(
-                        (
-                            Path(e.path),
-                            Path(f"{self.home}/.config/zed/{e.name}"),
-                            e.name,
-                        )
-                    )
-            return (
-                self.dots,
-                self.local_applications,
-                self.local_icons,
-                self.local_templates,
-                self.misc,
-                self.zed_dir,
+                Path(f"{self.rootdir}/files/{self.platform}/{src_path}")
             )
-        elif self.platform == "Darwin":
-            for e in self._scan(Path(f"{self.rootdir}/files/Darwin/config")):
-                if e.is_file() or e.is_dir():
-                    self.dots.append(
-                        (Path(e.path), Path(f"{self.home}/.config/{e.name}"), e.name)
-                    )
-            for e in self._scan(Path(f"{self.rootdir}/files/Darwin/config/zed")):
-                if e.is_file() or e.is_dir():
-                    self.zed_dir.append(
-                        (
-                            Path(e.path),
-                            Path(f"{self.home}/.config/zed/{e.name}"),
-                            e.name,
-                        )
-                    )
-            return self.dots, self.zed_dir
+            if e.is_file() or e.is_dir()
+        ]
+
+    # read a dir and manipulate a list that will symlink the files
+    def read_dotfiles(self):
+        self.dots = self._collect("config", ".config")
+        self.zed_dir = self._collect("config/zed", ".config/zed")
+        if self.platform == "Linux":
+            self.local_applications = self._collect(
+                "local/applications",
+                ".local/share/applications",
+            )
+            self.local_icons = self._collect(
+                "local/icons",
+                ".local/share/icons",
+            )
+            self.local_templates = self._collect(
+                "local/community-templates", ".local/state/noctalia/community-templates"
+            )
+            self.misc = self._collect("misc/fonts", ".local/share/fonts")
 
     def install_arch_pkgs(self):
         if shutil.which("pacman") is None:

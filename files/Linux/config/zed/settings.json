@@ -11,26 +11,26 @@
   "proxy": "",
   "disable_ai": true,
   "agent": {
-    "default_height": 380.0,
-    "default_width": 700.0,
+    "default_height": 460.0,
+    "default_width": 780.0,
     "favorite_models": [],
     "model_parameters": []
   },
   "collaboration_panel": {
-    "default_width": 300.0,
+    "default_width": 380.0,
     "dock": "left"
   },
   "git_panel": {
-    "default_width": 420.0,
+    "default_width": 500.0,
     "dock": "left"
   },
   "outline_panel": {
-    "default_width": 380.0,
+    "default_width": 460.0,
     "dock": "left"
   },
   "project_panel": {
     "dock": "left",
-    "default_width": 320.0
+    "default_width": 400.0
   },
   "active_pane_modifiers": {
     "border_size": 0.0
