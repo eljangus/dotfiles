@@ -1,11 +1,11 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.config
+import qs.services
 
 Rectangle {
     anchors.left: parent.left
-    color: "#2c3148"
-    radius: 20
+    color: "transparent"
     implicitHeight: 25
     implicitWidth: 200
 
@@ -27,7 +27,7 @@ Rectangle {
             }
 
             Repeater {
-                model: niri.workspaces
+                model: Niri.workspaces
 
                 Rectangle {
                     visible: index < 11

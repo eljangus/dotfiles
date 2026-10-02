@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
 import qs.config
+import qs.services
 
 Scope {
     Variants {
@@ -45,7 +46,7 @@ Scope {
             }
 
             Text {
-                text: "Twinkshell uwaaa"
+                text: "Twinkshell Uwaaa"
                 font.pointSize: Theme.fontSize
                 color: Theme.foreground
 
