@@ -34,7 +34,7 @@ Rectangle {
                     text: model.name != "" ? model.name : model.idx
                     width: 15
                     height: 15
-                    color: Theme.foreground
+                    color: model.isActive ? Theme.primary : Theme.foreground
                     font.pointSize: Theme.fontSize
 
                     MouseArea {

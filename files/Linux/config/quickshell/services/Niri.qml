@@ -13,6 +13,13 @@ Singleton {
     function eventHandler(event) {
         if (event.WorkspacesChanged) {
             workspacesList = event.WorkspacesChanged.workspaces.slice();
+            // Sort workspaces by output, then by index
+            workspacesList.sort((a, b) => {
+                if (a.output !== b.output)
+                    return a.output.localeCompare(b.output);
+
+                return a.idx - b.idx;
+            });
             workspaces.clear();
             for (var ws of workspacesList) {
                 workspaces.append({
@@ -25,6 +32,26 @@ Singleton {
                     "isUrgent": ws.is_urgent === true,
                     "isOccupied": ws.active_window_id ? true : false
                 });
+            }
+        }
+        if (event.WorkspaceActivated) {
+            for (var i = 0; i < workspaces.count; i++) {
+                if (workspaces.get(i).id === event.WorkspaceActivated.id) {
+                    const output = workspaces.get(i).output;
+                    for (var j = 0; j < workspaces.count; j++) {
+                        if (workspaces.get(j).output === output)
+                            workspaces.setProperty(j, "isActive", false);
+
+                    }
+                    workspaces.setProperty(i, "isActive", true);
+                    if (event.WorkspaceActivated.focused) {
+                        for (var k = 0; k < workspaces.count; k++) {
+                            workspaces.setProperty(k, "isFocused", false);
+                        }
+                        workspaces.setProperty(i, "isFocused", true);
+                    }
+                    break;
+                }
             }
         }
     }
