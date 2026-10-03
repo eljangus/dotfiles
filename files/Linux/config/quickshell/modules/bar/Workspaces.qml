@@ -27,19 +27,19 @@ Rectangle {
             }
 
             Repeater {
-                model: Niri.workspaces
+                model: Niri.workspacesList
 
-                Rectangle {
-                    visible: index < 11
+                Text {
+                    visible: true
+                    text: "O"
                     width: 15
                     height: 15
-                    radius: 10
-                    color: model.isActive ? Theme.foreground : Theme.inactiveForeground
+                    color: Theme.foreground
+                    font.pointSize: Theme.fontSize
 
                     MouseArea {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
-                        onClicked: niri.focusWorkspaceById(model.id)
                     }
 
                 }

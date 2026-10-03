@@ -10,6 +10,8 @@ Scope {
         model: Quickshell.screens
 
         PanelWindow {
+            id: bar
+
             required property var modelData
 
             screen: modelData
@@ -36,7 +38,7 @@ Scope {
                 anchors {
                     left: parent.left
                     verticalCenter: parent.verticalCenter
-                    margins: 10
+                    margins: 0
                 }
 
                 Workspaces {
@@ -45,15 +47,33 @@ Scope {
 
             }
 
-            Text {
-                text: "Twinkshell Uwaaa"
-                font.pointSize: Theme.fontSize
-                color: Theme.foreground
+            Rectangle {
+                color: "transparent"
+                implicitHeight: twink.implicitHeight
+                implicitWidth: twink.implicitWidth
 
                 anchors {
                     right: parent.right
                     verticalCenter: parent.verticalCenter
                     margins: 10
+                }
+
+                Text {
+                    id: twink
+
+                    text: "Twinkshell Uwaaa"
+                    font.pointSize: Theme.fontSize
+                    color: Theme.foreground
+                    anchors.centerIn: parent
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        for (var i = 0; i < Niri.workspacesIdk.length; i++) {
+                            console.log(Niri.workspaces.get(i));
+                        }
+                    }
                 }
 
             }

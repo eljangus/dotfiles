@@ -3,7 +3,7 @@ import qs.config
 import qs.services
 
 Text {
-    text: `${Time.time} Uhr`
+    text: `${Time.time}`
     color: Theme.foreground
     font.pointSize: Theme.fontSize
 }
