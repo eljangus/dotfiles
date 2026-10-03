@@ -4,44 +4,52 @@ import qs.config
 import qs.services
 
 Rectangle {
-    anchors.left: parent.left
-    color: "transparent"
-    implicitHeight: 25
-    implicitWidth: 200
+    id: root
 
-    Rectangle {
-        id: workspaceLayout
+    property string screenName
+
+    implicitWidth: row.implicitWidth + Theme.pillMargin * 2
+    radius: Theme.widgetCapsuleRadius
+    color: Theme.surfaceContainer
+
+    RowLayout {
+        id: row
+
+        spacing: 5
 
         anchors {
-            verticalCenter: parent.verticalCenter
-            left: parent.left
-            right: parent.right
-            margins: 10
+            centerIn: parent
         }
 
-        RowLayout {
-            spacing: 5
+        Repeater {
+            model: Niri.workspaces
 
-            anchors {
-                verticalCenter: parent.verticalCenter
-            }
-
-            Repeater {
-                model: Niri.workspaces
+            Rectangle {
+                visible: root.screenName === model.output
+                color: Theme.primary
+                opacity: model.isActive ? 1 : 0.4
+                implicitWidth: model.isActive ? wsText.implicitWidth + Theme.pillPaddingActive * 2 : wsText.implicitWidth + Theme.pillPaddingInactive * 2
+                implicitHeight: root.height - Theme.pillMargin * 2
+                radius: Theme.pillCapsuleRadius
 
                 Text {
-                    visible: true
+                    id: wsText
+
                     text: model.name != "" ? model.name : model.idx
-                    width: 15
-                    height: 15
-                    color: model.isActive ? Theme.primary : Theme.foreground
+                    color: model.isActive ? Theme.surfaceContainer : Theme.primary
+                    opacity: model.isActive ? 1 : 0
                     font.pointSize: Theme.fontSize
 
-                    MouseArea {
-                        anchors.fill: parent
-                        cursorShape: Qt.PointingHandCursor
+                    anchors {
+                        centerIn: parent
                     }
 
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: Niri.focusWorkspace(model.id)
                 }
 
             }

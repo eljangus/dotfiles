@@ -3,7 +3,6 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
 import qs.config
-import qs.services
 
 Scope {
     Variants {
@@ -16,7 +15,7 @@ Scope {
 
             screen: modelData
             color: "transparent"
-            implicitHeight: rectangle.implicitHeight
+            implicitHeight: barPanel.implicitHeight
 
             anchors {
                 top: true
@@ -24,58 +23,67 @@ Scope {
                 right: true
             }
 
-            ClippingRectangle {
-                id: rectangle
+            margins {
+                top: Theme.panelMargin
+                left: Theme.panelMargin
+                right: Theme.panelMargin
+            }
 
-                bottomRightRadius: -20
+            ClippingRectangle {
+                id: barPanel
+
                 contentInsideBorder: true
-                implicitHeight: 40
+                implicitHeight: Theme.barHeight
+                radius: Theme.barRadius
                 anchors.fill: parent
                 color: Theme.background
             }
 
             RowLayout {
+                id: widgetsLeft
+
                 anchors {
                     left: parent.left
-                    verticalCenter: parent.verticalCenter
-                    margins: 0
+                    top: parent.top
+                    bottom: parent.bottom
+                    margins: Theme.barPadding
                 }
 
                 Workspaces {
-                    id: workspaces
+                    Layout.fillHeight: true
+                    screenName: bar.screen.name
                 }
 
             }
 
-            Rectangle {
-                color: "transparent"
-                implicitHeight: twink.implicitHeight
-                implicitWidth: twink.implicitWidth
+            RowLayout {
+                id: widgetsMiddle
+
+                anchors {
+                    top: parent.top
+                    bottom: parent.bottom
+                    horizontalCenter: parent.horizontalCenter
+                    margins: Theme.barPadding
+                }
+
+                Clock {
+                }
+
+            }
+
+            RowLayout {
+                id: widgetsRight
 
                 anchors {
                     right: parent.right
-                    verticalCenter: parent.verticalCenter
-                    margins: 10
+                    top: parent.top
+                    bottom: parent.bottom
+                    margins: Theme.barPadding
                 }
 
-                Text {
-                    id: twink
-
-                    text: "Twinkshell Uwaaa"
-                    font.pointSize: Theme.fontSize
-                    color: Theme.foreground
-                    anchors.centerIn: parent
+                Twinktangle {
                 }
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: console.log(Niri.workspaces.id)
-                }
-
-            }
-
-            Clock {
-                anchors.centerIn: parent
             }
 
         }

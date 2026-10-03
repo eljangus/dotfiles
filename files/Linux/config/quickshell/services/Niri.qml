@@ -12,6 +12,7 @@ Singleton {
 
     function eventHandler(event) {
         if (event.WorkspacesChanged) {
+            // load the array from the Niri socket into workspacesList
             workspacesList = event.WorkspacesChanged.workspaces.slice();
             // Sort workspaces by output, then by index
             workspacesList.sort((a, b) => {
@@ -21,6 +22,7 @@ Singleton {
                 return a.idx - b.idx;
             });
             workspaces.clear();
+            // append the parsed json array to workspaces
             for (var ws of workspacesList) {
                 workspaces.append({
                     "id": ws.id,
@@ -34,6 +36,7 @@ Singleton {
                 });
             }
         }
+        // handle isFocused and isActive
         if (event.WorkspaceActivated) {
             for (var i = 0; i < workspaces.count; i++) {
                 if (workspaces.get(i).id === event.WorkspaceActivated.id) {
@@ -56,6 +59,20 @@ Singleton {
         }
     }
 
+    function focusWorkspace(wsId) {
+        let request = {
+            "Action": {
+                "FocusWorkspace": {
+                    "reference": {
+                        "Id": wsId
+                    }
+                }
+            }
+        };
+        requestSocket.write(`${JSON.stringify(request)}\n`);
+        requestSocket.flush();
+    }
+
     Socket {
         id: eventSocket
 
@@ -72,6 +89,21 @@ Singleton {
             onRead: (data) => {
                 const msg = JSON.parse(data);
                 root.eventHandler(msg);
+            }
+        }
+
+    }
+
+    Socket {
+        id: requestSocket
+
+        connected: true
+        path: root.socketPath
+
+        parser: SplitParser {
+            onRead: (reply) => {
+                const socketLog = JSON.parse(reply);
+                console.log(JSON.stringify(socketLog));
             }
         }
 

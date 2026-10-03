@@ -86,7 +86,7 @@
   "theme": {
     "mode": "system",
     "light": "Noctalia Light",
-    "dark": "Noctalia Dark",
+    "dark": "Noctalia Dark Transparent",
   },
   "languages": {
     "QML": {
