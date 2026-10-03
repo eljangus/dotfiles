@@ -27,11 +27,11 @@ Rectangle {
             }
 
             Repeater {
-                model: Niri.workspacesList
+                model: Niri.workspaces
 
                 Text {
                     visible: true
-                    text: "O"
+                    text: model.name != "" ? model.name : model.idx
                     width: 15
                     height: 15
                     color: Theme.foreground

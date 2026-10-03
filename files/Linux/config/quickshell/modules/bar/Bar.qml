@@ -69,11 +69,7 @@ Scope {
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: {
-                        for (var i = 0; i < Niri.workspacesIdk.length; i++) {
-                            console.log(Niri.workspaces.get(i));
-                        }
-                    }
+                    onClicked: console.log(Niri.workspaces.id)
                 }
 
             }
