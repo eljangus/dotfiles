@@ -7,14 +7,12 @@ brew "fish"
 brew "starship"
 brew "syncthing"
 
-# nvim (LazyVim) runtime deps
+# doom emacs runtime deps
 brew "ripgrep"
 brew "fd"
 brew "lazygit"
 brew "fzf"
-brew "tree-sitter" # required by neovim itself
-brew "tree-sitter-cli" # the `tree-sitter` CLI LazyVim's healthcheck wants
-brew "node" # npm, needed by Mason for LSPs like pyright, tsserver, etc.
+brew "node" # npm, for LSPs like pyright, tsserver, etc.
 
 # shell / cli tools referenced in config.fish
 brew "eza"
@@ -29,4 +27,4 @@ cask "font-maple-mono-nf"
 cask "steam"
 
 # text editor
-cask "zed"
+cask "emacs"

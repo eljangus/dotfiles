@@ -34,5 +34,8 @@ alias r='sudo pacman -Rns'
 alias s='sudo pacman -Ss'
 alias qs='killall quickshell; sleep 1; setsid -f quickshell >/dev/null 2>&1'
 
+set -gx EDITOR "emacsclient -t -a ''"
+set -gx VISUAL "emacsclient -c -a ''"
+
 starship init fish | source
 export PATH="$HOME/.local/bin:$PATH"

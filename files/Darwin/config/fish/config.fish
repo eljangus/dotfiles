@@ -33,6 +33,9 @@ alias u='brew update && brew upgrade'
 alias r='brew uninstall'
 alias s='brew search'
 
+set -gx EDITOR "emacsclient -t -a ''"
+set -gx VISUAL "emacsclient -c -a ''"
+
 /opt/homebrew/bin/starship init fish | source
 export PATH="$HOME/.local/bin:$PATH"
 /opt/homebrew/bin/brew shellenv | source

@@ -1,6 +1,5 @@
 {
-  // Mirrors .config/zed/settings.json: same font, theme, cursor and layout
-  // choices, translated to VSCodium + vscodevim settings.
+  // Font, theme, cursor and layout choices for VSCodium + vscodevim.
 
   // --- appearance ---
   "workbench.colorTheme": "NoctaliaTheme",
@@ -26,7 +25,7 @@
   "editor.lineNumbers": "relative",
   "vim.cursorStylePerMode.normal": "line",
   "vim.cursorStylePerMode.visual": "line",
-  // not set in Zed's config, but standard vim ergonomics worth having
+  // standard vim ergonomics worth having
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
 

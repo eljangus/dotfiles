@@ -25,9 +25,6 @@ class Install:
             (self.home / ".local/state/noctalia/community-templates"), # incase I ever want to symlink custom noctalia templates
             (self.home / ".backup"),
         ]
-        self.common_paths = [
-            (self.home / ".config/zed"),
-        ]
 
     def check_dirs(self):
         # check if the necessary paths exists, if not create them
@@ -38,28 +35,18 @@ class Install:
                         path.unlink()
                     if path.is_dir() == False:
                         path.mkdir(parents=True, exist_ok=True)
-                for path in self.common_paths:
-                    if path.is_symlink():
-                        path.unlink()
-                    if path.is_dir() == False:
-                        path.mkdir(parents=True, exist_ok=True)
             case "Darwin":
                 if Path(self.home / ".config").is_dir() == False:
                     Path(self.home / ".config").mkdir(parents=True, exist_ok=True)
                 if Path(self.home / ".backup").is_dir() == False:
                     Path(self.home / ".backup").mkdir(parents=True, exist_ok=True)
-                for path in self.common_paths:
-                    if path.is_symlink():
-                        path.unlink()
-                    if path.is_dir() == False:
-                        path.mkdir(parents=True, exist_ok=True)
 
     # entries of a source dir, or nothing if it doesn't exist (git doesn't track empty dirs)
     def _scan(self, path):
         if not Path(path).is_dir():
             print(f"\nskipping missing dir: {path}\n")
             return []
-        return [e for e in os.scandir(path) if e.name not in [".DS_Store", "zed"]]
+        return [e for e in os.scandir(path) if e.name not in [".DS_Store"]]
 
     # method to generate lists that contain the desired path tuples
     def _collect(self, src_path: str, dest_path: str):
@@ -74,7 +61,6 @@ class Install:
     # read a dir and manipulate a list that will symlink the files
     def read_dotfiles(self):
         self.dots = self._collect("config", ".config")
-        self.zed_dir = self._collect("config/zed", ".config/zed")
         if self.platform == "Linux":
             self.local_applications = self._collect(
                 "local/applications",
@@ -151,7 +137,6 @@ if __name__ == "__main__":
     obj.check_dirs()
     obj.read_dotfiles()
     obj.symlink_dots(obj.dots)
-    obj.symlink_dots(obj.zed_dir)
     if obj.platform == "Linux":
         obj.symlink_dots(obj.local_applications)
         obj.symlink_dots(obj.local_icons)
