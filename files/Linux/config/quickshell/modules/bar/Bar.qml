@@ -46,7 +46,10 @@ Scope {
                     left: parent.left
                     top: parent.top
                     bottom: parent.bottom
-                    margins: Theme.barPadding
+                    leftMargin: Theme.barPaddingHor
+                    rightMargin: Theme.barPaddingHor
+                    topMargin: Theme.barPaddingVert
+                    bottomMargin: Theme.barPaddingVert
                 }
 
                 Workspaces {
@@ -63,7 +66,10 @@ Scope {
                     top: parent.top
                     bottom: parent.bottom
                     horizontalCenter: parent.horizontalCenter
-                    margins: Theme.barPadding
+                    leftMargin: Theme.barPaddingHor
+                    rightMargin: Theme.barPaddingHor
+                    topMargin: Theme.barPaddingVert
+                    bottomMargin: Theme.barPaddingVert
                 }
 
                 Clock {
@@ -78,7 +84,10 @@ Scope {
                     right: parent.right
                     top: parent.top
                     bottom: parent.bottom
-                    margins: Theme.barPadding
+                    leftMargin: Theme.barPaddingHor
+                    rightMargin: Theme.barPaddingHor
+                    topMargin: Theme.barPaddingVert
+                    bottomMargin: Theme.barPaddingVert
                 }
 
                 Twinktangle {

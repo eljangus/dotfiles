@@ -23,7 +23,7 @@ Singleton {
             });
             workspaces.clear();
             // append the parsed json array to workspaces
-            for (var ws of workspacesList) {
+            for (let ws of workspacesList) {
                 workspaces.append({
                     "id": ws.id,
                     "idx": ws.idx,
@@ -38,21 +38,32 @@ Singleton {
         }
         // handle isFocused and isActive
         if (event.WorkspaceActivated) {
-            for (var i = 0; i < workspaces.count; i++) {
+            for (let i = 0; i < workspaces.count; i++) {
                 if (workspaces.get(i).id === event.WorkspaceActivated.id) {
                     const output = workspaces.get(i).output;
-                    for (var j = 0; j < workspaces.count; j++) {
-                        if (workspaces.get(j).output === output)
+                    workspaces.setProperty(i, "isActive", true);
+                    for (let j = 0; j < workspaces.count; j++) {
+                        if (workspaces.get(j).output === output && j !== i)
                             workspaces.setProperty(j, "isActive", false);
 
                     }
-                    workspaces.setProperty(i, "isActive", true);
                     if (event.WorkspaceActivated.focused) {
-                        for (var k = 0; k < workspaces.count; k++) {
-                            workspaces.setProperty(k, "isFocused", false);
-                        }
                         workspaces.setProperty(i, "isFocused", true);
+                        for (let k = 0; k < workspaces.count; k++) {
+                            if (k !== i)
+                                workspaces.setProperty(k, "isFocused", false);
+
+                        }
                     }
+                    break;
+                }
+            }
+        }
+        // change workspace color if urgent window appears
+        if (event.WorkspaceUrgencyChanged) {
+            for (let i = 0; i < workspaces.count; i++) {
+                if (workspaces.get(i).id === event.WorkspaceUrgencyChanged.id) {
+                    workspaces.setProperty(i, "isUrgent", event.WorkspaceUrgencyChanged.urgent);
                     break;
                 }
             }
@@ -71,6 +82,20 @@ Singleton {
         };
         requestSocket.write(`${JSON.stringify(request)}\n`);
         requestSocket.flush();
+    }
+
+    Timer {
+        interval: 1000
+        repeat: true
+        running: !eventSocket.connected || !requestSocket.connected
+        onTriggered: {
+            if (!eventSocket.connected)
+                eventSocket.connected = true;
+
+            if (!requestSocket.connected)
+                requestSocket.connected = true;
+
+        }
     }
 
     Socket {

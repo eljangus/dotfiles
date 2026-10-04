@@ -42,6 +42,7 @@ x-scheme-handler/ror2mm=r2modman.desktop
 x-scheme-handler/discord=vesktop.desktop
 x-scheme-handler/discord-1397286652128264252=discord-1397286652128264252.desktop
 x-scheme-handler/discord-1216669957799018608=discord-1216669957799018608.desktop
+text/x-qml=dev.zed.Zed.desktop
 
 [Added Associations]
 x-scheme-handler/http=userapp-Twilight-XVKRV3.desktop;
@@ -57,3 +58,4 @@ application/x-extension-xht=userapp-Twilight-XVKRV3.desktop;
 application/toml=org.gnome.Decibels.desktop;zed.desktop;
 application/schema+json=zed.desktop;
 text/plain=zed.desktop;
+text/x-qml=dev.zed.Zed.desktop;
