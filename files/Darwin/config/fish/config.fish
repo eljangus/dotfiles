@@ -32,6 +32,7 @@ alias i='brew install'
 alias u='brew update && brew upgrade'
 alias r='brew uninstall'
 alias s='brew search'
+alias ek='emacsclient -e "(kill-emacs)"'
 
 set -gx EDITOR "emacsclient -t -a ''"
 set -gx VISUAL "emacsclient -c -a ''"

@@ -33,6 +33,7 @@ alias u='sudo pacman -Syu'
 alias r='sudo pacman -Rns'
 alias s='sudo pacman -Ss'
 alias qs='killall quickshell; sleep 1; setsid -f quickshell >/dev/null 2>&1'
+alias ek='emacsclient -e "(kill-emacs)"'
 
 set -gx EDITOR "emacsclient -t -a ''"
 set -gx VISUAL "emacsclient -c -a ''"
