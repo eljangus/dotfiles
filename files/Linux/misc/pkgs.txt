@@ -18,6 +18,7 @@ decibels
 direnv
 easyeffects
 efibootmgr
+emacs
 ex-vi-compat
 eza
 fastfetch
@@ -51,6 +52,7 @@ mkinitcpio
 mpd
 mpv
 nano
+neovim
 networkmanager
 ninja
 niri
@@ -87,11 +89,13 @@ ripgrep
 rmpc
 rust
 sddm
+socat
 starship
 steam
 stow
 sudo
 syncthing
+tokei
 tree
 unzip
 vim
