@@ -12,6 +12,21 @@ Rectangle {
     radius: Theme.widgetRadius
     color: Theme.surfaceContainer
 
+    WheelHandler {
+        id: scrollWheelWorkspaces
+
+        acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+        orientation: Qt.Vertical
+        onWheel: (event) => {
+            if (event.angleDelta.y < 0)
+                Niri.scrollWorkspaces("FocusWorkspaceDown");
+
+            if (event.angleDelta.y > 0)
+                Niri.scrollWorkspaces("FocusWorkspaceUp");
+
+        }
+    }
+
     RowLayout {
         id: row
 
@@ -38,7 +53,7 @@ Rectangle {
                     id: wsText
 
                     text: model.name != "" ? model.name : model.idx
-                    color: model.isActive ? Theme.surfaceContainer : Theme.textOnSurface
+                    color: Theme.surfaceContainer
                     opacity: model.isActive ? 1 : 0
                     font.pointSize: Theme.widgetFontSize
 

@@ -44,7 +44,7 @@ Singleton {
     // Widgets
     readonly property real widgetRadiusOverride: 20
     readonly property real widgetRadius: widgetRadiusOverride >= 0 ? widgetRadiusOverride : Math.max(0, barRadius - barPaddingVert)
-    // Pills (items inside a widget)
+    // Pills (items inside the workspace widget)
     readonly property real pillRadiusOverride: barHeight
     readonly property real pillRadius: pillRadiusOverride >= 0 ? pillRadiusOverride : Math.max(0, widgetRadius - pillMargin)
     readonly property real pillMargin: 6
