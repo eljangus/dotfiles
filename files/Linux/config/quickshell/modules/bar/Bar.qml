@@ -36,7 +36,7 @@ Scope {
                 implicitHeight: Theme.barHeight
                 radius: Theme.barRadius
                 anchors.fill: parent
-                color: Theme.background
+                color: Theme.surface
             }
 
             RowLayout {

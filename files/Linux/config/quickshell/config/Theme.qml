@@ -3,15 +3,35 @@ import Quickshell
 pragma Singleton
 
 Singleton {
-    // Colors
-    readonly property color background: "#1a1b26"
-    readonly property color foreground: "#c0caf5"
-    readonly property color surfaceContainerLow: "#1e202e"
-    readonly property color surfaceContainer: "#24283b"
+    // Surfaces (dark → light)
+    readonly property color surfaceContainerLowest: "#16161e"
+    readonly property color surface: "#1a1b26"
+    readonly property color surfaceContainerLow: "#1e2030"
+    readonly property color surfaceContainer: "#222436"
+    readonly property color surfaceContainerHigh: "#292e42"
+    readonly property color surfaceContainerHighest: "#2f334d"
+    readonly property color surfaceBright: "#3b4261"
+    // Text / lines on surfaces
+    readonly property color textOnSurface: "#c0caf5"
+    readonly property color textOnSurfaceVariant: "#a9b1d6"
+    readonly property color outline: "#565f89"
+    readonly property color outlineVariant: "#3b4261"
+    // Accents
     readonly property color primary: "#7aa2f7"
+    readonly property color textOnPrimary: "#1a1b26"
+    readonly property color primaryContainer: "#3d59a1"
+    readonly property color textOnPrimaryContainer: "#c0caf5"
+    readonly property color secondary: "#bb9af7"
+    readonly property color textOnSecondary: "#1a1b26"
+    readonly property color secondaryContainer: "#9d7cd8"
+    readonly property color tertiary: "#7dcfff"
+    readonly property color textOnTertiary: "#1a1b26"
     readonly property color error: "#f7768e"
-    readonly property color secondary: "#9ece6a"
-    readonly property color inactiveForeground: "#1f2130"
+    readonly property color textOnError: "#1a1b26"
+    readonly property color errorContainer: "#db4b4b"
+    // Extras
+    readonly property color warning: "#e0af68"
+    readonly property color success: "#9ece6a"
     // Fonts
     readonly property real fontSize: 14
     readonly property real widgetFontSize: 12

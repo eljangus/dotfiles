@@ -32,7 +32,7 @@ Scope {
                 contentInsideBorder: true
                 implicitHeight: 100
                 anchors.fill: parent
-                color: Theme.background
+                color: Theme.surface
             }
 
             // qmllint disable unqualified unresolved-type
@@ -43,7 +43,7 @@ Scope {
             }
 
             Text {
-                color: Theme.foreground
+                color: Theme.textOnSurface
                 font.pointSize: 30
                 anchors.centerIn: parent
                 text: "Dock"

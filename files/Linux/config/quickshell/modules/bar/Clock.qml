@@ -4,6 +4,6 @@ import qs.services
 
 Text {
     text: `${Time.twentyFourHourTimeDate}`
-    color: Theme.foreground
+    color: Theme.textOnSurface
     font.pointSize: Theme.fontSize
 }

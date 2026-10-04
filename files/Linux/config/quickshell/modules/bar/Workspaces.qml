@@ -28,8 +28,8 @@ Rectangle {
                 id: pills
 
                 visible: root.screenName === model.output
-                color: model.isUrgent ? Theme.error : mouseAreaPills.containsMouse ? Theme.secondary : Theme.primary
-                opacity: model.isUrgent ? 1 : model.isActive ? 1 : mouseAreaPills.containsMouse ? 1 : 0.4
+                color: model.isUrgent ? Theme.error : mouseAreaPills.containsMouse ? Theme.secondary : model.isActive ? Theme.primary : Theme.outline
+                opacity: model.isUrgent ? 1 : model.isActive ? 1 : mouseAreaPills.containsMouse ? 1 : model.isOccupied ? 1 : 0.3
                 implicitWidth: model.isActive ? wsText.implicitWidth + Theme.pillPaddingActive * 2 : wsText.implicitWidth + Theme.pillPaddingInactive * 2
                 implicitHeight: root.height - Theme.pillMargin * 2
                 radius: Theme.pillRadius
@@ -38,7 +38,7 @@ Rectangle {
                     id: wsText
 
                     text: model.name != "" ? model.name : model.idx
-                    color: model.isActive ? Theme.surfaceContainer : Theme.primary
+                    color: model.isActive ? Theme.surfaceContainer : Theme.textOnSurface
                     opacity: model.isActive ? 1 : 0
                     font.pointSize: Theme.widgetFontSize
 

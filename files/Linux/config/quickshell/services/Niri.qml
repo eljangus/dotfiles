@@ -68,6 +68,14 @@ Singleton {
                 }
             }
         }
+        if (event.WorkspaceActiveWindowChanged) {
+            for (let i = 0; i < workspaces.count; i++) {
+                if (workspaces.get(i).id === event.WorkspaceActiveWindowChanged.workspace_id) {
+                    workspaces.setProperty(i, "isOccupied", event.WorkspaceActiveWindowChanged.active_window_id ? true : false);
+                    break;
+                }
+            }
+        }
     }
 
     function focusWorkspace(wsId) {
@@ -77,6 +85,18 @@ Singleton {
                     "reference": {
                         "Id": wsId
                     }
+                }
+            }
+        };
+        requestSocket.write(`${JSON.stringify(request)}\n`);
+        requestSocket.flush();
+    }
+
+    function scrollWorkspaces(wsDirection) {
+        // qmlformat off
+        let request = {
+            "Action": {
+                [wsDirection]: {
                 }
             }
         };

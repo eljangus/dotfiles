@@ -11,7 +11,7 @@ Rectangle {
 
         text: "Twinkshell Uwaaa"
         font.pointSize: Theme.fontSize
-        color: Theme.foreground
+        color: Theme.textOnSurface
         anchors.centerIn: parent
     }
 
