@@ -70,7 +70,7 @@ Rectangle {
 
                     Behavior on opacity {
                         OpacityAnimator {
-                            duration: 150
+                            duration: 80
                         }
 
                     }
