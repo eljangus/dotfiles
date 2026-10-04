@@ -38,7 +38,7 @@ Rectangle {
                     text: model.name != "" ? model.name : model.idx
                     color: model.isActive ? Theme.surfaceContainer : Theme.primary
                     opacity: model.isActive ? 1 : 0
-                    font.pointSize: Theme.fontSize
+                    font.pointSize: Theme.widgetFontSize
 
                     anchors {
                         centerIn: parent

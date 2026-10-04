@@ -12,3 +12,4 @@ eden
 protonup-qt (Flatpak)
 shadPS4
 mpd-discord-rpc
+Sung (https://github.com/yappologistic/Sung)
