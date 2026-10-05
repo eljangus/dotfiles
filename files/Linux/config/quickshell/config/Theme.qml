@@ -52,7 +52,7 @@ Singleton {
     readonly property real gothLeft: 0
     readonly property real gothRight: 0
     readonly property real gothTop: 0
-    readonly property real frameWidth: 10
+    readonly property real frameWidth: 15
     readonly property real shadowOpacity: 1
     readonly property real shadowBlur: 1
     // Capsule (background behind each bar widget)
@@ -66,7 +66,7 @@ Singleton {
     readonly property real wsSpacing: 8
     readonly property real pillRadiusOverride: -1
     readonly property real pillRadius: pillRadiusOverride >= 0 ? pillRadiusOverride : Math.max(0, capsuleRadius - pillMargin)
-    readonly property real pillMargin: 6
+    readonly property real pillMargin: 7
     readonly property real pillPaddingActive: 4 * pillPaddingInactive
     readonly property real pillPaddingInactive: 4
 }

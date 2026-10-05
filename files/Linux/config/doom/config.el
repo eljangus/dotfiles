@@ -86,7 +86,17 @@
 (set-formatter! 'qmlformat '("qmlformat" input) :modes '(qml-mode qml-ts-mode))
 (use-package! elcord
   :config
-  (elcord-mode))
+  (if (not (daemonp))
+      (elcord-mode)
+    ;; Under the daemon, only show presence while a client frame is open
+    (add-hook 'server-after-make-frame-hook
+              (lambda () (unless elcord-mode (elcord-mode +1))))
+    (add-hook 'delete-frame-functions
+              (lambda (frame)
+                (unless (seq-some (lambda (f) (and (not (eq f frame))
+                                                   (frame-parameter f 'client)))
+                                  (frame-list))
+                  (elcord-mode -1))))))
 
 ;; Arch ships qmlls as qmlls6; elsewhere (Homebrew) Doom's default "qmlls" is right
 (when (executable-find "qmlls6")
