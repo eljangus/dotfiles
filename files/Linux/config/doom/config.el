@@ -87,5 +87,8 @@
 (use-package! elcord
   :config
   (elcord-mode))
-(after! eglot
-  (add-to-list 'eglot-server-programs '((qml-mode qml-ts-mode) "qmlls6")))
+
+;; Arch ships qmlls as qmlls6; elsewhere (Homebrew) Doom's default "qmlls" is right
+(when (executable-find "qmlls6")
+  (after! qml-ts-mode
+    (set-eglot-client! '(qml-mode qml-ts-mode) '("qmlls6"))))

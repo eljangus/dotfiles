@@ -82,7 +82,7 @@ class Install:
         with open(f"{self.rootdir}/files/Linux/misc/pkgs.txt", "r") as f:
             self.pkglist = f.read().split()
             result = subprocess.run(
-                ["sudo", "pacman", "-S", "--needed", *self.pkglist], check=False
+                ["sudo", "pacman", "-Syu", "--needed", *self.pkglist], check=False
             )
             self.pkgs_ok = result.returncode == 0
 
@@ -111,6 +111,8 @@ class Install:
                     "Additionally you will need to grab these packages yourself as the AUR is not used\n"
                 )
                 print(f.read())
+        if self.platform == "Darwin":
+            print(f"\nAdditionally make sure to install doom emacs!\n")
 
     # symlink my dotfiles
     def symlink_dots(self, list):

@@ -18,7 +18,7 @@ decibels
 direnv
 easyeffects
 efibootmgr
-emacs
+emacs-wayland
 ex-vi-compat
 eza
 fastfetch
@@ -102,7 +102,6 @@ vulkan-radeon
 vulkan-validation-layers
 wine
 wireplumber
-wl-clip-persist
 wl-clipboard
 wpa_supplicant
 xdg-user-dirs

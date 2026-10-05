@@ -35,7 +35,6 @@ local sysmonitor  = "kitty -e 'btop'"
 hl.on("hyprland.start", function()
     hl.exec_cmd("noctalia")
     hl.exec_cmd("hyprctl dispatch workspace 1")
-    hl.exec_cmd("wl-clip-persist --clipboard regular")
     hl.exec_cmd("wl-paste --type text --watch cliphist store")
     hl.exec_cmd("wl-paste --type image --watch cliphist store")
     hl.exec_cmd("openrgb")
