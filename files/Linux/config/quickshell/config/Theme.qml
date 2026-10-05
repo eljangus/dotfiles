@@ -48,6 +48,9 @@ Singleton {
     readonly property real pillRadiusOverride: barHeight
     readonly property real pillRadius: pillRadiusOverride >= 0 ? pillRadiusOverride : Math.max(0, widgetRadius - pillMargin)
     readonly property real pillMargin: 6
+    readonly property real pillMarginHorizontal: 6
+    readonly property real pillMarginVertical: 6
+    readonly property real rowSpacingWS: 8
     readonly property real pillPaddingActive: 4 * pillPaddingInactive
     readonly property real pillPaddingInactive: 4
 }

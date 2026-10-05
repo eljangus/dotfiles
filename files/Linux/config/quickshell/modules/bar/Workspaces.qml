@@ -3,18 +3,17 @@ import QtQuick.Layouts
 import qs.config
 import qs.services
 
-Rectangle {
+Capsule {
     id: root
 
     property string screenName
 
-    implicitWidth: row.implicitWidth + Theme.pillMargin * 3.5
-    radius: Theme.widgetRadius
-    color: Theme.surfaceContainer
+    spacing: Theme.rowSpacingWS
 
     WheelHandler {
         id: scrollWheelWorkspaces
 
+        parent: root
         acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
         orientation: Qt.Vertical
         onWheel: (event) => {
@@ -27,63 +26,29 @@ Rectangle {
         }
     }
 
-    RowLayout {
-        id: row
+    Repeater {
+        model: Niri.workspaces
 
-        spacing: 8
+        Rectangle {
+            id: pills
 
-        anchors {
-            centerIn: parent
-        }
+            visible: root.screenName === model.output
+            color: model.isUrgent ? Theme.error : mouseAreaPills.containsMouse ? Theme.secondary : model.isActive ? Theme.primary : Theme.textOnSurface
+            opacity: (model.isUrgent && model.isActive) ? 1 : model.isUrgent ? 0.5 : model.isActive ? 1 : mouseAreaPills.containsMouse ? 1 : model.isOccupied ? 0.8 : 0.2
+            implicitWidth: model.isActive ? wsText.implicitWidth + Theme.pillPaddingActive * 2 : root.height / 4
+            implicitHeight: model.isActive ? root.height - Theme.pillMargin * 2 : root.height / 4
+            radius: Theme.pillRadius
 
-        Repeater {
-            model: Niri.workspaces
+            Text {
+                id: wsText
 
-            Rectangle {
-                id: pills
+                text: model.name != "" ? model.name : model.idx
+                color: Theme.surfaceContainer
+                opacity: model.isActive ? 1 : 0
+                font.pointSize: model.isActive ? Theme.widgetFontSize : 0
 
-                visible: root.screenName === model.output
-                color: model.isUrgent ? Theme.error : mouseAreaPills.containsMouse ? Theme.secondary : model.isActive ? Theme.primary : Theme.textOnSurface
-                opacity: (model.isUrgent && model.isActive) ? 1 : model.isUrgent ? 0.5 : model.isActive ? 1 : mouseAreaPills.containsMouse ? 1 : model.isOccupied ? 0.8 : 0.2
-                implicitWidth: model.isActive ? wsText.implicitWidth + Theme.pillPaddingActive * 2 : wsText.implicitWidth
-                implicitHeight: model.isActive ? root.height - Theme.pillMargin * 2 : root.height - Theme.pillMargin * 3.5
-                radius: Theme.pillRadius
-
-                Text {
-                    id: wsText
-
-                    text: model.name != "" ? model.name : model.idx
-                    color: Theme.surfaceContainer
-                    opacity: model.isActive ? 1 : 0
-                    font.pointSize: model.isActive ? Theme.widgetFontSize : 0
-
-                    anchors {
-                        centerIn: parent
-                    }
-
-                    Behavior on color {
-                        ColorAnimation {
-                            duration: 150
-                        }
-
-                    }
-
-                    Behavior on opacity {
-                        OpacityAnimator {
-                            duration: 80
-                        }
-
-                    }
-
-                }
-
-                MouseArea {
-                    id: mouseAreaPills
-
-                    hoverEnabled: true
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: Niri.focusWorkspace(model.id)
+                anchors {
+                    centerIn: parent
                 }
 
                 Behavior on color {
@@ -95,16 +60,39 @@ Rectangle {
 
                 Behavior on opacity {
                     OpacityAnimator {
-                        duration: 150
+                        duration: 80
                     }
 
                 }
 
-                Behavior on implicitWidth {
-                    NumberAnimation {
-                        duration: 80
-                    }
+            }
 
+            MouseArea {
+                id: mouseAreaPills
+
+                hoverEnabled: true
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onClicked: Niri.focusWorkspace(model.id)
+            }
+
+            Behavior on color {
+                ColorAnimation {
+                    duration: 150
+                }
+
+            }
+
+            Behavior on opacity {
+                OpacityAnimator {
+                    duration: 150
+                }
+
+            }
+
+            Behavior on implicitWidth {
+                NumberAnimation {
+                    duration: 80
                 }
 
             }
