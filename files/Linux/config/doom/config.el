@@ -84,3 +84,6 @@
 
 ;; Format QML with qmlformat (nothing registers it by default)
 (set-formatter! 'qmlformat '("qmlformat" input) :modes '(qml-mode qml-ts-mode))
+(use-package! elcord
+  :config
+  (elcord-mode))
