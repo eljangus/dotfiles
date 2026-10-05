@@ -1,23 +1,28 @@
 import QtQuick
 import qs.config
 
-Rectangle {
-    color: "transparent"
-    implicitHeight: twink.implicitHeight
-    implicitWidth: twink.implicitWidth
+Capsule {
+    id: root
 
-    Text {
-        id: twink
+    Rectangle {
+        color: "transparent"
+        implicitHeight: twink.implicitHeight
+        implicitWidth: twink.implicitWidth
 
-        text: "Twinkshell Uwaaa"
-        font.pointSize: Theme.fontSize
-        color: Theme.textOnSurface
-        anchors.centerIn: parent
-    }
+        Text {
+            id: twink
 
-    MouseArea {
-        anchors.fill: parent
-        onClicked: console.log("Faggot")
+            text: "Twinkshell Uwaaa"
+            font.pointSize: Theme.fontSize
+            color: Theme.textOnSurface
+            anchors.centerIn: parent
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: console.log("Faggot")
+        }
+
     }
 
 }

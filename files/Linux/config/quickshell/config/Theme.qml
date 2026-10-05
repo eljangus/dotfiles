@@ -17,18 +17,23 @@ Singleton {
     readonly property color outline: "#565f89"
     readonly property color outlineVariant: "#3b4261"
     // Accents
+    // Containers = muted version of the accent, light text on top
     readonly property color primary: "#7aa2f7"
     readonly property color textOnPrimary: "#1a1b26"
     readonly property color primaryContainer: "#3d59a1"
     readonly property color textOnPrimaryContainer: "#c0caf5"
     readonly property color secondary: "#bb9af7"
     readonly property color textOnSecondary: "#1a1b26"
-    readonly property color secondaryContainer: "#9d7cd8"
+    readonly property color secondaryContainer: "#625484"
+    readonly property color textOnSecondaryContainer: "#c0caf5"
     readonly property color tertiary: "#7dcfff"
     readonly property color textOnTertiary: "#1a1b26"
+    readonly property color tertiaryContainer: "#466c88"
+    readonly property color textOnTertiaryContainer: "#c0caf5"
     readonly property color error: "#f7768e"
     readonly property color textOnError: "#1a1b26"
-    readonly property color errorContainer: "#db4b4b"
+    readonly property color errorContainer: "#7d4455"
+    readonly property color textOnErrorContainer: "#c0caf5"
     // Extras
     readonly property color warning: "#e0af68"
     readonly property color success: "#9ece6a"
@@ -41,16 +46,17 @@ Singleton {
     readonly property real barPaddingHor: 6
     readonly property real barPaddingVert: 6
     readonly property real panelMargin: 0
-    // Widgets
-    readonly property real widgetRadiusOverride: 20
-    readonly property real widgetRadius: widgetRadiusOverride >= 0 ? widgetRadiusOverride : Math.max(0, barRadius - barPaddingVert)
-    // Pills (items inside the workspace widget)
-    readonly property real pillRadiusOverride: barHeight
-    readonly property real pillRadius: pillRadiusOverride >= 0 ? pillRadiusOverride : Math.max(0, widgetRadius - pillMargin)
+    // Capsule (background behind each bar widget)
+    readonly property real capsuleRadiusOverride: -1
+    readonly property real capsuleRadius: capsuleRadiusOverride >= 0 ? capsuleRadiusOverride : Math.max(0, barRadius - barPaddingVert)
+    readonly property real capsulePadding: 6
+    readonly property real capsulePaddingHorizontal: 6
+    // Workspaces capsule + pills (items inside it)
+    readonly property real wsCapsulePadding: pillMargin * 2
+    readonly property real wsSpacing: 8
+    readonly property real pillRadiusOverride: -1
+    readonly property real pillRadius: pillRadiusOverride >= 0 ? pillRadiusOverride : Math.max(0, capsuleRadius - pillMargin)
     readonly property real pillMargin: 6
-    readonly property real pillMarginHorizontal: 6
-    readonly property real pillMarginVertical: 6
-    readonly property real rowSpacingWS: 8
     readonly property real pillPaddingActive: 4 * pillPaddingInactive
     readonly property real pillPaddingInactive: 4
 }

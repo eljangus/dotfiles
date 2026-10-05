@@ -73,6 +73,7 @@ Scope {
                 }
 
                 Clock {
+                    Layout.fillHeight: true
                 }
 
             }
@@ -91,6 +92,7 @@ Scope {
                 }
 
                 Twinktangle {
+                    Layout.fillHeight: true
                 }
 
             }

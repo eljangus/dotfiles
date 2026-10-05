@@ -8,7 +8,8 @@ Capsule {
 
     property string screenName
 
-    spacing: Theme.rowSpacingWS
+    spacing: Theme.wsSpacing
+    padding: Theme.wsCapsulePadding * 2
 
     WheelHandler {
         id: scrollWheelWorkspaces

@@ -7,9 +7,10 @@ Rectangle {
 
     default property alias content: inner.data
     property alias spacing: inner.spacing
+    property real padding: Theme.capsulePadding * 2 + Theme.capsulePaddingHorizontal * 2
 
-    implicitWidth: inner.implicitWidth + Theme.pillMargin * 2 + Theme.pillMarginHorizontal * 2
-    radius: Theme.widgetRadius
+    implicitWidth: inner.implicitWidth + padding
+    radius: Theme.capsuleRadius
     color: Theme.surfaceContainer
 
     RowLayout {

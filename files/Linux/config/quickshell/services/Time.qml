@@ -6,7 +6,7 @@ Singleton {
     id: root
 
     property string twentyFourHourTimeDate: {
-        Qt.formatDateTime(clock.date, "HH:mm, d.M.yy");
+        Qt.formatDateTime(clock.date, "HH:mm 󰧟 d.M.yy");
     }
 
     SystemClock {
