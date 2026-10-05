@@ -92,3 +92,10 @@
 (when (executable-find "qmlls6")
   (after! qml-ts-mode
     (set-eglot-client! '(qml-mode qml-ts-mode) '("qmlls6"))))
+
+;; make sure that tabs only exist in one group
+(after! centaur-tabs
+  (defun centaur-tabs-buffer-groups ()
+    "Put every buffer in a single \"All\" group."
+    (list
+     "All")))

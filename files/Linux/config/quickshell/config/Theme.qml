@@ -34,6 +34,7 @@ Singleton {
     readonly property color textOnError: "#1a1b26"
     readonly property color errorContainer: "#7d4455"
     readonly property color textOnErrorContainer: "#c0caf5"
+    readonly property color shadowColor: "#000000"
     // Extras
     readonly property color warning: "#e0af68"
     readonly property color success: "#9ece6a"
@@ -41,18 +42,27 @@ Singleton {
     readonly property real fontSize: 14
     readonly property real widgetFontSize: 12
     // Bar
-    readonly property real barHeight: 42
+    readonly property real barHeight: 50
     readonly property real barRadius: 0
-    readonly property real barPaddingHor: 6
-    readonly property real barPaddingVert: 6
+    readonly property real barPaddingHor: 10
+    readonly property real barPaddingVert: 8
     readonly property real panelMargin: 0
+    readonly property real screenCornerRadius: 10
+    readonly property real gothBottom: 0
+    readonly property real gothLeft: 0
+    readonly property real gothRight: 0
+    readonly property real gothTop: 0
+    readonly property real frameWidth: 10
+    readonly property real shadowOpacity: 1
+    readonly property real shadowBlur: 1
     // Capsule (background behind each bar widget)
-    readonly property real capsuleRadiusOverride: -1
+    readonly property real capsuleRadiusOverride: 10
     readonly property real capsuleRadius: capsuleRadiusOverride >= 0 ? capsuleRadiusOverride : Math.max(0, barRadius - barPaddingVert)
     readonly property real capsulePadding: 6
     readonly property real capsulePaddingHorizontal: 6
     // Workspaces capsule + pills (items inside it)
-    readonly property real wsCapsulePadding: pillMargin * 2
+    readonly property real wsCapsulePadding: pillMargin
+    // pillMargin makes it fit perfectly
     readonly property real wsSpacing: 8
     readonly property real pillRadiusOverride: -1
     readonly property real pillRadius: pillRadiusOverride >= 0 ? pillRadiusOverride : Math.max(0, capsuleRadius - pillMargin)
