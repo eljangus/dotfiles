@@ -87,3 +87,5 @@
 (use-package! elcord
   :config
   (elcord-mode))
+(after! eglot
+  (add-to-list 'eglot-server-programs '((qml-mode qml-ts-mode) "qmlls6")))

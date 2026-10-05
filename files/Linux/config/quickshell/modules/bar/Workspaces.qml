@@ -8,7 +8,7 @@ Rectangle {
 
     property string screenName
 
-    implicitWidth: row.implicitWidth + Theme.pillMargin * 2
+    implicitWidth: row.implicitWidth + Theme.pillMargin * 3.5
     radius: Theme.widgetRadius
     color: Theme.surfaceContainer
 
@@ -30,7 +30,7 @@ Rectangle {
     RowLayout {
         id: row
 
-        spacing: 5
+        spacing: 8
 
         anchors {
             centerIn: parent
@@ -44,9 +44,9 @@ Rectangle {
 
                 visible: root.screenName === model.output
                 color: model.isUrgent ? Theme.error : mouseAreaPills.containsMouse ? Theme.secondary : model.isActive ? Theme.primary : Theme.textOnSurface
-                opacity: (model.isUrgent && model.isActive) ? 1 : model.isUrgent ? 0.5 : model.isActive ? 1 : mouseAreaPills.containsMouse ? 1 : model.isOccupied ? 0.4 : 0.2
-                implicitWidth: model.isActive ? wsText.implicitWidth + Theme.pillPaddingActive * 2 : wsText.implicitWidth + Theme.pillPaddingInactive * 2
-                implicitHeight: root.height - Theme.pillMargin * 2
+                opacity: (model.isUrgent && model.isActive) ? 1 : model.isUrgent ? 0.5 : model.isActive ? 1 : mouseAreaPills.containsMouse ? 1 : model.isOccupied ? 0.8 : 0.2
+                implicitWidth: model.isActive ? wsText.implicitWidth + Theme.pillPaddingActive * 2 : wsText.implicitWidth
+                implicitHeight: model.isActive ? root.height - Theme.pillMargin * 2 : root.height - Theme.pillMargin * 3.5
                 radius: Theme.pillRadius
 
                 Text {
@@ -55,7 +55,7 @@ Rectangle {
                     text: model.name != "" ? model.name : model.idx
                     color: Theme.surfaceContainer
                     opacity: model.isActive ? 1 : 0
-                    font.pointSize: Theme.widgetFontSize
+                    font.pointSize: model.isActive ? Theme.widgetFontSize : 0
 
                     anchors {
                         centerIn: parent
