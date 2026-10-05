@@ -598,7 +598,6 @@ button_borders = false
 card_borders = false
 clipboard_auto_paste = "ctrl_v"
 clipboard_image_action_command = "swash {path}"
-corner_radius_scale = 2.0
 font_family = "Maple Mono NF"
 input_borders = false
 niri_overview_type_to_launch_enabled = true
