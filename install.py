@@ -112,7 +112,7 @@ class Install:
                 )
                 print(f.read())
         if self.platform == "Darwin":
-            print(f"\nAdditionally make sure to install doom emacs!\n")
+            print(f"\nAdditionally make sure to install Doom Emacs\n(git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs && ~/.config/emacs/bin/doom install)!\n")
 
     # symlink my dotfiles
     def symlink_dots(self, list):
