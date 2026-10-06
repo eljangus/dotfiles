@@ -32,7 +32,6 @@ PanelWindow {
             anchors.fill: parent
             color: Theme.surface
             layer.enabled: true
-            opacity: 1
 
             layer.effect: MultiEffect {
                 maskSource: mask

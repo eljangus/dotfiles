@@ -18,11 +18,6 @@ Capsule {
             anchors.centerIn: parent
         }
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: console.log("Faggot")
-        }
-
     }
 
 }

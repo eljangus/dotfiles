@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Effects
 import QtQuick.Layouts
+import qs.components
 import qs.config
 
 Item {
@@ -37,6 +38,22 @@ Item {
             id: hoverHandler
         }
 
+        MouseArea {
+            id: clickArea
+
+            onPressed: {
+                ripple.rippleAnimate(mouseX, mouseY);
+            }
+            anchors.fill: parent
+        }
+
+        Ripple {
+            id: ripple
+
+            rootRadius: Theme.capsuleRadius
+            anchors.fill: parent
+        }
+
         RowLayout {
             id: inner
 
@@ -45,16 +62,21 @@ Item {
             anchors {
                 centerIn: capsule
             }
+        }
 
+        layer.effect: MultiEffect {
+            maskSource: ripple
+            maskEnabled: true
+            maskInverted: true
+            maskThresholdMin: 0.5
+            maskSpreadAtMin: 1
+            autoPaddingEnabled: false
         }
 
         Behavior on color {
             ColorAnimation {
                 duration: 150
             }
-
         }
-
     }
-
 }

@@ -73,4 +73,7 @@ Singleton {
     readonly property real pillMargin: 7
     readonly property real pillPaddingActive: 4 * pillPaddingInactive
     readonly property real pillPaddingInactive: 4
+    // Animations and Extras
+    readonly property color rippleColor: surfaceContainerHighest
+    readonly property real rippleDuration: 100
 }

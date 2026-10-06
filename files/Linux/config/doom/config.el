@@ -82,8 +82,9 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Format QML with qmlformat (nothing registers it by default)
-(set-formatter! 'qmlformat '("qmlformat" input) :modes '(qml-mode qml-ts-mode))
+;; Format QML with qmlformat (nothing registers it by default).
+;; Full Qt6 path: bare "qmlformat" on PATH is Qt5 (qt5-declarative) and fails on Qt6 syntax.
+(set-formatter! 'qmlformat '("/usr/lib/qt6/bin/qmlformat" input) :modes '(qml-mode qml-ts-mode))
 (use-package! elcord
   :config
   (if (not (daemonp))
