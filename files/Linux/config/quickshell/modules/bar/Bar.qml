@@ -1,183 +1,73 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import Quickshell.Widgets
+import Quickshell.Wayland
 import qs.config
+import qs.services
 
-Scope {
-    Variants {
-        model: Quickshell.screens
+Item {
+    id: root
 
-        PanelWindow {
-            id: bar
+    property var screenName
 
-            required property var modelData
+    implicitHeight: Theme.barHeight
 
-            screen: modelData
-            color: "transparent"
-            implicitHeight: barPanel.implicitHeight
-            exclusionMode: ExclusionMode.Ignore
+    RowLayout {
+        id: widgetsLeft
 
-            anchors {
-                top: true
-                left: true
-                right: true
-            }
+        spacing: Theme.barWidgetSpacing
 
-            margins {
-                top: Theme.panelMargin
-                left: Theme.panelMargin
-                right: Theme.panelMargin
-            }
+        anchors {
+            left: parent.left
+            top: parent.top
+            bottom: parent.bottom
+            leftMargin: Theme.barPaddingHor
+            topMargin: Theme.barPaddingVert
+            bottomMargin: Theme.barPaddingVert
+        }
 
-            ClippingRectangle {
-                id: barPanel
+        Launcher {
+        }
 
-                contentInsideBorder: true
-                implicitHeight: Theme.barHeight
-                radius: Theme.barRadius
-                anchors.fill: parent
-                color: Theme.surface
-            }
-
-            RowLayout {
-                id: widgetsLeft
-
-                anchors {
-                    left: parent.left
-                    top: parent.top
-                    bottom: parent.bottom
-                    leftMargin: Theme.barPaddingHor
-                    rightMargin: Theme.barPaddingHor
-                    topMargin: Theme.barPaddingVert
-                    bottomMargin: Theme.barPaddingVert
-                }
-
-                Workspaces {
-                    Layout.fillHeight: true
-                    screenName: bar.screen.name
-                }
-
-            }
-
-            RowLayout {
-                id: widgetsMiddle
-
-                anchors {
-                    top: parent.top
-                    bottom: parent.bottom
-                    horizontalCenter: parent.horizontalCenter
-                    leftMargin: Theme.barPaddingHor
-                    rightMargin: Theme.barPaddingHor
-                    topMargin: Theme.barPaddingVert
-                    bottomMargin: Theme.barPaddingVert
-                }
-
-                Clock {
-                    Layout.fillHeight: true
-                }
-
-            }
-
-            RowLayout {
-                id: widgetsRight
-
-                anchors {
-                    right: parent.right
-                    top: parent.top
-                    bottom: parent.bottom
-                    leftMargin: Theme.barPaddingHor
-                    rightMargin: Theme.barPaddingHor
-                    topMargin: Theme.barPaddingVert
-                    bottomMargin: Theme.barPaddingVert
-                }
-
-                Twinktangle {
-                    Layout.fillHeight: true
-                }
-
-            }
-
+        Workspaces {
+            screenName: root.screenName
         }
 
     }
 
-    Variants {
-        model: Quickshell.screens
+    RowLayout {
+        id: widgetsMiddle
 
-        ConcaveCorners {
+        spacing: Theme.barWidgetSpacing
+
+        anchors {
+            top: parent.top
+            bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
+            topMargin: Theme.barPaddingVert
+            bottomMargin: Theme.barPaddingVert
+        }
+
+        Clock {
         }
 
     }
 
-    Variants {
-        model: Quickshell.screens
+    RowLayout {
+        id: widgetsRight
 
-        ExclusivePanel {
-            id: bottomFrame
+        spacing: Theme.barWidgetSpacing
 
-            implicitHeight: Theme.frameWidth
-
-            anchors {
-                bottom: true
-                right: true
-                left: true
-            }
-
+        anchors {
+            right: parent.right
+            top: parent.top
+            bottom: parent.bottom
+            rightMargin: Theme.barPaddingHor
+            topMargin: Theme.barPaddingVert
+            bottomMargin: Theme.barPaddingVert
         }
 
-    }
-
-    Variants {
-        model: Quickshell.screens
-
-        ExclusivePanel {
-            id: leftFrame
-
-            implicitWidth: Theme.frameWidth
-
-            anchors {
-                bottom: true
-                top: true
-                left: true
-            }
-
-        }
-
-    }
-
-    Variants {
-        model: Quickshell.screens
-
-        ExclusivePanel {
-            id: rightFrame
-
-            implicitWidth: Theme.frameWidth
-
-            anchors {
-                top: true
-                right: true
-                bottom: true
-            }
-
-        }
-
-    }
-
-    Variants {
-        model: Quickshell.screens
-
-        ExclusivePanel {
-            id: topFrame
-
-            implicitHeight: Theme.barHeight
-
-            anchors {
-                top: true
-                right: true
-                left: true
-            }
-
+        Twinktangle {
         }
 
     }

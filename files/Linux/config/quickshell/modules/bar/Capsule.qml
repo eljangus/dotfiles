@@ -10,6 +10,7 @@ Rectangle {
     property real padding: Theme.capsulePadding * 2 + Theme.capsulePaddingHorizontal * 2
 
     implicitWidth: inner.implicitWidth + padding
+    Layout.fillHeight: true
     radius: Theme.capsuleRadius
     color: Theme.surfaceContainer
 

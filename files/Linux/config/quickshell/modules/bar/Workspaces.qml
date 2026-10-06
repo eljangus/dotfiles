@@ -7,9 +7,13 @@ Capsule {
     id: root
 
     property string screenName
+    property real dotSize: root.height / 4
+    property real dotGap: (root.height - dotSize) / 2
+    property real dotMargin: dotGap / 2
+    property real activeMargin: Math.max(0, Theme.pillMargin - dotGap / 2)
 
-    spacing: Theme.wsSpacing
-    padding: Theme.wsCapsulePadding * 2
+    spacing: 0 // because of my fuckery
+    padding: dotGap
 
     WheelHandler {
         id: scrollWheelWorkspaces
@@ -36,9 +40,11 @@ Capsule {
             visible: root.screenName === model.output
             color: model.isUrgent ? Theme.error : mouseAreaPills.containsMouse ? Theme.secondary : model.isActive ? Theme.primary : Theme.textOnSurface
             opacity: (model.isUrgent && model.isActive) ? 1 : model.isUrgent ? 0.5 : model.isActive ? 1 : mouseAreaPills.containsMouse ? 1 : model.isOccupied ? 0.8 : 0.2
-            implicitWidth: model.isActive ? wsText.implicitWidth + Theme.pillPaddingActive * 2 : root.height / 4
-            implicitHeight: model.isActive ? root.height - Theme.pillMargin * 2 : root.height / 4
+            implicitWidth: model.isActive ? wsText.implicitWidth + Theme.pillPaddingActive * 2 : dotSize
+            implicitHeight: model.isActive ? root.height - Theme.pillMargin * 2 : dotSize
             radius: Theme.pillRadius
+            Layout.leftMargin: model.isActive ? activeMargin : dotMargin
+            Layout.rightMargin: model.isActive ? activeMargin : dotMargin
 
             Text {
                 id: wsText
@@ -94,6 +100,20 @@ Capsule {
             Behavior on implicitWidth {
                 NumberAnimation {
                     duration: 80
+                }
+
+            }
+
+            Behavior on Layout.rightMargin {
+                NumberAnimation {
+                    duration: 10
+                }
+
+            }
+
+            Behavior on Layout.leftMargin {
+                NumberAnimation {
+                    duration: 10
                 }
 
             }

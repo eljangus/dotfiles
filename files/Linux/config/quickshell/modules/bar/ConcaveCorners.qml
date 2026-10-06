@@ -81,9 +81,22 @@ PanelWindow {
 
     }
 
+    Bar {
+        id: bar
+
+        screenName: root.screen.name
+
+        anchors {
+            // will later on add logic so the "bar" can be at the top, bottom, left or right heh
+            top: parent.top
+            left: parent.left
+            right: parent.right
+        }
+
+    }
+
     mask: Region {
-        item: container
-        intersection: Intersection.Xor
+        item: bar
     }
 
 }
