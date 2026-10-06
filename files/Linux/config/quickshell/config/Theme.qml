@@ -55,7 +55,7 @@ Singleton {
     readonly property real gothTop: 0
     readonly property real frameWidth: 15
     readonly property real shadowOpacity: 1
-    readonly property real shadowBlur: 1
+    readonly property real shadowBlur: 0.5
     // Capsule (background behind each bar widget)
     readonly property real capsuleRadiusOverride: 10
     readonly property real capsuleRadius: capsuleRadiusOverride >= 0 ? capsuleRadiusOverride : Math.max(0, barRadius - barPaddingVert)

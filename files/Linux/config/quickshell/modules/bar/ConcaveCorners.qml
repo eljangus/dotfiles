@@ -77,6 +77,7 @@ PanelWindow {
             shadowOpacity: Theme.shadowOpacity
             shadowBlur: Theme.shadowBlur
             shadowColor: Theme.shadowColor
+            blurMultiplier: 2
         }
 
     }
