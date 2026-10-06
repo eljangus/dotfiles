@@ -74,10 +74,10 @@ PanelWindow {
 
         layer.effect: MultiEffect {
             shadowEnabled: true
-            shadowOpacity: Theme.shadowOpacity
-            shadowBlur: Theme.shadowBlur
-            shadowColor: Theme.shadowColor
-            blurMultiplier: 2
+            shadowOpacity: Theme.frameShadowOpacity
+            shadowBlur: Theme.frameShadowBlur
+            shadowColor: Qt.alpha(Theme.shadowColor, 1)
+            blurMultiplier: 1
         }
 
     }

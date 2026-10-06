@@ -1,26 +1,58 @@
 import QtQuick
+import QtQuick.Effects
 import QtQuick.Layouts
 import qs.config
 
-Rectangle {
+Item {
     id: root
 
     default property alias content: inner.data
     property alias spacing: inner.spacing
     property real padding: Theme.capsulePadding * 2 + Theme.capsulePaddingHorizontal * 2
 
-    implicitWidth: inner.implicitWidth + padding
+    implicitWidth: inner.implicitWidth + root.padding
     Layout.fillHeight: true
-    radius: Theme.capsuleRadius
-    color: Theme.surfaceContainer
 
-    RowLayout {
-        id: inner
+    RectangularShadow {
+        anchors.fill: capsule
+        antialiasing: true
+        blur: Theme.shadowBlur
+        bottomLeftRadius: Theme.capsuleRadius
+        bottomRightRadius: Theme.capsuleRadius
+        topLeftRadius: Theme.capsuleRadius
+        topRightRadius: Theme.capsuleRadius
+        offset: Theme.shadowOffset
+        spread: Theme.shadowSpread
+        color: Qt.alpha(Theme.shadowColor, 0.6)
+    }
 
-        spacing: 5 // default value, usually overriden
+    Rectangle {
+        id: capsule
 
-        anchors {
-            centerIn: parent
+        anchors.fill: root
+        radius: Theme.capsuleRadius
+        color: hoverHandler.hovered ? Theme.surfaceContainerHigh : Theme.surfaceContainer
+
+        HoverHandler {
+            id: hoverHandler
+        }
+
+        RowLayout {
+            id: inner
+
+            spacing: 5 // default value, usually overriden
+
+            anchors {
+                centerIn: capsule
+            }
+
+        }
+
+        Behavior on color {
+            ColorAnimation {
+                duration: 150
+            }
+
         }
 
     }

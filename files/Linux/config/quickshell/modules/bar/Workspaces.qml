@@ -52,7 +52,7 @@ Capsule {
                 text: model.name != "" ? model.name : model.idx
                 color: Theme.surfaceContainer
                 opacity: model.isActive ? 1 : 0
-                font.pointSize: model.isActive ? Theme.widgetFontSize : 0
+                font.pixelSize: model.isActive ? Theme.widgetFontSize : 0
 
                 anchors {
                     centerIn: parent

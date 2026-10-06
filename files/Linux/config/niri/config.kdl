@@ -48,7 +48,7 @@ output "HDMI-A-1" {
 }
 
 layout {
-    gaps 10
+    gaps 20
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
@@ -96,6 +96,7 @@ focus-ring {
 
 spawn-at-startup "noctalia"
 spawn-at-startup "quickshell"
+spawn-sh-at-startup "emacs --daemon"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 spawn-at-startup "openrgb"

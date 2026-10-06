@@ -54,8 +54,11 @@ Singleton {
     readonly property real gothRight: 0
     readonly property real gothTop: 0
     readonly property real frameWidth: 15
-    readonly property real shadowOpacity: 1
-    readonly property real shadowBlur: 0.5
+    readonly property real frameShadowOpacity: 1
+    readonly property real frameShadowBlur: 0.6
+    readonly property real shadowBlur: 16
+    readonly property vector2d shadowOffset: Qt.vector2d(0, 2)
+    readonly property real shadowSpread: 0
     // Capsule (background behind each bar widget)
     readonly property real capsuleRadiusOverride: 10
     readonly property real capsuleRadius: capsuleRadiusOverride >= 0 ? capsuleRadiusOverride : Math.max(0, barRadius - barPaddingVert)
