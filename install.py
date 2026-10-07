@@ -22,8 +22,11 @@ class Install:
             (self.home / ".local/share/icons"),
             (self.home / ".local/state"),
             (self.home / ".local/state/noctalia"),
-            (self.home / ".local/state/noctalia/community-templates"), # incase I ever want to symlink custom noctalia templates
+            (
+                self.home / ".local/state/noctalia/community-templates"
+            ),  # incase I ever want to symlink custom noctalia templates
             (self.home / ".backup"),
+            (self.home / "org"),
         ]
 
     def check_dirs(self):

@@ -167,3 +167,12 @@
          ("C-c c" . org-capture)
          ("C-c l" . org-store-link))
   :hook (org-mode . visual-line-mode))
+
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
+(setq initial-buffer-choice 'dashboard-open)
+
+(add-hook 'before-save-hook #'eglot-format)
