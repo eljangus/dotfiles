@@ -1,6 +1,6 @@
+pragma Singleton
 import QtQuick
 import Quickshell
-pragma Singleton
 
 Singleton {
     // Surfaces (dark → light)
@@ -9,7 +9,7 @@ Singleton {
     readonly property color surfaceContainerLow: "#151515"
     readonly property color surfaceContainer: "#222222"
     readonly property color surfaceContainerHigh: "#2a2a2a"
-    readonly property color surfaceContainerHighest: "#2a2a2a"
+    readonly property color surfaceContainerHighest: "#414141"
     readonly property color surfaceBright: "#414141"
     // Text / lines on surfaces
     readonly property color textOnSurface: "#e8e3e3"
@@ -74,6 +74,8 @@ Singleton {
     readonly property real pillPaddingActive: 4 * pillPaddingInactive
     readonly property real pillPaddingInactive: 4
     // Animations and Extras
-    readonly property color rippleColor: surfaceContainerHighest
-    readonly property real rippleDuration: 100
+    readonly property real rippleDurationScalePress: 300
+    readonly property real rippleDurationOpacityPress: 80
+    readonly property real rippleDurationOpacityRelease: 250
+    readonly property real rippleOpacity: 0.3
 }

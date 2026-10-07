@@ -74,13 +74,15 @@
   (corfu-auto t)
   (corfu-auto-prefix 2)
   (corfu-cycle t)            ; wrap around at the end of the list
-  (corfu-preselect 'prompt)  ; nothing selected until TAB
+  (corfu-preselect 'first)   ; first candidate selected, C-<return> takes it
   :bind (:map corfu-map
               ;; TAB-and-Go: TAB/S-TAB cycle, the selection is inserted as you go
               ("TAB"       . corfu-next)
               ("<tab>"     . corfu-next)
               ("S-TAB"     . corfu-previous)
               ("<backtab>" . corfu-previous)
+              ("<escape>"  . corfu-quit)
+              ("C-<return>" . corfu-insert) ; keep the TAB'd candidate, then close
               ("RET" . nil)
               ;; keep C-n/C-p/C-a/C-e as normal movement while the popup is open
               ([remap next-line]              . nil)

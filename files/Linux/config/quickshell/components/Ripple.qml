@@ -15,16 +15,33 @@ Item {
         maskSpreadAtMin: 1
     }
 
-    property color rippleColor: Theme.rippleColor
-    property real rippleDuration: Theme.rippleDuration
+    property bool isRipplePressed: false
     required property real rootRadius
+    property real circleDiameter: Math.max(root.topLeftCorner, root.bottomLeftCorner, root.topRightCorner, root.bottomRightCorner) * 2
+    property real topLeftCorner: Math.hypot(root.posX - 0, posY - 0)
+    property real bottomLeftCorner: Math.hypot(root.posX - 0, posY - root.height)
+    property real topRightCorner: Math.hypot(root.posX - root.width, posY - 0)
+    property real bottomRightCorner: Math.hypot(root.posX - root.width, root.posY - root.height)
     property real posX
     property real posY
 
-    function rippleAnimate(x, y) {
-        root.posX = x;
-        root.posY = y;
-        rippleAnimation.restart();
+    function rippleAnimatePressed(x, y) {
+        if (!root.isRipplePressed) {
+            root.posX = x;
+            root.posY = y;
+            root.isRipplePressed = true;
+            releaseAnim.stop();
+            pressAnim.restart();
+            growAnim.restart();
+        }
+    }
+
+    function rippleAnimateReleased() {
+        if (root.isRipplePressed) {
+            pressAnim.stop();
+            releaseAnim.start();
+            root.isRipplePressed = false;
+        }
     }
 
     Rectangle {
@@ -38,30 +55,40 @@ Item {
 
     Rectangle {
         id: ripple
-        width: 20
-        height: 20
-        color: "red"
+
+        width: root.circleDiameter
+        height: root.circleDiameter
+        color: Theme.surfaceContainerHighest
         x: root.posX - (width / 2)
         y: root.posY - (height / 2)
-        radius: width + height
+        radius: Math.max(width, height) * 0.5
         opacity: 0
 
-        ParallelAnimation {
-            id: rippleAnimation
-            NumberAnimation {
-                target: ripple
-                property: "scale"
-                from: 0
-                to: Math.max(root.width, root.height)
-                duration: root.rippleDuration
-            }
-            NumberAnimation {
-                target: ripple
-                properties: "opacity"
-                from: 1
-                to: 0
-                duration: root.rippleDuration
-            }
+        NumberAnimation {
+            id: growAnim
+            target: ripple
+            easing.type: Easing.OutQuart
+            property: "scale"
+            from: 0
+            to: 1
+            duration: Theme.rippleDurationScalePress
+        }
+
+        NumberAnimation {
+            id: pressAnim
+            target: ripple
+            properties: "opacity"
+            from: 0
+            to: Theme.rippleOpacity
+            duration: Theme.rippleDurationOpacityPress
+        }
+        NumberAnimation {
+            id: releaseAnim
+            target: ripple
+            easing.type: Easing.InQuart
+            properties: "opacity"
+            to: 0
+            duration: Theme.rippleDurationOpacityRelease
         }
     }
 }

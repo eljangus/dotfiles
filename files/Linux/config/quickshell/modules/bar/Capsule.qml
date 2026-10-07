@@ -42,7 +42,13 @@ Item {
             id: clickArea
 
             onPressed: {
-                ripple.rippleAnimate(mouseX, mouseY);
+                ripple.rippleAnimatePressed(mouseX, mouseY);
+            }
+            onReleased: {
+                ripple.rippleAnimateReleased();
+            }
+            onCanceled: {
+                ripple.rippleAnimateReleased();
             }
             anchors.fill: parent
         }
