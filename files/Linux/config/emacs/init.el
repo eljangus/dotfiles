@@ -7,6 +7,10 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'noerror)
 
+(use-package autothemer)
+
+(setq custom-theme-directory "~/.config/emacs/themes")
+
 (use-package emacs
   :ensure nil
   :custom
@@ -22,7 +26,7 @@
   (display-line-numbers-type 'relative)
   :config
   (make-directory (locate-user-emacs-file "auto-save/") t)
-  (load-theme 'wombat t)
+  (load-theme 'oxocarbon t)
   (delete-selection-mode 1)
   (electric-pair-mode 1)
   (global-auto-revert-mode 1)
@@ -35,6 +39,7 @@
   (deactivate-mark-hook . (lambda () (hl-line-mode +1)))
   (prog-mode . (lambda () (hl-line-mode +1)))
   (prog-mode . display-line-numbers-mode))
+
 
 ;; keybind cheatsheet
 (defun open-keys ()
@@ -193,6 +198,7 @@
   :config
   (dashboard-setup-startup-hook))
 
+
 (setq dashboard-show-shortcuts nil)
 (setq dashboard-center-content t)
 (setq dashboard-vertically-center-content t)
@@ -233,7 +239,7 @@
 ;; purple Emacs logo (system SVG, scales cleanly)
 (setq dashboard-startup-banner "/usr/share/icons/hicolor/scalable/apps/emacs.svg")
 ;; the SVG is 48px natively and max-height only shrinks, so set :height directly
-(setq dashboard-image-extra-props '(:height 200))
+(setq dashboard-image-extra-props '(:height 250))
 ;; no footer quote (`dashboard-set-footer' is obsolete)
 (setq dashboard-startupify-list
       (delq 'dashboard-insert-footer dashboard-startupify-list))
