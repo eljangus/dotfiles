@@ -6,8 +6,8 @@ import qs.config
 
 Item {
     id: root
-
-    layer.enabled: true
+    // 1 because stencil is a visual element, therefore the layer should only be enabled once more than 1 visual item exists, that would be Component
+    layer.enabled: 1 < root.children.length
     layer.effect: MultiEffect {
         maskEnabled: true
         maskSource: stencil
@@ -19,6 +19,9 @@ Item {
     property Item newestCircle
 
     function rippleAnimatePressed(x, y) {
+        if (newestCircle) {
+            newestCircle.stopAnim();
+        }
         newestCircle = rippleCreator.createObject(root, {
             posX: x,
             posY: y
@@ -49,7 +52,6 @@ Item {
 
         Rectangle {
             id: ripple
-
             property real circleDiameter: Math.max(topLeftCorner, bottomLeftCorner, topRightCorner, bottomRightCorner) * 2
             property real topLeftCorner: Math.hypot(posX - 0, posY - 0)
             property real bottomLeftCorner: Math.hypot(posX - 0, posY - root.height)

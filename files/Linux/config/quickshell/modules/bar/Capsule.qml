@@ -70,15 +70,6 @@ Item {
             }
         }
 
-        layer.effect: MultiEffect {
-            maskSource: ripple
-            maskEnabled: true
-            maskInverted: true
-            maskThresholdMin: 0.5
-            maskSpreadAtMin: 1
-            autoPaddingEnabled: false
-        }
-
         Behavior on color {
             ColorAnimation {
                 duration: 150
