@@ -15,33 +15,24 @@ Item {
         maskSpreadAtMin: 1
     }
 
-    property bool isRipplePressed: false
     required property real rootRadius
-    property real circleDiameter: Math.max(root.topLeftCorner, root.bottomLeftCorner, root.topRightCorner, root.bottomRightCorner) * 2
-    property real topLeftCorner: Math.hypot(root.posX - 0, posY - 0)
-    property real bottomLeftCorner: Math.hypot(root.posX - 0, posY - root.height)
-    property real topRightCorner: Math.hypot(root.posX - root.width, posY - 0)
-    property real bottomRightCorner: Math.hypot(root.posX - root.width, root.posY - root.height)
-    property real posX
-    property real posY
+    property Item newestCircle
 
     function rippleAnimatePressed(x, y) {
-        if (!root.isRipplePressed) {
-            root.posX = x;
-            root.posY = y;
-            root.isRipplePressed = true;
-            releaseAnim.stop();
-            pressAnim.restart();
-            growAnim.restart();
+        newestCircle = rippleCreator.createObject(root, {
+            posX: x,
+            posY: y
+        });
+        if (newestCircle) {
+            newestCircle.startAnim();
         }
     }
 
     function rippleAnimateReleased() {
-        if (root.isRipplePressed) {
-            pressAnim.stop();
-            releaseAnim.start();
-            root.isRipplePressed = false;
+        if (newestCircle) {
+            newestCircle.stopAnim();
         }
+        newestCircle = null;
     }
 
     Rectangle {
@@ -53,42 +44,68 @@ Item {
         radius: root.rootRadius
     }
 
-    Rectangle {
-        id: ripple
+    Component {
+        id: rippleCreator
 
-        width: root.circleDiameter
-        height: root.circleDiameter
-        color: Theme.surfaceContainerHighest
-        x: root.posX - (width / 2)
-        y: root.posY - (height / 2)
-        radius: Math.max(width, height) * 0.5
-        opacity: 0
+        Rectangle {
+            id: ripple
 
-        NumberAnimation {
-            id: growAnim
-            target: ripple
-            easing.type: Easing.OutQuart
-            property: "scale"
-            from: 0
-            to: 1
-            duration: Theme.rippleDurationScalePress
-        }
+            property real circleDiameter: Math.max(topLeftCorner, bottomLeftCorner, topRightCorner, bottomRightCorner) * 2
+            property real topLeftCorner: Math.hypot(posX - 0, posY - 0)
+            property real bottomLeftCorner: Math.hypot(posX - 0, posY - root.height)
+            property real topRightCorner: Math.hypot(posX - root.width, posY - 0)
+            property real bottomRightCorner: Math.hypot(posX - root.width, posY - root.height)
+            property real posX
+            property real posY
 
-        NumberAnimation {
-            id: pressAnim
-            target: ripple
-            properties: "opacity"
-            from: 0
-            to: Theme.rippleOpacity
-            duration: Theme.rippleDurationOpacityPress
-        }
-        NumberAnimation {
-            id: releaseAnim
-            target: ripple
-            easing.type: Easing.InQuart
-            properties: "opacity"
-            to: 0
-            duration: Theme.rippleDurationOpacityRelease
+            width: circleDiameter
+            height: circleDiameter
+            x: posX - (ripple.width / 2)
+            y: posY - (ripple.height / 2)
+            color: Theme.surfaceContainerHighest
+            radius: Math.max(width, height) * 0.5
+            opacity: 0
+
+            function startAnim() {
+                growAnim.start();
+                pressAnim.start();
+            }
+
+            function stopAnim() {
+                pressAnim.stop();
+                releaseAnim.start();
+            }
+
+            NumberAnimation {
+                id: growAnim
+                target: ripple
+                easing.type: Easing.OutQuart
+                property: "scale"
+                from: 0
+                to: 1
+                duration: Theme.rippleDurationScalePress
+            }
+
+            NumberAnimation {
+                id: pressAnim
+                target: ripple
+                property: "opacity"
+                from: 0
+                to: Theme.rippleOpacity
+                duration: Theme.rippleDurationOpacityPress
+            }
+
+            NumberAnimation {
+                id: releaseAnim
+                target: ripple
+                easing.type: Easing.InQuart
+                property: "opacity"
+                to: 0
+                duration: Theme.rippleDurationOpacityRelease
+                onFinished: {
+                    ripple.destroy();
+                }
+            }
         }
     }
 }
