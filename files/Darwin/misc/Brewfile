@@ -28,4 +28,4 @@ cask "font-maple-mono-nf"
 cask "steam"
 
 # text editor
-cask "emacs"
+cask "emacs-app"

@@ -17,3 +17,10 @@ files/Linux/config/emacs/*
 !files/Linux/config/emacs/themes
 files/Linux/config/emacs/themes/*
 !files/Linux/config/emacs/themes/oxocarbon-theme.el
+files/Darwin/config/emacs/*
+!files/Darwin/config/emacs/early-init.el
+!files/Darwin/config/emacs/init.el
+!files/Darwin/config/emacs/keys.org
+!files/Darwin/config/emacs/themes
+files/Darwin/config/emacs/themes/*
+!files/Darwin/config/emacs/themes/oxocarbon-theme.el
