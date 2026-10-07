@@ -12,4 +12,3 @@ eden
 protonup-qt (Flatpak)
 shadPS4
 mpd-discord-rpc
-Doom Emacs (git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs && ~/.config/emacs/bin/doom install)

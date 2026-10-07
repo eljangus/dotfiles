@@ -9,3 +9,7 @@ files/Linux/config/VSCodium/User/*
 files/Linux/config/mpd/*
 !files/Linux/config/mpd/mpd.conf
 __pycache__/
+files/Linux/config/emacs/*
+!files/Linux/config/emacs/early-init.el
+!files/Linux/config/emacs/init.el
+!files/Linux/config/emacs/keys.org

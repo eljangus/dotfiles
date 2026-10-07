@@ -111,8 +111,6 @@ class Install:
                     "Additionally you will need to grab these packages yourself as the AUR is not used\n"
                 )
                 print(f.read())
-        if self.platform == "Darwin":
-            print(f"\nAdditionally make sure to install Doom Emacs\n(git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs && ~/.config/emacs/bin/doom install)!\n")
 
     # symlink my dotfiles
     def symlink_dots(self, list):

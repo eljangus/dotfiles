@@ -1,0 +1,94 @@
+#+title: keys
+TAB on a heading folds it, S-TAB folds everything. C-c k opens this file.
+
+* help
+| C-g             | cancel anything                       |
+| C-h k           | what does this key do                 |
+| C-h o           | describe function/variable at point   |
+| <prefix> C-h    | list everything under a prefix        |
+| C-h B           | all bindings, searchable (embark)     |
+
+* files
+| C-x C-f         | open file (M-DEL deletes a path part) |
+| C-x b           | buffers + recent files                |
+| C-x 4 f / 4 b   | same, other window                    |
+| C-x k           | kill buffer                           |
+| C-x s           | save all modified buffers             |
+| M-s f           | fd: find file in project              |
+| M-s r           | ripgrep in project                    |
+| M-s l           | search lines in buffer                |
+| M-g i           | jump to function/heading              |
+| M-g g           | goto line                             |
+| M-g e           | jump to error                         |
+
+* project (C-x p)
+| C-x p p         | switch project                        |
+| C-x p f         | find file                             |
+| C-x p b         | project buffers                       |
+| C-x p g         | regexp search                         |
+| C-x p D         | dired at root                         |
+| C-x p t         | terminal at root (eat)                |
+| C-x p c         | compile / run command                 |
+| C-x p k         | kill project buffers                  |
+
+* dired
+| C-x d           | open dired                            |
+| C-x C-j         | dired at current file                 |
+| RET / ^         | open / parent dir                     |
+| o / C-o         | open / preview in other window        |
+| g               | refresh                               |
+| s               | sort name/date                        |
+| (               | toggle details                        |
+| m / u / U       | mark / unmark / unmark all            |
+| t               | invert marks                          |
+| % m             | mark by regexp                        |
+| R / C / D       | move / copy / delete (to trash)       |
+| + / C-x C-f     | new dir / new file                    |
+| d then x        | flag, then delete flagged             |
+| Z               | compress / extract                    |
+| ! / &           | shell command on file (sync/async)    |
+| w / M-0 w       | copy name / full path                 |
+| C-x C-q         | edit names as text, C-c C-c to apply  |
+| q               | close                                 |
+two dired windows open: C and R default to the other one.
+
+* embark
+| C-.             | actions on thing at point / candidate |
+| C-;             | default action                        |
+search and replace across the project:
+  M-s r → C-. E (export) → e (edit) → change text → C-c C-c → C-x s
+
+* code (eglot)
+| M-. / M-,       | go to definition / back               |
+| M-?             | find references                       |
+| C-c f           | format buffer                         |
+| C-h .           | docs at point                         |
+| M-x eglot-rename / eglot-code-actions                   |
+| C-M-\           | re-indent region                      |
+
+* git (magit, C-x g)
+| s / u           | stage / unstage                       |
+| c c             | commit, C-c C-c to finish             |
+| P p / F p       | push / pull                           |
+| l l             | log                                   |
+| d d             | diff                                  |
+| k               | discard                               |
+| g               | refresh                               |
+| ?               | all commands                          |
+
+* terminal (eat)
+| C-c t           | open eat                              |
+| C-c C-e         | emacs mode (move around, copy)        |
+| C-c C-j         | back to semi-char mode                |
+| C-c C-c         | send C-c                              |
+| C-q <key>       | send the next key literally           |
+
+* org
+| C-c a / C-c c   | agenda / capture (t todo, n note)     |
+| TAB / S-TAB     | fold heading / fold all               |
+| M-RET           | new heading                           |
+| M-←→ / M-↑↓     | promote/demote / move subtree         |
+| C-c C-t         | cycle TODO state                      |
+| C-c C-s / C-d   | schedule / deadline                   |
+| C-c C-l / C-o   | insert link / open link               |
+| C-c C-c         | toggle checkbox, etc                  |

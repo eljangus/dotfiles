@@ -7,7 +7,7 @@ brew "fish"
 brew "starship"
 brew "syncthing"
 
-# doom emacs runtime deps
+# cli dev tools
 brew "ripgrep"
 brew "fd"
 brew "lazygit"
