@@ -9,6 +9,17 @@
 
 (use-package autothemer)
 
+;; Emacs.app started from Finder/Dock only gets launchd's bare PATH, so
+;; rg/fd/direnv/language servers aren't found; pull PATH from fish instead
+(use-package exec-path-from-shell
+  :custom (exec-path-from-shell-arguments '("-l"))
+  :config (exec-path-from-shell-initialize))
+
+;; left option = meta, right option stays option so the german layout can
+;; still type @ [ ] { } | \ ~
+(setq ns-option-modifier 'meta
+      ns-right-option-modifier 'none)
+
 (setq custom-theme-directory "~/.config/emacs/themes")
 
 (use-package emacs
@@ -129,7 +140,7 @@
   :mode "\\.md\\'")
 
 ;; lsp: pyright, typescript-language-server, lua-language-server, qmlls
-;; (qmlls6 on arch; brew's qt ships plain qmlls, outside a gui emacs' PATH)
+;; (brew's qt keeps qmlls in opt/qt/bin, which isn't on PATH)
 (use-package eglot
   :ensure nil
   :bind (:map eglot-mode-map
@@ -141,15 +152,14 @@
           lua-ts-mode
           qml-ts-mode)
          . eglot-ensure)
+  ;; format on save, only where a server is running
+  (eglot-managed-mode . (lambda ()
+                          (if (eglot-managed-p)
+                              (add-hook 'before-save-hook #'eglot-format-buffer nil t)
+                            (remove-hook 'before-save-hook #'eglot-format-buffer t))))
   :config
   (add-to-list 'eglot-server-programs
-               `(qml-ts-mode . (,(if (eq system-type 'darwin)
-                                     (expand-file-name
-                                      "opt/qt/bin/qmlls"
-                                      (if (file-directory-p "/opt/homebrew")
-                                          "/opt/homebrew"
-                                        "/usr/local"))
-                                   "qmlls6")))))
+               '(qml-ts-mode . ("/opt/homebrew/opt/qt/bin/qmlls"))))
 
 (use-package qml-ts-mode
   :vc (:url "https://github.com/xhcoding/qml-ts-mode" :rev :newest)
@@ -166,10 +176,14 @@
 (use-package dired
   :ensure nil
   :custom
-  (dired-listing-switches "-alh --group-directories-first")
+  ;; BSD ls has no --group-directories-first, use emacs' own ls instead
+  (ls-lisp-use-insert-directory-program nil)
+  (ls-lisp-dirs-first t)
+  (dired-listing-switches "-alh")
   (dired-dwim-target t)                 ; copy/move to the other dired window
   (dired-kill-when-opening-new-dired-buffer t)
-  (delete-by-moving-to-trash t))
+  (delete-by-moving-to-trash t)
+  :init (require 'ls-lisp))
 
 (use-package eat
   :bind (("C-c t" . eat)
@@ -259,8 +273,9 @@
 (setq dashboard-agenda-prefix-format " %i %s ")
 (setq dashboard-agenda-time-string-format "%a %d %b")
 
-;; purple Emacs logo (system SVG, scales cleanly)
-(setq dashboard-startup-banner "/usr/share/icons/hicolor/scalable/apps/emacs.svg")
+;; purple Emacs logo (the SVG bundled inside Emacs.app, scales cleanly)
+(setq dashboard-startup-banner
+      (expand-file-name "images/icons/hicolor/scalable/apps/emacs.svg" data-directory))
 ;; the SVG is 48px natively and max-height only shrinks, so set :height directly
 (setq dashboard-image-extra-props '(:height 250))
 ;; no footer quote (`dashboard-set-footer' is obsolete)
@@ -273,4 +288,3 @@
                                   (agenda    . "nf-oct-log")
                                   (registers . "nf-oct-quote")))
 
-(add-hook 'before-save-hook #'eglot-format)
