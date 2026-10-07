@@ -68,7 +68,20 @@
   :custom
   (corfu-auto t)
   (corfu-auto-prefix 2)
-  :bind (:map corfu-map ("RET" . nil))  ; TAB-only completion
+  (corfu-cycle t)            ; wrap around at the end of the list
+  (corfu-preselect 'prompt)  ; nothing selected until TAB
+  :bind (:map corfu-map
+              ;; TAB-and-Go: TAB/S-TAB cycle, the selection is inserted as you go
+              ("TAB"       . corfu-next)
+              ("<tab>"     . corfu-next)
+              ("S-TAB"     . corfu-previous)
+              ("<backtab>" . corfu-previous)
+              ("RET" . nil)
+              ;; keep C-n/C-p/C-a/C-e as normal movement while the popup is open
+              ([remap next-line]              . nil)
+              ([remap previous-line]          . nil)
+              ([remap move-beginning-of-line] . nil)
+              ([remap move-end-of-line]       . nil))
   :init (global-corfu-mode 1))
 
 ;; actions on whatever is at point / in the minibuffer
