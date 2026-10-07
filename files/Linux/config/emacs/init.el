@@ -30,8 +30,9 @@
   (savehist-mode 1)
   (save-place-mode 1)
   (which-key-mode 1)
-  :hook
-  (prog-mode . display-line-numbers-mode))
+  (global-hl-line-mode +1)
+  (add-hook 'activate-mark-hook (lambda () (global-hl-line-mode -1)))
+  (add-hook 'deactivate-mark-hook (lambda () (global-hl-line-mode +1))))
 
 ;; keybind cheatsheet
 (defun open-keys ()
@@ -65,6 +66,7 @@
   :custom
   (corfu-auto t)
   (corfu-auto-prefix 2)
+  :bind (:map corfu-map ("RET" . nil))  ; TAB-only completion
   :init (global-corfu-mode 1))
 
 ;; actions on whatever is at point / in the minibuffer
@@ -168,11 +170,63 @@
          ("C-c l" . org-store-link))
   :hook (org-mode . visual-line-mode))
 
+(use-package nerd-icons
+  :ensure t)
+
 (use-package dashboard
   :ensure t
   :config
   (dashboard-setup-startup-hook))
 
+(setq dashboard-show-shortcuts nil)
+(setq dashboard-center-content t)
+(setq dashboard-vertically-center-content t)
 (setq initial-buffer-choice 'dashboard-open)
+(setq dashboard-items '((recents   . 5)
+                        (bookmarks . 5)
+                        (projects  . 5)
+                        (agenda    . 5)))
+
+(setq dashboard-item-shortcuts '((recents   . "r")
+                                 (bookmarks . "m")
+                                 (projects  . "p")
+                                 (agenda    . "a")
+                                 (registers . "e")))
+
+(setq dashboard-item-names '(("Recent Files:"               . "Recently opened files:")
+                             ("Agenda for today:"           . "Today's agenda:")
+                             ("Agenda for the coming week:" . "Agenda:")))
+
+(setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
+(setq dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
+(setq dashboard-set-heading-icons t)
+(setq dashboard-set-file-icons t)
+
+;; paths: show the file name, with a shortened path next to it
+(setq dashboard-path-style 'truncate-beginning)
+(setq dashboard-path-max-length 40)
+(setq dashboard-recentf-show-base 'align)
+(setq dashboard-projects-show-base 'align)
+
+;; bookmarks: the name is descriptive enough, drop the path
+(setq dashboard-bookmarks-item-format "%s")
+
+;; agenda: no padded "inbox:" category, short date
+(setq dashboard-agenda-prefix-format " %i %s ")
+(setq dashboard-agenda-time-string-format "%a %d %b")
+
+;; purple Emacs logo (system SVG, scales cleanly)
+(setq dashboard-startup-banner "/usr/share/icons/hicolor/scalable/apps/emacs.svg")
+;; the SVG is 48px natively and max-height only shrinks, so set :height directly
+(setq dashboard-image-extra-props '(:height 200))
+;; no footer quote (`dashboard-set-footer' is obsolete)
+(setq dashboard-startupify-list
+      (delq 'dashboard-insert-footer dashboard-startupify-list))
+
+(dashboard-modify-heading-icons '((recents   . "nf-oct-file")
+                                  (bookmarks . "nf-oct-book")
+                                  (projects  . "nf-oct-project_roadmap")
+                                  (agenda    . "nf-oct-log")
+                                  (registers . "nf-oct-quote")))
 
 (add-hook 'before-save-hook #'eglot-format)
