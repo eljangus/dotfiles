@@ -30,9 +30,11 @@
   (savehist-mode 1)
   (save-place-mode 1)
   (which-key-mode 1)
-  (global-hl-line-mode +1)
-  (add-hook 'activate-mark-hook (lambda () (global-hl-line-mode -1)))
-  (add-hook 'deactivate-mark-hook (lambda () (global-hl-line-mode +1))))
+  :hook
+  (activate-mark-hook . (lambda () (hl-line-mode -1)))
+  (deactivate-mark-hook . (lambda () (hl-line-mode +1)))
+  (prog-mode . (lambda () (hl-line-mode +1)))
+  (prog-mode . display-line-numbers-mode))
 
 ;; keybind cheatsheet
 (defun open-keys ()
