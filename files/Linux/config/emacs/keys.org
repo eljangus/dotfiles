@@ -86,9 +86,12 @@ search and replace across the project:
 * org
 | C-c a / C-c c   | agenda / capture (t todo, n note)     |
 | TAB / S-TAB     | fold heading / fold all               |
-| M-RET           | new heading                           |
+| M-RET           | new heading / list item               |
 | M-←→ / M-↑↓     | promote/demote / move subtree         |
 | C-c C-t         | cycle TODO state                      |
 | C-c C-s / C-d   | schedule / deadline                   |
+| C-c .           | insert date                           |
 | C-c C-l / C-o   | insert link / open link               |
 | C-c C-c         | toggle checkbox, etc                  |
+| C-c C-e         | export (h o: html, l o: pdf)          |
+markup: *bold* /italic/ _underline_ =code= +strike+

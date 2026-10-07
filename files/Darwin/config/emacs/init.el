@@ -195,21 +195,6 @@
 
 (use-package magit)
 
-;; discord rich presence
-(use-package elcord
-  :config
-  (if (not (daemonp))
-      (elcord-mode)
-    ;; daemon: only show presence while a client frame is open
-    (add-hook 'server-after-make-frame-hook
-              (lambda () (unless elcord-mode (elcord-mode +1))))
-    (add-hook 'delete-frame-functions
-              (lambda (frame)
-                (unless (seq-some (lambda (f) (and (not (eq f frame))
-                                                   (frame-parameter f 'client)))
-                                  (frame-list))
-                  (elcord-mode -1))))))
-
 (use-package org
 :ensure nil
   :custom
