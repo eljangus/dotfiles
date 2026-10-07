@@ -1,5 +1,6 @@
 *.swp
 *~
+*.bak
 .DS_Store
 files/Linux/config/OpenRGB/logs/
 files/Linux/config/VSCodium/*
@@ -13,3 +14,6 @@ files/Linux/config/emacs/*
 !files/Linux/config/emacs/early-init.el
 !files/Linux/config/emacs/init.el
 !files/Linux/config/emacs/keys.org
+!files/Linux/config/emacs/themes
+files/Linux/config/emacs/themes/*
+!files/Linux/config/emacs/themes/oxocarbon-theme.el

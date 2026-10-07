@@ -13,6 +13,7 @@ brew "fd"
 brew "lazygit"
 brew "fzf"
 brew "node" # npm, for LSPs like pyright, tsserver, etc.
+brew "qt" # qmlls
 
 # shell / cli tools referenced in config.fish
 brew "eza"

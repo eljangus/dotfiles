@@ -113,7 +113,8 @@
   :ensure nil
   :mode "\\.md\\'")
 
-;; lsp: pyright, typescript-language-server, lua-language-server, qmlls6
+;; lsp: pyright, typescript-language-server, lua-language-server, qmlls
+;; (qmlls6 on arch; brew's qt ships plain qmlls, outside a gui emacs' PATH)
 (use-package eglot
   :ensure nil
   :bind (:map eglot-mode-map
@@ -126,7 +127,14 @@
           qml-ts-mode)
          . eglot-ensure)
   :config
-  (add-to-list 'eglot-server-programs '(qml-ts-mode . ("qmlls6"))))
+  (add-to-list 'eglot-server-programs
+               `(qml-ts-mode . (,(if (eq system-type 'darwin)
+                                     (expand-file-name
+                                      "opt/qt/bin/qmlls"
+                                      (if (file-directory-p "/opt/homebrew")
+                                          "/opt/homebrew"
+                                        "/usr/local"))
+                                   "qmlls6")))))
 
 (use-package qml-ts-mode
   :vc (:url "https://github.com/xhcoding/qml-ts-mode" :rev :newest)
