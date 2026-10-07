@@ -38,6 +38,7 @@ grub
 gst-plugin-pipewire
 hyprpicker
 imv
+inetutils
 kitty
 lazygit
 less
@@ -45,6 +46,7 @@ lib32-vulkan-radeon
 libpulse
 linux
 linux-firmware
+lua-language-server
 make
 mangohud
 meson
@@ -52,6 +54,7 @@ mkinitcpio
 mpd
 mpv
 nano
+neovim
 networkmanager
 ninja
 niri
@@ -86,6 +89,7 @@ quickshell
 reflector
 ripgrep
 rmpc
+ruff
 rust
 sddm
 socat
@@ -96,6 +100,7 @@ sudo
 syncthing
 tokei
 tree
+typescript-language-server
 unzip
 vim
 vulkan-radeon
@@ -107,4 +112,5 @@ wpa_supplicant
 xdg-user-dirs
 xwayland-satellite
 yt-dlp
+zed
 zram-generator
