@@ -10,6 +10,7 @@ Singleton {
     property var workspacesList: []
     property ListModel workspaces
     property var activeIdx: ({})
+    property var largestIdx: ({})
 
     function eventHandler(event) {
         if (event.WorkspacesChanged) {
@@ -24,6 +25,7 @@ Singleton {
             });
             workspaces.clear();
             let localActiveIdx = {};
+            let localLargestIdx = {};
             // append the parsed json array to workspaces
             for (let ws of workspacesList) {
                 workspaces.append({
@@ -39,8 +41,10 @@ Singleton {
                 if (ws.is_active === true) {
                     localActiveIdx[ws.output] = ws.idx;
                 }
+                localLargestIdx[ws.output] = ws.idx;
             }
             activeIdx = localActiveIdx;
+            largestIdx = localLargestIdx;
         }
         // handle isFocused and isActive
         if (event.WorkspaceActivated) {
