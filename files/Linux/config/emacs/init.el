@@ -40,7 +40,7 @@
   (prog-mode . (lambda () (hl-line-mode +1)))
   (prog-mode . display-line-numbers-mode))
 
-;; font ligatures (Maple Mono has them, emacs needs to be told which sequences)
+;; font ligatures
 (use-package ligature
   :config
   (ligature-set-ligatures
@@ -110,7 +110,7 @@
          ("C-;" . embark-dwim)
          ("C-h B" . embark-bindings)))
 
-;; export consult-ripgrep results to a grep buffer (e to edit, built in since 31)
+;; export consult-ripgrep results to a grep buffer
 (use-package embark-consult
   :after (embark consult)
   :hook (embark-collect-mode . consult-preview-at-point-mode))
@@ -222,7 +222,6 @@
 
 (setq dashboard-show-shortcuts nil)
 (setq dashboard-center-content t)
-(setq dashboard-vertically-center-content t)
 (setq initial-buffer-choice 'dashboard-open)
 (setq dashboard-items '((recents   . 5)
                         (bookmarks . 5)

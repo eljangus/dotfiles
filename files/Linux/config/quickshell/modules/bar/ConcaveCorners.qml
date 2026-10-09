@@ -48,9 +48,7 @@ PanelWindow {
                 NumberAnimation {
                     duration: 150
                 }
-
             }
-
         }
 
         Item {
@@ -68,17 +66,15 @@ PanelWindow {
                 anchors.leftMargin: Theme.frameWidth + Theme.gothLeft
                 anchors.rightMargin: Theme.frameWidth + Theme.gothRight
             }
-
         }
 
         layer.effect: MultiEffect {
-            shadowEnabled: true
+            shadowEnabled: Theme.enableFrameShadow
             shadowOpacity: Theme.frameShadowOpacity
             shadowBlur: Theme.frameShadowBlur
             shadowColor: Qt.alpha(Theme.shadowColor, 1)
             blurMultiplier: 1
         }
-
     }
 
     Bar {
@@ -92,11 +88,9 @@ PanelWindow {
             left: parent.left
             right: parent.right
         }
-
     }
 
     mask: Region {
         item: bar
     }
-
 }

@@ -24,7 +24,7 @@ Item {
         topRightRadius: Theme.capsuleRadius
         offset: Theme.shadowOffset
         spread: Theme.shadowSpread
-        color: Qt.alpha(Theme.shadowColor, 0.6)
+        color: Theme.enableWidgetShadow ? Qt.alpha(Theme.shadowColor, 0.4) : "transparent"
     }
 
     Rectangle {

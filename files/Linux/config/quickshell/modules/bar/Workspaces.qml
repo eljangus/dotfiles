@@ -41,6 +41,7 @@ Capsule {
 
                 enabled: true
                 parent: pills
+                longPressThreshold: 0
                 gesturePolicy: TapHandler.DragThreshold
                 onTapped: {
                     Niri.focusWorkspace(model.id);
@@ -57,9 +58,13 @@ Capsule {
                 cursorShape: Qt.PointingHandCursor
             }
 
+            PointHandler {
+                id: pointWorkspacePills
+            }
+
             visible: root.screenName === model.output
-            color: model.isUrgent ? Theme.error : hoverWorkspacePills.hovered ? Theme.secondary : model.isActive ? Theme.primary : Theme.textOnSurface
-            opacity: (model.isUrgent && model.isActive) ? 1 : model.isUrgent ? 0.5 : model.isActive ? 1 : hoverWorkspacePills.hovered ? 1 : model.isOccupied ? 0.8 : 0.2
+            color: model.isUrgent ? Theme.error : (hoverWorkspacePills.hovered || pointWorkspacePills.active) ? Theme.secondary : model.isActive ? Theme.primary : Theme.textOnSurface
+            opacity: (model.isUrgent && model.isActive) ? 1 : model.isUrgent ? 0.5 : model.isActive ? 1 : (hoverWorkspacePills.hovered || pointWorkspacePills.active) ? 1 : model.isOccupied ? 0.8 : 0.2
             implicitWidth: model.isActive ? wsText.implicitWidth + Theme.pillPaddingActive * 2 : dotSize
             implicitHeight: model.isActive ? root.height - Theme.pillMargin * 2 : dotSize
             radius: Theme.pillRadius
@@ -100,12 +105,6 @@ Capsule {
             Behavior on opacity {
                 OpacityAnimator {
                     duration: 150
-                }
-            }
-
-            Behavior on implicitWidth {
-                NumberAnimation {
-                    duration: 80
                 }
             }
 
