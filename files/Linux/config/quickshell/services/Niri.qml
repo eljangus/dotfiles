@@ -1,7 +1,7 @@
+pragma Singleton
 import QtQuick
 import Quickshell
 import Quickshell.Io
-pragma Singleton
 
 Singleton {
     id: root
@@ -9,6 +9,7 @@ Singleton {
     readonly property var socketPath: Quickshell.env("NIRI_SOCKET")
     property var workspacesList: []
     property ListModel workspaces
+    property var activeIdx: ({})
 
     function eventHandler(event) {
         if (event.WorkspacesChanged) {
@@ -22,6 +23,7 @@ Singleton {
                 return a.idx - b.idx;
             });
             workspaces.clear();
+            let localActiveIdx = {};
             // append the parsed json array to workspaces
             for (let ws of workspacesList) {
                 workspaces.append({
@@ -34,10 +36,16 @@ Singleton {
                     "isUrgent": ws.is_urgent === true,
                     "isOccupied": ws.active_window_id ? true : false
                 });
+                if (ws.is_active === true) {
+                    localActiveIdx[ws.output] = ws.idx;
+                }
             }
+            activeIdx = localActiveIdx;
         }
         // handle isFocused and isActive
         if (event.WorkspaceActivated) {
+            // I fucking hate JS so much grr
+            let localActiveIdx = Object.assign({}, activeIdx);
             for (let i = 0; i < workspaces.count; i++) {
                 if (workspaces.get(i).id === event.WorkspaceActivated.id) {
                     const output = workspaces.get(i).output;
@@ -45,14 +53,14 @@ Singleton {
                     for (let j = 0; j < workspaces.count; j++) {
                         if (workspaces.get(j).output === output && j !== i)
                             workspaces.setProperty(j, "isActive", false);
-
                     }
+                    localActiveIdx[output] = workspaces.get(i).idx;
+                    activeIdx = localActiveIdx;
                     if (event.WorkspaceActivated.focused) {
                         workspaces.setProperty(i, "isFocused", true);
                         for (let k = 0; k < workspaces.count; k++) {
                             if (k !== i)
                                 workspaces.setProperty(k, "isFocused", false);
-
                         }
                     }
                     break;
@@ -156,5 +164,4 @@ Singleton {
 
     workspaces: ListModel {
     }
-
 }
