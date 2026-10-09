@@ -14,6 +14,10 @@ Item {
     implicitWidth: inner.implicitWidth + root.padding
     Layout.fillHeight: true
 
+    HoverHandler {
+        id: hoverHandler
+    }
+
     RectangularShadow {
         anchors.fill: capsule
         antialiasing: true
@@ -33,10 +37,6 @@ Item {
         anchors.fill: root
         radius: Theme.capsuleRadius
         color: hoverHandler.hovered ? Theme.surfaceContainerHigh : Theme.surfaceContainer
-
-        HoverHandler {
-            id: hoverHandler
-        }
 
         PointHandler {
             id: pointArea

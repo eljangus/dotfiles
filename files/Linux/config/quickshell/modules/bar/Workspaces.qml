@@ -44,7 +44,8 @@ Capsule {
 
         Behavior on x {
             NumberAnimation {
-                duration: 100
+                duration: 170
+                easing.type: Easing.OutCubic
             }
         }
         Text {
@@ -52,25 +53,10 @@ Capsule {
 
             text: Niri.activeName[root.screenName] ? Niri.activeName[root.screenName] : Niri.activeIdx[root.screenName]
             color: Theme.surfaceContainer
-            // text: model.name != "" ? model.name : model.idx
-            // color: Theme.surfaceContainer
-            // opacity: model.isActive ? 1 : 0
-            // font.pixelSize: model.isActive ? Theme.widgetFontSize : 0
+            font.pointSize: Theme.widgetFontSize
 
             anchors {
                 centerIn: parent
-            }
-
-            Behavior on color {
-                ColorAnimation {
-                    duration: 150
-                }
-            }
-
-            Behavior on opacity {
-                OpacityAnimator {
-                    duration: 80
-                }
             }
         }
     }
@@ -107,7 +93,7 @@ Capsule {
                 parent: pills
                 // enable blocking to no longer hover the capsule once you hover a pill
                 blocking: false
-                cursorShape: Qt.PointingHandCursor
+                cursorShape: model.isActive ? Qt.ArrowCursor : Qt.PointingHandCursor
             }
 
             PointHandler {
