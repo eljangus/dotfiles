@@ -45,9 +45,6 @@ Capsule {
                 onTapped: {
                     Niri.focusWorkspace(model.id);
                 }
-                onGrabChanged: (transition, point) => {
-                    console.log("tap grap:", transition);
-                }
             }
 
             HoverHandler {
