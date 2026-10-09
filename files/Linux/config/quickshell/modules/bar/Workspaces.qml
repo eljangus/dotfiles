@@ -1,5 +1,4 @@
 import QtQuick
-import QtQuick.Layouts
 import qs.config
 import qs.services
 
@@ -9,15 +8,11 @@ Capsule {
     property string screenName
     property real dotSize: root.height / 4
     property real activePillWidth: Theme.pillPaddingActive * 2
-    property real dotGap: (root.height - dotSize) / 2
-    property real dotMargin: dotGap / 2
+    property real railGap: (root.height - rail.implicitHeight) / 2
+    property real dotMargin: (railGap + rail.width / 2 - dotSize / 2) / 2
     property real dotSlot: dotMargin * 2 + dotSize
-    property real wideSlot: activeMargin * 2 + activePillWidth
-    property real activeMargin: Math.max(0, Theme.pillMargin)
-    property real rowWidth: (Niri.largestIdx[root.screenName] - 1) * dotSlot + wideSlot + dotGap
-
-    spacing: 0 // because of my fuckery
-    padding: dotGap
+    property real rowWidth: (Niri.largestIdx[root.screenName]) * dotSlot + edgePadding * 2
+    property real edgePadding: railGap + (rail.width - dotSlot) / 2
 
     implicitWidth: rowWidth
 
@@ -36,6 +31,24 @@ Capsule {
         }
     }
 
+    Rectangle {
+        id: rail
+
+        parent: root
+        implicitWidth: root.activePillWidth
+        implicitHeight: root.height - Theme.pillMargin
+        y: (root.height - implicitHeight) / 2
+        x: (Niri.activeIdx[root.screenName] - 1) * root.dotSlot + root.dotMargin + root.edgePadding - rail.width / 2 + root.dotSize / 2
+        radius: Theme.pillRadius
+        color: Theme.primary
+
+        Behavior on x {
+            NumberAnimation {
+                duration: 100
+            }
+        }
+    }
+
     Repeater {
         id: dotsRepeater
 
@@ -46,7 +59,7 @@ Capsule {
         Rectangle {
             id: pills
             // lord have mercy
-            x: (model.idx - 1) * root.dotSlot + (model.idx > Niri.activeIdx[root.screenName] ? root.wideSlot - root.dotSlot : 0) + (model.isActive ? (root.wideSlot - root.dotSize) / 2 : root.dotMargin) + dotGap / 2
+            x: (model.idx - 1) * root.dotSlot + root.dotMargin + root.edgePadding
             y: (root.height - pills.height) / 2
 
             TapHandler {
@@ -81,8 +94,6 @@ Capsule {
             implicitWidth: dotSize
             implicitHeight: dotSize
             radius: Theme.pillRadius
-            Layout.leftMargin: model.isActive ? activeMargin : dotMargin
-            Layout.rightMargin: model.isActive ? activeMargin : dotMargin
 
             // Text {
             //     id: wsText
@@ -118,18 +129,6 @@ Capsule {
             Behavior on opacity {
                 OpacityAnimator {
                     duration: 150
-                }
-            }
-
-            Behavior on Layout.rightMargin {
-                NumberAnimation {
-                    duration: 10
-                }
-            }
-
-            Behavior on Layout.leftMargin {
-                NumberAnimation {
-                    duration: 10
                 }
             }
         }

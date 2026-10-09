@@ -47,7 +47,6 @@ Singleton {
     readonly property real barPaddingHor: 10
     readonly property real barPaddingVert: 8
     readonly property real barWidgetSpacing: 10
-    readonly property real panelMargin: 0
     readonly property real screenCornerRadius: 20
     readonly property real gothBottom: 0
     readonly property real gothLeft: 0
@@ -66,13 +65,10 @@ Singleton {
     readonly property real capsuleRadius: capsuleRadiusOverride >= 0 ? capsuleRadiusOverride : Math.max(0, barRadius - barPaddingVert)
     readonly property real capsulePadding: 6
     readonly property real capsulePaddingHorizontal: 6
-    // Workspaces capsule + pills (items inside it)
-    readonly property real wsCapsulePadding: pillMargin
     // pillMargin makes it fit perfectly
-    readonly property real wsSpacing: 8
     readonly property real pillRadiusOverride: 6
     readonly property real pillRadius: pillRadiusOverride >= 0 ? pillRadiusOverride : Math.max(0, capsuleRadius - pillMargin)
-    readonly property real pillMargin: 7
+    readonly property real pillMargin: 12
     readonly property real pillPaddingActive: 4 * pillPaddingInactive
     readonly property real pillPaddingInactive: 4
     // Animations and Extras
