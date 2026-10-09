@@ -6,7 +6,7 @@ import qs.config
 
 Item {
     id: root
-    // 1 because stencil is a visual element, therefore the layer should only be enabled once more than 1 visual item exists, that would be Component
+    // 1 because stencil is a visual element, therefore the layer should only be enabled once more than 1 visual item exists, that would be a circle created by createObject
     layer.enabled: 1 < root.children.length
     layer.effect: MultiEffect {
         maskEnabled: true

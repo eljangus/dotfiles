@@ -21,13 +21,12 @@ Capsule {
         parent: root
         acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
         orientation: Qt.Vertical
-        onWheel: (event) => {
+        onWheel: event => {
             if (event.angleDelta.y < 0)
                 Niri.scrollWorkspaces("FocusWorkspaceDown");
 
             if (event.angleDelta.y > 0)
                 Niri.scrollWorkspaces("FocusWorkspaceUp");
-
         }
     }
 
@@ -37,9 +36,33 @@ Capsule {
         Rectangle {
             id: pills
 
+            TapHandler {
+                id: tapWorkspacePills
+
+                enabled: true
+                parent: pills
+                gesturePolicy: TapHandler.DragThreshold
+                onTapped: {
+                    Niri.focusWorkspace(model.id);
+                }
+                onGrabChanged: (transition, point) => {
+                    console.log("tap grap:", transition);
+                }
+            }
+
+            HoverHandler {
+                id: hoverWorkspacePills
+
+                enabled: parent.enabled
+                parent: pills
+                // enable blocking to no longer hover the capsule once you hover a pill
+                blocking: false
+                cursorShape: Qt.PointingHandCursor
+            }
+
             visible: root.screenName === model.output
-            color: model.isUrgent ? Theme.error : mouseAreaPills.containsMouse ? Theme.secondary : model.isActive ? Theme.primary : Theme.textOnSurface
-            opacity: (model.isUrgent && model.isActive) ? 1 : model.isUrgent ? 0.5 : model.isActive ? 1 : mouseAreaPills.containsMouse ? 1 : model.isOccupied ? 0.8 : 0.2
+            color: model.isUrgent ? Theme.error : hoverWorkspacePills.hovered ? Theme.secondary : model.isActive ? Theme.primary : Theme.textOnSurface
+            opacity: (model.isUrgent && model.isActive) ? 1 : model.isUrgent ? 0.5 : model.isActive ? 1 : hoverWorkspacePills.hovered ? 1 : model.isOccupied ? 0.8 : 0.2
             implicitWidth: model.isActive ? wsText.implicitWidth + Theme.pillPaddingActive * 2 : dotSize
             implicitHeight: model.isActive ? root.height - Theme.pillMargin * 2 : dotSize
             radius: Theme.pillRadius
@@ -62,64 +85,44 @@ Capsule {
                     ColorAnimation {
                         duration: 150
                     }
-
                 }
 
                 Behavior on opacity {
                     OpacityAnimator {
                         duration: 80
                     }
-
                 }
-
-            }
-
-            MouseArea {
-                id: mouseAreaPills
-
-                hoverEnabled: true
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-                onClicked: Niri.focusWorkspace(model.id)
             }
 
             Behavior on color {
                 ColorAnimation {
                     duration: 80
                 }
-
             }
 
             Behavior on opacity {
                 OpacityAnimator {
                     duration: 150
                 }
-
             }
 
             Behavior on implicitWidth {
                 NumberAnimation {
                     duration: 80
                 }
-
             }
 
             Behavior on Layout.rightMargin {
                 NumberAnimation {
                     duration: 10
                 }
-
             }
 
             Behavior on Layout.leftMargin {
                 NumberAnimation {
                     duration: 10
                 }
-
             }
-
         }
-
     }
-
 }

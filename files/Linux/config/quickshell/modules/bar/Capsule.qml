@@ -38,19 +38,16 @@ Item {
             id: hoverHandler
         }
 
-        MouseArea {
-            id: clickArea
+        PointHandler {
+            id: pointArea
 
-            onPressed: {
-                ripple.rippleAnimatePressed(mouseX, mouseY);
+            onActiveChanged: {
+                if (active) {
+                    ripple.rippleAnimatePressed(point.position.x, point.position.y);
+                } else {
+                    ripple.rippleAnimateReleased();
+                }
             }
-            onReleased: {
-                ripple.rippleAnimateReleased();
-            }
-            onCanceled: {
-                ripple.rippleAnimateReleased();
-            }
-            anchors.fill: parent
         }
 
         Ripple {
