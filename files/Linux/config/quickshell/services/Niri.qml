@@ -11,6 +11,7 @@ Singleton {
     property ListModel workspaces
     property var activeIdx: ({})
     property var largestIdx: ({})
+    property var activeName: ({})
 
     function eventHandler(event) {
         if (event.WorkspacesChanged) {
@@ -26,6 +27,7 @@ Singleton {
             workspaces.clear();
             let localActiveIdx = {};
             let localLargestIdx = {};
+            let localActiveName = {};
             // append the parsed json array to workspaces
             for (let ws of workspacesList) {
                 workspaces.append({
@@ -40,16 +42,19 @@ Singleton {
                 });
                 if (ws.is_active === true) {
                     localActiveIdx[ws.output] = ws.idx;
+                    localActiveName[ws.output] = ws.name;
                 }
                 localLargestIdx[ws.output] = ws.idx;
             }
             activeIdx = localActiveIdx;
             largestIdx = localLargestIdx;
+            activeName = localActiveName;
         }
         // handle isFocused and isActive
         if (event.WorkspaceActivated) {
             // I fucking hate JS so much grr
             let localActiveIdx = Object.assign({}, activeIdx);
+            let localActiveName = Object.assign({}, activeName);
             for (let i = 0; i < workspaces.count; i++) {
                 if (workspaces.get(i).id === event.WorkspaceActivated.id) {
                     const output = workspaces.get(i).output;
@@ -59,7 +64,9 @@ Singleton {
                             workspaces.setProperty(j, "isActive", false);
                     }
                     localActiveIdx[output] = workspaces.get(i).idx;
+                    localActiveName[output] = workspaces.get(i).name;
                     activeIdx = localActiveIdx;
+                    activeName = localActiveName;
                     if (event.WorkspaceActivated.focused) {
                         workspaces.setProperty(i, "isFocused", true);
                         for (let k = 0; k < workspaces.count; k++) {

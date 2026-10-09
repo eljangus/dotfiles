@@ -47,6 +47,32 @@ Capsule {
                 duration: 100
             }
         }
+        Text {
+            id: wsText
+
+            text: Niri.activeName[root.screenName] ? Niri.activeName[root.screenName] : Niri.activeIdx[root.screenName]
+            color: Theme.surfaceContainer
+            // text: model.name != "" ? model.name : model.idx
+            // color: Theme.surfaceContainer
+            // opacity: model.isActive ? 1 : 0
+            // font.pixelSize: model.isActive ? Theme.widgetFontSize : 0
+
+            anchors {
+                centerIn: parent
+            }
+
+            Behavior on color {
+                ColorAnimation {
+                    duration: 150
+                }
+            }
+
+            Behavior on opacity {
+                OpacityAnimator {
+                    duration: 80
+                }
+            }
+        }
     }
 
     Repeater {
@@ -94,31 +120,6 @@ Capsule {
             implicitWidth: dotSize
             implicitHeight: dotSize
             radius: Theme.pillRadius
-
-            // Text {
-            //     id: wsText
-
-            //     text: model.name != "" ? model.name : model.idx
-            //     color: Theme.surfaceContainer
-            //     opacity: model.isActive ? 1 : 0
-            //     font.pixelSize: model.isActive ? Theme.widgetFontSize : 0
-
-            //     anchors {
-            //         centerIn: parent
-            //     }
-
-            //     Behavior on color {
-            //         ColorAnimation {
-            //             duration: 150
-            //         }
-            //     }
-
-            //     Behavior on opacity {
-            //         OpacityAnimator {
-            //             duration: 80
-            //         }
-            //     }
-            // }
 
             Behavior on color {
                 ColorAnimation {
