@@ -40,7 +40,6 @@ Singleton {
     readonly property color success: "#8c977d"
     // Fonts
     readonly property real widgetFontSize: 14
-    readonly property real pillFontSize: 12
     readonly property string fontFamily: "Maple Mono NF"
     // Bar
     readonly property real barHeight: 50
@@ -70,9 +69,9 @@ Singleton {
     readonly property real pillRadiusOverride: -1
     readonly property real pillRadius: pillRadiusOverride >= 0 ? pillRadiusOverride : Math.max(0, capsuleRadius - pillMargin)
     readonly property real pillMargin: 6
-    readonly property real pillExtraDotMarginOverride: 4
+    readonly property real pillExtraDotMarginOverride: 2
     readonly property real pillExtraDotMargin: pillExtraDotMarginOverride >= 0 ? pillExtraDotMarginOverride : 0
-    readonly property real pillPaddingActiveOverride: -1
+    readonly property real pillPaddingActiveOverride: 5
     readonly property real pillPaddingActive: pillPaddingActiveOverride >= 0 ? pillPaddingActiveOverride : 0
     readonly property real pillMaxActivePillWidth: 2
     // Animations and Extras

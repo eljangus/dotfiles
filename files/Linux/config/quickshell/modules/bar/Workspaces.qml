@@ -9,10 +9,12 @@ Capsule {
     property real dotSize: root.height / 4
     property real activePillWidth: Math.min(rail.height + Theme.pillPaddingActive + widestLabelPerOutput(), rail.height * Theme.pillMaxActivePillWidth)
     property real railGap: (root.height - rail.implicitHeight) / 2
+    property real textGap: (rail.height - fontMetrics.tightBoundingRect("O").height) / 2 // "O" is just a reference string, if you like using Umlauts or other characters in your ws names, you may use something like "Ö" instead
     property real dotMargin: (railGap + rail.width / 2 - dotSize / 2) / 2 + Theme.pillExtraDotMargin
     property real dotSlot: dotMargin * 2 + dotSize
     property real rowWidth: (Niri.largestIdx[root.screenName]) * dotSlot + edgePadding * 2
     property real edgePadding: railGap + (rail.width - dotSlot) / 2
+    property real pillFontSize: Math.max(0, rail.height * 0.65)
 
     implicitWidth: rowWidth
 
@@ -71,20 +73,21 @@ Capsule {
             id: fontMetrics
 
             font.family: Theme.fontFamily
-            font.pointSize: Theme.pillFontSize
+            font.pixelSize: root.pillFontSize
         }
 
         Text {
             id: wsText
 
-            text: Niri.activeName[root.screenName] ? Niri.activeName[root.screenName] : Niri.activeIdx[root.screenName]
+            width: rail.width - root.textGap * 2
+            elide: Text.ElideRight
+            anchors.centerIn: parent
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            text: (Niri.activeName[root.screenName] ? Niri.activeName[root.screenName] : Niri.activeIdx[root.screenName]) || ""
             color: Theme.surfaceContainer
-            font.pointSize: Theme.pillFontSize
+            font.pixelSize: root.pillFontSize
             font.family: Theme.fontFamily
-
-            anchors {
-                centerIn: parent
-            }
         }
     }
 
