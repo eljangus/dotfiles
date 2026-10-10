@@ -44,13 +44,11 @@ Scope {
 
             Text {
                 color: Theme.textOnSurface
-                font.pointSize: 30
+                font.pointSize: Theme.widgetFontSize
+                font.family: Theme.fontFamily
                 anchors.centerIn: parent
                 text: "Dock"
             }
-
         }
-
     }
-
 }

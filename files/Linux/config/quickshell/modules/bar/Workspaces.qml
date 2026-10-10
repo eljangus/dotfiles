@@ -7,14 +7,33 @@ Capsule {
 
     property string screenName
     property real dotSize: root.height / 4
-    property real activePillWidth: Theme.pillPaddingActive * 2
+    property real activePillWidth: Math.min(rail.height + Theme.pillPaddingActive + widestLabelPerOutput(), rail.height * Theme.pillMaxActivePillWidth)
     property real railGap: (root.height - rail.implicitHeight) / 2
-    property real dotMargin: (railGap + rail.width / 2 - dotSize / 2) / 2
+    property real dotMargin: (railGap + rail.width / 2 - dotSize / 2) / 2 + Theme.pillExtraDotMargin
     property real dotSlot: dotMargin * 2 + dotSize
     property real rowWidth: (Niri.largestIdx[root.screenName]) * dotSlot + edgePadding * 2
     property real edgePadding: railGap + (rail.width - dotSlot) / 2
 
     implicitWidth: rowWidth
+
+    function widestLabelPerOutput() {
+        let longestLabel = {
+            [root.screenName]: 0
+        };
+        let measureWidth = fontMetrics.advanceWidth;
+        for (let i = 0; i < Niri.workspaces.count; i++) {
+            let ws = Niri.workspaces.get(i);
+            if (root.screenName === ws.output) {
+                if (ws.name && (measureWidth(ws.name) > longestLabel[root.screenName])) {
+                    longestLabel[root.screenName] = measureWidth(ws.name);
+                }
+                if ((!ws.name) && (measureWidth(ws.idx) > longestLabel[root.screenName])) {
+                    longestLabel[root.screenName] = measureWidth(ws.idx);
+                }
+            }
+        }
+        return longestLabel[root.screenName];
+    }
 
     WheelHandler {
         id: scrollWheelWorkspaces
@@ -25,7 +44,6 @@ Capsule {
         onWheel: event => {
             if (event.angleDelta.y < 0)
                 Niri.scrollWorkspaces("FocusWorkspaceDown");
-
             if (event.angleDelta.y > 0)
                 Niri.scrollWorkspaces("FocusWorkspaceUp");
         }
@@ -36,7 +54,7 @@ Capsule {
 
         parent: root
         implicitWidth: root.activePillWidth
-        implicitHeight: root.height - Theme.pillMargin
+        implicitHeight: root.height - Theme.pillMargin * 2
         y: (root.height - implicitHeight) / 2
         x: (Niri.activeIdx[root.screenName] - 1) * root.dotSlot + root.dotMargin + root.edgePadding - rail.width / 2 + root.dotSize / 2
         radius: Theme.pillRadius
@@ -45,15 +63,24 @@ Capsule {
         Behavior on x {
             NumberAnimation {
                 duration: 170
-                easing.type: Easing.OutCubic
+                easing.type: Easing.OutBack
             }
         }
+
+        FontMetrics {
+            id: fontMetrics
+
+            font.family: Theme.fontFamily
+            font.pointSize: Theme.pillFontSize
+        }
+
         Text {
             id: wsText
 
             text: Niri.activeName[root.screenName] ? Niri.activeName[root.screenName] : Niri.activeIdx[root.screenName]
             color: Theme.surfaceContainer
-            font.pointSize: Theme.widgetFontSize
+            font.pointSize: Theme.pillFontSize
+            font.family: Theme.fontFamily
 
             anchors {
                 centerIn: parent

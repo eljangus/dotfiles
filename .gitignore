@@ -11,6 +11,7 @@ files/Linux/config/mpd/*
 !files/Linux/config/mpd/mpd.conf
 __pycache__/
 files/Linux/config/emacs/*
+!files/Linux/config/emacs/highlight-indent
 !files/Linux/config/emacs/early-init.el
 !files/Linux/config/emacs/init.el
 !files/Linux/config/emacs/keys.org
@@ -18,6 +19,7 @@ files/Linux/config/emacs/*
 files/Linux/config/emacs/themes/*
 !files/Linux/config/emacs/themes/oxocarbon-theme.el
 files/Darwin/config/emacs/*
+!files/Darwin/config/emacs/highlight-indent
 !files/Darwin/config/emacs/early-init.el
 !files/Darwin/config/emacs/init.el
 !files/Darwin/config/emacs/keys.org

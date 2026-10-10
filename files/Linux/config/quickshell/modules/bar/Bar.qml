@@ -26,13 +26,11 @@ Item {
             bottomMargin: Theme.barPaddingVert
         }
 
-        Launcher {
-        }
+        Launcher {}
 
         Workspaces {
             screenName: root.screenName
         }
-
     }
 
     RowLayout {
@@ -48,9 +46,7 @@ Item {
             bottomMargin: Theme.barPaddingVert
         }
 
-        Clock {
-        }
-
+        Clock {}
     }
 
     RowLayout {
@@ -67,9 +63,6 @@ Item {
             bottomMargin: Theme.barPaddingVert
         }
 
-        Twinktangle {
-        }
-
+        Twinktangle {}
     }
-
 }

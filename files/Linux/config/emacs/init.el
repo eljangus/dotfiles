@@ -270,3 +270,11 @@
                                   (agenda    . "nf-oct-log")
                                   (registers . "nf-oct-quote")))
 
+(use-package highlight-indent-guides
+  :load-path
+  ("~/.config/emacs/highlight-indent/")
+  :custom
+  (highlight-indent-guides-method 'character))
+  
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+

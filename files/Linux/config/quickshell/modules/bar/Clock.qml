@@ -8,7 +8,7 @@ Capsule {
     Text {
         text: `${Time.twentyFourHourTimeDate}`
         color: Theme.textOnSurface
-        font.pointSize: Theme.fontSize
+        font.pointSize: Theme.widgetFontSize
+        font.family: Theme.fontFamily
     }
-
 }

@@ -13,11 +13,10 @@ Capsule {
             id: twink
 
             text: "Twinkshell Uwaaa"
-            font.pointSize: Theme.fontSize
+            font.pointSize: Theme.widgetFontSize
+            font.family: Theme.fontFamily
             color: Theme.textOnSurface
             anchors.centerIn: parent
         }
-
     }
-
 }
