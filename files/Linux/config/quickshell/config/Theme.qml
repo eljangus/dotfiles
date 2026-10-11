@@ -61,17 +61,17 @@ Singleton {
     readonly property bool enableWidgetShadow: false
     readonly property bool enableFrameShadow: true
     // Capsule (background behind each bar widget)
-    readonly property real capsuleRadiusOverride: 10
+    readonly property real capsuleRadiusOverride: 30
     readonly property real capsuleRadius: capsuleRadiusOverride >= 0 ? capsuleRadiusOverride : Math.max(0, barRadius - barPaddingVert)
     readonly property real capsulePadding: 6
     readonly property real capsulePaddingHorizontal: 6
     // pillMargin makes it fit perfectly
     readonly property real pillRadiusOverride: -1
     readonly property real pillRadius: pillRadiusOverride >= 0 ? pillRadiusOverride : Math.max(0, capsuleRadius - pillMargin)
-    readonly property real pillMargin: 6
+    readonly property real pillMargin: 5
     readonly property real pillExtraDotMarginOverride: 2
     readonly property real pillExtraDotMargin: pillExtraDotMarginOverride >= 0 ? pillExtraDotMarginOverride : 0
-    readonly property real pillPaddingActiveOverride: 5
+    readonly property real pillPaddingActiveOverride: 0 // -1 makes it a perfect circle / square
     readonly property real pillPaddingActive: pillPaddingActiveOverride >= 0 ? pillPaddingActiveOverride : 0
     readonly property real pillMaxActivePillWidth: 2
     // Animations and Extras

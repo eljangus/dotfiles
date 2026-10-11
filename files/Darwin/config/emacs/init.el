@@ -195,6 +195,21 @@
 
 (use-package magit)
 
+;; discord rich presence
+(use-package elcord
+  :config
+  (if (not (daemonp))
+      (elcord-mode)
+    ;; daemon: only show presence while a client frame is open
+    (add-hook 'server-after-make-frame-hook
+              (lambda () (unless elcord-mode (elcord-mode +1))))
+    (add-hook 'delete-frame-functions
+              (lambda (frame)
+                (unless (seq-some (lambda (f) (and (not (eq f frame))
+                                                   (frame-parameter f 'client)))
+                                  (frame-list))
+                  (elcord-mode -1))))))
+
 (use-package org
 :ensure nil
   :custom
@@ -206,11 +221,36 @@
   (org-log-done 'time)
   (org-capture-templates
    '(("t" "Todo" entry (file "inbox.org") "* TODO %?\n%U\n")
-     ("n" "Note" entry (file "inbox.org") "* %?\n%U\n")))
+     ("n" "Note" entry (file "inbox.org") "* %?\n%U\n")
+     ("u" "Uni")
+     ("ue" "Eingang" entry (file+headline "~/Uni/aufgaben.org" "Eingang")
+      "** %?\n   %U")
+     ("ua" "Abgabe" entry (file+headline "~/Uni/aufgaben.org" "Abgaben")
+      "** TODO %?\n   DEADLINE: %^t")
+     ("uk" "Klausur" entry (file+headline "~/Uni/aufgaben.org" "Klausuren")
+      "** %? :klausur:\n   %^T")))
+  (org-refile-targets '((org-agenda-files :maxlevel . 2)))
+  (org-refile-use-outline-path 'file)
+  (org-outline-path-complete-in-steps nil)
+  (org-startup-with-latex-preview t)
   :bind (("C-c a" . org-agenda)
          ("C-c c" . org-capture)
          ("C-c l" . org-store-link))
-  :hook (org-mode . visual-line-mode))
+  :hook (org-mode . visual-line-mode)
+  :config
+  (require 'org-tempo)                  ; <s TAB, <q TAB, …
+  ;; ~/org plus Uni tasks and every module's notizen.org,
+  ;; rescanned before each agenda call so new modules show up
+  (defun uni/refresh-agenda-files (&rest _)
+    (setq org-agenda-files
+          (seq-filter #'file-exists-p
+                      (append '("~/org" "~/Uni/aufgaben.org")
+                              (when (file-directory-p "~/Uni/semester/")
+                                (directory-files-recursively "~/Uni/semester/" "\\.org\\'"))))))
+  (uni/refresh-agenda-files)
+  (advice-add 'org-agenda :before #'uni/refresh-agenda-files)
+  (org-babel-do-load-languages
+   'org-babel-load-languages '((emacs-lisp . t) (python . t) (R . t))))
 
 (use-package nerd-icons
   :ensure t)
@@ -272,4 +312,12 @@
                                   (projects  . "nf-oct-project_roadmap")
                                   (agenda    . "nf-oct-log")
                                   (registers . "nf-oct-quote")))
+
+(use-package highlight-indent-guides
+  :load-path
+  ("~/.config/emacs/highlight-indent/")
+  :custom
+  (highlight-indent-guides-method 'character))
+  
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 

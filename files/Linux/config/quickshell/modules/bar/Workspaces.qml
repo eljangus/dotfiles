@@ -7,7 +7,7 @@ Capsule {
 
     property string screenName
     property real dotSize: root.height / 4
-    property real activePillWidth: Math.min(rail.height + Theme.pillPaddingActive + widestLabelPerOutput(), rail.height * Theme.pillMaxActivePillWidth)
+    property real activePillWidth: Math.min(rail.height + Theme.pillPaddingActive + (Theme.pillPaddingActiveOverride >= 0 ? widestLabelPerOutput() : 0), rail.height * Theme.pillMaxActivePillWidth)
     property real railGap: (root.height - rail.implicitHeight) / 2
     property real textGap: (rail.height - fontMetrics.tightBoundingRect("O").height) / 2 // "O" is just a reference string, if you like using Umlauts or other characters in your ws names, you may use something like "Ö" instead
     property real dotMargin: (railGap + rail.width / 2 - dotSize / 2) / 2 + Theme.pillExtraDotMargin
