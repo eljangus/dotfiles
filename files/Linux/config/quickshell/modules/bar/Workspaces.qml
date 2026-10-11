@@ -88,6 +88,7 @@ Capsule {
             elide: Text.ElideRight
             anchors.centerIn: parent
             anchors.horizontalCenterOffset: (fontMetrics.advanceWidth(text) / 2) - (fontMetrics.tightBoundingRect(text).x + fontMetrics.tightBoundingRect(text).width / 2)
+            anchors.verticalCenterOffset: (height / 2) - (baselineOffset + fontMetrics.tightBoundingRect(text).y + fontMetrics.tightBoundingRect(text).height / 2)
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             // gl yo
