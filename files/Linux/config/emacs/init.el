@@ -310,8 +310,10 @@
   (pdf-loader-install))
 
 ;; align org tables by displayed pixel width, so hidden =markup= and
-;; fallback glyphs (arrows etc.) don't leave the right edge ragged
+;; fallback glyphs (arrows etc.) don't leave the right edge ragged.
+;; git, not ELPA: needs the folded-table fix (valign#36)
 (use-package valign
+  :vc (:url "https://github.com/casouri/valign" :rev :newest)
   :hook (org-mode . valign-mode))
 
 ;; Open PDF links from Org in pdf-tools instead of the system viewer
