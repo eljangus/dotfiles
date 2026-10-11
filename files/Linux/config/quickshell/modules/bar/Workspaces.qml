@@ -132,7 +132,7 @@ Capsule {
 
             visible: root.screenName === model.output
             color: model.isUrgent ? Theme.error : (hoverWorkspacePills.hovered || pointWorkspacePills.active) ? Theme.secondary : model.isActive ? Theme.primary : Theme.textOnSurface
-            opacity: (model.isUrgent && model.isActive) ? 1 : model.isUrgent ? 0.5 : model.isActive ? 1 : (hoverWorkspacePills.hovered || pointWorkspacePills.active) ? 1 : model.isOccupied ? 0.8 : 0.2
+            opacity: model.isUrgent ? 1 : (hoverWorkspacePills.hovered || pointWorkspacePills.active) ? 1 : model.isOccupied ? 0.8 : 0.2
             implicitWidth: dotSize
             implicitHeight: dotSize
             radius: Theme.pillRadius
