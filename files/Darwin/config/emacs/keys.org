@@ -95,3 +95,18 @@ search and replace across the project:
 | C-c C-c         | toggle checkbox, etc                  |
 | C-c C-e         | export (h o: html, l o: pdf)          |
 markup: *bold* /italic/ _underline_ =code= +strike+
+
+* org tables
+new table: type |name|value, then TAB.
+separator line: type |- on a new row, then TAB.
+C-c | : empty table, or turn a marked region (csv/tabs) into one.
+| TAB / S-TAB     | next / previous field (aligns table)  |
+| RET             | next row                              |
+| C-c C-c         | realign table                         |
+| C-c -           | separator line below                  |
+| M-S-↓ / M-S-→   | insert row / column                   |
+| M-S-↑ / M-S-←   | delete row / column                   |
+| M-↑↓ / M-←→     | move row / column                     |
+| C-c ^           | sort by current column                |
+| C-u C-c *       | recalculate whole table               |
+sum: :=vsum(@2..@-1) in a cell, then TAB (adds a #+TBLFM line)

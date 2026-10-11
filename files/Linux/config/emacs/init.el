@@ -309,6 +309,11 @@
   :config
   (pdf-loader-install))
 
+;; align org tables by displayed pixel width, so hidden =markup= and
+;; fallback glyphs (arrows etc.) don't leave the right edge ragged
+(use-package valign
+  :hook (org-mode . valign-mode))
+
 ;; Open PDF links from Org in pdf-tools instead of the system viewer
 (with-eval-after-load 'org
   (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs)))
