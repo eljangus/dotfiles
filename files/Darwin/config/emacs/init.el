@@ -326,3 +326,7 @@
   :ensure t
   :config
   (pdf-loader-install))
+
+;; Open PDF links from Org in pdf-tools instead of the system viewer
+(with-eval-after-load 'org
+  (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs)))
