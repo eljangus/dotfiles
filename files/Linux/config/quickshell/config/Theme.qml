@@ -71,7 +71,7 @@ Singleton {
     readonly property real pillMargin: 5
     readonly property real pillExtraDotMarginOverride: 2
     readonly property real pillExtraDotMargin: pillExtraDotMarginOverride >= 0 ? pillExtraDotMarginOverride : 0
-    readonly property real pillPaddingActiveOverride: -1 // -1 makes it a perfect circle / square
+    readonly property real pillPaddingActiveOverride: 0 // -1 makes it a perfect circle / square
     readonly property real pillPaddingActive: pillPaddingActiveOverride >= 0 ? pillPaddingActiveOverride : 0
     readonly property real pillMaxActivePillWidth: 2
     // Animations and Extras
