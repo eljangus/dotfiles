@@ -15,6 +15,7 @@ Capsule {
     property real rowWidth: (Niri.largestIdx[root.screenName]) * dotSlot + edgePadding * 2
     property real edgePadding: railGap + (rail.width - dotSlot) / 2
     property real pillFontSize: Math.max(0, rail.height * 0.65)
+    property bool isPaddingOverride: Theme.pillPaddingActiveOverride < 0
 
     implicitWidth: rowWidth
 
@@ -35,6 +36,10 @@ Capsule {
             }
         }
         return longestLabel[root.screenName];
+    }
+
+    function getChar(string, char) {
+        return [...string][char];
     }
 
     WheelHandler {
@@ -82,9 +87,11 @@ Capsule {
             width: rail.width - root.textGap * 2
             elide: Text.ElideRight
             anchors.centerIn: parent
+            anchors.horizontalCenterOffset: (fontMetrics.advanceWidth(text) / 2) - (fontMetrics.tightBoundingRect(text).x + fontMetrics.tightBoundingRect(text).width / 2)
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            text: (Niri.activeName[root.screenName] ? Niri.activeName[root.screenName] : Niri.activeIdx[root.screenName]) || ""
+            // gl yo
+            text: ((Niri.activeName[root.screenName] && root.isPaddingOverride) ? root.getChar(Niri.activeName[root.screenName], 0) : Niri.activeName[root.screenName] ? Niri.activeName[root.screenName] : (root.isPaddingOverride && Niri.activeIdx[root.screenName]) ? Niri.activeIdx[root.screenName] % 10 : Niri.activeIdx[root.screenName]) ?? ""
             color: Theme.surfaceContainer
             font.pixelSize: root.pillFontSize
             font.family: Theme.fontFamily
