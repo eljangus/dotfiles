@@ -325,8 +325,13 @@
 (use-package pdf-tools
   :ensure t
   :config
-  (pdf-loader-install))
+  ;; builds epdfinfo without prompting if missing (needs poppler from the Brewfile)
+  (pdf-tools-install :no-query))
 
 ;; Open PDF links from Org in pdf-tools instead of the system viewer
 (with-eval-after-load 'org
   (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs)))
+
+;; pdf: link type for org-store-link, so links point at the current page
+(use-package org-pdftools
+  :hook (org-mode . org-pdftools-setup-link))

@@ -29,3 +29,9 @@ cask "steam"
 
 # text editor
 cask "emacs-app"
+
+# pdf-tools (epdfinfo build)
+brew "poppler"
+brew "pkgconf"
+brew "autoconf"
+brew "automake"
