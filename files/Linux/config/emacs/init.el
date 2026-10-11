@@ -6,6 +6,7 @@
 
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'noerror)
+(setq native-comp-async-report-warnings-errors 'silent)
 
 (use-package autothemer)
 
@@ -303,3 +304,7 @@
   
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
+(use-package pdf-tools
+  :ensure t
+  :config
+  (pdf-loader-install))
