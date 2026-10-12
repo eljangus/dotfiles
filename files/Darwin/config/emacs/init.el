@@ -264,7 +264,6 @@
 
 (setq dashboard-show-shortcuts nil)
 (setq dashboard-center-content t)
-(setq dashboard-vertically-center-content t)
 (setq initial-buffer-choice 'dashboard-open)
 (setq dashboard-items '((recents   . 5)
                         (bookmarks . 5)
