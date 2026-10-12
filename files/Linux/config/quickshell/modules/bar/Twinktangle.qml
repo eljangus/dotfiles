@@ -1,22 +1,16 @@
 import QtQuick
 import qs.config
+import qs.components
 
 Capsule {
     id: root
 
-    Rectangle {
-        color: "transparent"
-        implicitHeight: twink.implicitHeight
-        implicitWidth: twink.implicitWidth
+    CenteredText {
+        id: twink
 
-        Text {
-            id: twink
-
-            text: "Twinkshell Uwaaa"
-            font.pointSize: Theme.widgetFontSize
-            font.family: Theme.fontFamily
-            color: Theme.textOnSurface
-            anchors.centerIn: parent
-        }
+        text: "Twinkshell Uwaaa"
+        font.pointSize: Theme.widgetFontSize
+        font.family: Theme.fontFamily
+        color: Theme.textOnSurface
     }
 }
