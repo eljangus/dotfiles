@@ -48,7 +48,7 @@
   (which-key-mode 1)
   :hook
   (activate-mark-hook . (lambda () (hl-line-mode -1)))
-  (deactivate-mark-hook . (lambda () (hl-line-mode +1)))
+  (deactivate-mark-hook . (lambda () (when (derived-mode-p 'prog-mode) (hl-line-mode +1))))
   (prog-mode . (lambda () (hl-line-mode +1)))
   (prog-mode . display-line-numbers-mode))
 
