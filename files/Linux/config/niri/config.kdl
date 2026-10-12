@@ -95,7 +95,7 @@ focus-ring {
 }
 
 spawn-at-startup "noctalia"
-spawn-at-startup "quickshell -c ~/.config/quickshell/Lily"
+spawn-at-startup "quickshell -c Lily"
 spawn-sh-at-startup "emacs --daemon"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"

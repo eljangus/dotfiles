@@ -39,6 +39,9 @@
   (prog-mode . (lambda () (hl-line-mode +1)))
   (prog-mode . display-line-numbers-mode))
 
+;; make fixed-pitch (code blocks etc.) use the default font
+(set-face-attribute 'fixed-pitch nil :family 'unspecified :inherit 'default)
+
 ;; font ligatures
 (use-package ligature
   :config
@@ -194,7 +197,7 @@
                   (elcord-mode -1))))))
 
 (use-package org
-:ensure nil
+  :ensure nil
   :custom
   (org-directory "~/org")
   (org-agenda-files '("~/org"))
