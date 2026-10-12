@@ -29,19 +29,19 @@ tag_symbol = " "
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒 PICKING](bold 1)"
+cherry_pick = "[ PICKING](bold 1)"
 
 [git_status]
-conflicted = " 🏳 "
-ahead = " 🏎💨 "
-behind = " 😰 "
-diverged = " 😵 "
-untracked = " 🤷 ‍"
-stashed = " 📦 "
-modified = " 📝 "
+conflicted = "  "
+ahead = "  "
+behind = "  "
+diverged = "  "
+untracked = "  "
+stashed = "  "
+modified = "  "
 staged = '[++\($count\)](2)'
-renamed = " ✍️ "
-deleted = " 🗑 "
+renamed = "  "
+deleted = "  "
 
 [hostname]
 ssh_only = false
@@ -60,7 +60,7 @@ style = "bold dimmed 2"
 
 [time]
 disabled = true
-format = '🕙[\[ $time \]]($style) '
+format = ' [\[ $time \]]($style) '
 time_format = "%T"
 
 [username]
