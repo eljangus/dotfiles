@@ -182,7 +182,13 @@ window-rule {
     open-floating true
     default-column-width { fixed 1500; }
     default-window-height { fixed 1000; }
+}
 
+window-rule {
+    match app-id=r#"^dev\.faetalize\.waytator$"#
+    open-floating true
+    default-column-width { fixed 1500; }
+    default-window-height { fixed 1000; }
 }
 
 window-rule {

@@ -18,6 +18,11 @@ Item {
         id: hoverHandler
     }
 
+    // PointHandler just to make sure capsule stays highlighted if held
+    PointHandler {
+        id: pointHandler
+    }
+
     RectangularShadow {
         anchors.fill: capsule
         antialiasing: true
@@ -36,7 +41,7 @@ Item {
 
         anchors.fill: root
         radius: Theme.capsuleRadius
-        color: hoverHandler.hovered ? Theme.surfaceContainerHigh : Theme.surfaceContainer
+        color: (pointHandler.active || hoverHandler.hovered) ? Theme.surfaceContainerHigh : Theme.surfaceContainer
 
         PointHandler {
             id: pointArea

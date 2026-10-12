@@ -52,7 +52,7 @@
   (prog-mode . (lambda () (hl-line-mode +1)))
   (prog-mode . display-line-numbers-mode))
 
-;; font ligatures (Maple Mono has them, emacs needs to be told which sequences)
+;; font ligatures
 (use-package ligature
   :config
   (ligature-set-ligatures

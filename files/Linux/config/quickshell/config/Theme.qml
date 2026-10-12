@@ -39,8 +39,8 @@ Singleton {
     readonly property color warning: "#d9bc8c"
     readonly property color success: "#8c977d"
     // Fonts
-    readonly property real widgetFontSize: 14
-    readonly property string fontFamily: "Maple Mono NF"
+    readonly property real widgetFontSize: 15
+    readonly property string fontFamily: "Iosevka Nerd Font"
     // Bar
     readonly property real barHeight: 50
     readonly property real barRadius: 0
