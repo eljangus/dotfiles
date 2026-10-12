@@ -13,7 +13,7 @@
     (oxocarbon-base00  "#161616")
     (oxocarbon-base01  "#262626")
     (oxocarbon-base02  "#393939")
-    (oxocarbon-base03  "#525252")
+    (oxocarbon-base03  "#6f6f6f")
 
     (oxocarbon-base04 "#dde1e6")
     (oxocarbon-base05 "#f2f4f8")
