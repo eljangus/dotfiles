@@ -11,6 +11,7 @@ cava
 chromium
 clang
 cliphist
+clisp
 cmake
 dconf-editor
 ddcutil
@@ -98,8 +99,10 @@ steam
 stow
 sudo
 syncthing
+tesseract
 tokei
 tree
+ttf-iosevka-nerd
 typescript-language-server
 unzip
 vim
