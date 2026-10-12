@@ -8,8 +8,6 @@
 (load custom-file 'noerror)
 (setq native-comp-async-report-warnings-errors 'silent)
 
-(use-package autothemer)
-
 ;; Emacs.app started from Finder/Dock only gets launchd's bare PATH, so
 ;; rg/fd/direnv/language servers aren't found; pull PATH from fish instead
 (use-package exec-path-from-shell

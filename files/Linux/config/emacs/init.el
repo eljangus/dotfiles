@@ -8,8 +8,6 @@
 (load custom-file 'noerror)
 (setq native-comp-async-report-warnings-errors 'silent)
 
-(use-package autothemer)
-
 (setq custom-theme-directory "~/.config/emacs/themes")
 
 (use-package emacs
