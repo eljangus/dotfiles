@@ -38,7 +38,7 @@
   (display-line-numbers-type 'relative)
   :config
   (make-directory (locate-user-emacs-file "auto-save/") t)
-  (load-theme 'oxocarbon t)
+  (load-theme 'zenburn t)
   (delete-selection-mode 1)
   (electric-pair-mode 1)
   (global-auto-revert-mode 1)
