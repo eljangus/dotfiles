@@ -90,6 +90,7 @@
   (corfu-auto-prefix 2)
   (corfu-cycle t)            ; wrap around at the end of the list
   (corfu-preselect 'first)   ; first candidate selected, C-<return> takes it
+  (global-corfu-modes '((not org-mode) t)) ; no popup in org buffers
   :bind (:map corfu-map
               ;; TAB-and-Go: TAB/S-TAB cycle, the selection is inserted as you go
               ("TAB"       . corfu-next)
