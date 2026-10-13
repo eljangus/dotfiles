@@ -8,7 +8,7 @@
 (load custom-file 'noerror)
 (setq native-comp-async-report-warnings-errors 'silent)
 
-(setq custom-theme-directory "~/.config/emacs/themes")
+(setq custom-theme-directory (locate-user-emacs-file "themes"))
 
 (use-package emacs
   :ensure nil
@@ -23,6 +23,7 @@
   (indent-tabs-mode nil)
   (tab-always-indent 'complete)
   (display-line-numbers-type 'relative)
+  (tab-bar-show nil)
   :config
   (make-directory (locate-user-emacs-file "auto-save/") t)
   (load-theme 'zenburn t)
@@ -201,7 +202,6 @@
   :ensure nil
   :custom
   (org-directory "~/org")
-  (org-agenda-files '("~/org"))
   (org-default-notes-file "~/org/inbox.org")
   (org-startup-indented t)
   (org-hide-emphasis-markers t)
@@ -237,66 +237,57 @@
   (uni/refresh-agenda-files)
   (advice-add 'org-agenda :before #'uni/refresh-agenda-files)
   (org-babel-do-load-languages
-   'org-babel-load-languages '((emacs-lisp . t) (python . t) (R . t))))
+   'org-babel-load-languages '((emacs-lisp . t) (python . t) (R . t)))
+  ;; open PDF links in pdf-tools instead of the system viewer
+  (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs)))
 
-(use-package nerd-icons
-  :ensure t)
+(use-package nerd-icons)
 
 (use-package dashboard
-  :ensure t
+  :custom
+  (initial-buffer-choice 'dashboard-open)
+  (dashboard-show-shortcuts nil)
+  (dashboard-center-content t)
+  (dashboard-items '((recents   . 5)
+                     (bookmarks . 5)
+                     (projects  . 5)
+                     (agenda    . 5)))
+  (dashboard-item-shortcuts '((recents   . "r")
+                              (bookmarks . "m")
+                              (projects  . "p")
+                              (agenda    . "a")
+                              (registers . "e")))
+  (dashboard-item-names '(("Recent Files:"               . "Recently opened files:")
+                          ("Agenda for today:"           . "Today's agenda:")
+                          ("Agenda for the coming week:" . "Agenda:")))
+  (dashboard-display-icons-p t)         ; display icons on both GUI and terminal
+  (dashboard-icon-type 'nerd-icons)     ; use `nerd-icons' package
+  (dashboard-set-heading-icons t)
+  (dashboard-set-file-icons t)
+  ;; paths: show the file name, with a shortened path next to it
+  (dashboard-path-style 'truncate-beginning)
+  (dashboard-path-max-length 40)
+  (dashboard-recentf-show-base 'align)
+  (dashboard-projects-show-base 'align)
+  ;; bookmarks: the name is descriptive enough, drop the path
+  (dashboard-bookmarks-item-format "%s")
+  ;; agenda: no padded "inbox:" category, short date
+  (dashboard-agenda-prefix-format " %i %s ")
+  (dashboard-agenda-time-string-format "%a %d %b")
+  ;; purple Emacs logo (system SVG, scales cleanly)
+  (dashboard-startup-banner "/usr/share/icons/hicolor/scalable/apps/emacs.svg")
+  ;; the SVG is 48px natively and max-height only shrinks, so set :height directly
+  (dashboard-image-extra-props '(:height 250))
   :config
+  ;; no footer quote (`dashboard-set-footer' is obsolete)
+  (setq dashboard-startupify-list
+        (delq 'dashboard-insert-footer dashboard-startupify-list))
+  (dashboard-modify-heading-icons '((recents   . "nf-oct-file")
+                                    (bookmarks . "nf-oct-book")
+                                    (projects  . "nf-oct-project_roadmap")
+                                    (agenda    . "nf-oct-log")
+                                    (registers . "nf-oct-quote")))
   (dashboard-setup-startup-hook))
-
-
-(setq dashboard-show-shortcuts nil)
-(setq dashboard-center-content t)
-(setq initial-buffer-choice 'dashboard-open)
-(setq dashboard-items '((recents   . 5)
-                        (bookmarks . 5)
-                        (projects  . 5)
-                        (agenda    . 5)))
-
-(setq dashboard-item-shortcuts '((recents   . "r")
-                                 (bookmarks . "m")
-                                 (projects  . "p")
-                                 (agenda    . "a")
-                                 (registers . "e")))
-
-(setq dashboard-item-names '(("Recent Files:"               . "Recently opened files:")
-                             ("Agenda for today:"           . "Today's agenda:")
-                             ("Agenda for the coming week:" . "Agenda:")))
-
-(setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
-(setq dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
-(setq dashboard-set-heading-icons t)
-(setq dashboard-set-file-icons t)
-
-;; paths: show the file name, with a shortened path next to it
-(setq dashboard-path-style 'truncate-beginning)
-(setq dashboard-path-max-length 40)
-(setq dashboard-recentf-show-base 'align)
-(setq dashboard-projects-show-base 'align)
-
-;; bookmarks: the name is descriptive enough, drop the path
-(setq dashboard-bookmarks-item-format "%s")
-
-;; agenda: no padded "inbox:" category, short date
-(setq dashboard-agenda-prefix-format " %i %s ")
-(setq dashboard-agenda-time-string-format "%a %d %b")
-
-;; purple Emacs logo (system SVG, scales cleanly)
-(setq dashboard-startup-banner "/usr/share/icons/hicolor/scalable/apps/emacs.svg")
-;; the SVG is 48px natively and max-height only shrinks, so set :height directly
-(setq dashboard-image-extra-props '(:height 250))
-;; no footer quote (`dashboard-set-footer' is obsolete)
-(setq dashboard-startupify-list
-      (delq 'dashboard-insert-footer dashboard-startupify-list))
-
-(dashboard-modify-heading-icons '((recents   . "nf-oct-file")
-                                  (bookmarks . "nf-oct-book")
-                                  (projects  . "nf-oct-project_roadmap")
-                                  (agenda    . "nf-oct-log")
-                                  (registers . "nf-oct-quote")))
 
 (use-package indent-bars
   :custom
@@ -305,7 +296,6 @@
   (prog-mode . indent-bars-mode))
 
 (use-package pdf-tools
-  :ensure t
   :config
   (pdf-loader-install))
 
@@ -315,10 +305,6 @@
 (use-package valign
   :vc (:url "https://github.com/casouri/valign" :rev :newest)
   :hook (org-mode . valign-mode))
-
-;; Open PDF links from Org in pdf-tools instead of the system viewer
-(with-eval-after-load 'org
-  (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs)))
 
 ;; pdf: link type for org-store-link, so links point at the current page
 (use-package org-pdftools
