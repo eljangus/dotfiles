@@ -298,13 +298,11 @@
                                   (agenda    . "nf-oct-log")
                                   (registers . "nf-oct-quote")))
 
-(use-package highlight-indent-guides
-  :load-path
-  ("~/.config/emacs/highlight-indent/")
+(use-package indent-bars
   :custom
-  (highlight-indent-guides-method 'character))
-  
-(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (indent-bars-display-on-blank-lines t)
+  :hook
+  (prog-mode . indent-bars-mode))
 
 (use-package pdf-tools
   :ensure t
