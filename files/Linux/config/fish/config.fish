@@ -35,6 +35,7 @@ alias s='sudo pacman -Ss'
 alias qs='setsid quickshell -c Lily'
 alias qsl='quickshell -c Lily'
 alias ek='emacsclient -e "(kill-emacs)"'
+alias em='emacs -q -nw'
 
 set -gx EDITOR "emacsclient -t -a ''"
 set -gx VISUAL "emacsclient -c -a ''"
