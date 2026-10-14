@@ -40,8 +40,10 @@
   (prog-mode . (lambda () (hl-line-mode +1)))
   (prog-mode . display-line-numbers-mode))
 
-;; make fixed-pitch (code blocks etc.) use the default font
+;; make the other base faces (code blocks, info, eww, ...) use the default font
 (set-face-attribute 'fixed-pitch nil :family 'unspecified :inherit 'default)
+(set-face-attribute 'fixed-pitch-serif nil :family 'unspecified :inherit 'default)
+(set-face-attribute 'variable-pitch nil :family 'unspecified :inherit 'default)
 
 ;; font ligatures
 (use-package ligature
