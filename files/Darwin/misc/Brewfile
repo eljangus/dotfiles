@@ -26,7 +26,8 @@ brew "rmpc"
 cask "kitty"
 cask "font-maple-mono-nf"
 cask "steam"
-cask "font-iosevka-nerd-font"
+cask "font-iosevka"
+cask "font-symbols-only-nerd-font"
 
 # text editor
 cask "emacs-app"
