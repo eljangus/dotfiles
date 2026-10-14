@@ -41,8 +41,9 @@
   (prog-mode . display-line-numbers-mode))
 
 ;; make sure the font stays consistent
-(set-face-attribute 'fixed-pitch nil :family (face-attribute 'default :family))
-(set-face-attribute 'variable-pitch nil :family (face-attribute 'default :family))
+(set-face-attribute 'fixed-pitch nil :family 'unspecified :inherit 'default)
+(set-face-attribute 'fixed-pitch-serif nil :family 'unspecified :inherit 'default)
+(set-face-attribute 'variable-pitch nil :family 'unspecified :inherit 'default)
 
 ;; font ligatures
 (use-package ligature
