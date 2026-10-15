@@ -246,8 +246,7 @@ Takes care of adding or removing hooks when the
 
 ;; --- Faces ---------------------------------------------------------
 (mindre-with-color-variables
-  (let ((mindre-heading-1-height (if mindre-use-more-bold 1.0 1.1))
-	(faded-color (if mindre-use-more-fading gray-silver gray-dark)))
+  (let ((faded-color (if mindre-use-more-fading gray-silver gray-dark)))
     (custom-theme-set-faces
     'mindre
 
@@ -283,7 +282,7 @@ Takes care of adding or removing hooks when the
     `(mindre-critical-i ((t (:foreground ,red))))
     `(mindre-link ((t (:foreground ,blue :underline t))))
 
-    `(mindre-heading-1 ((t (:inherit mindre-strong :height ,mindre-heading-1-height))))
+    `(mindre-heading-1 ((t (:inherit mindre-strong))))
     `(mindre-block ((t (:background ,bg-active :foreground ,fg-main :extend t))))
 
     `(mindre-border ((t (:foreground ,gray-light :box (:color ,gray-silver :line-width 1)))))
@@ -663,13 +662,11 @@ Takes care of adding or removing hooks when the
     `(org-block-begin-line ((t (:inherit (mindre-faded fixed-pitch)
 					 :overline ,gray-silver
 					 :background ,gray-light
-					 :height 0.9
 					 :extend t))))
 
     `(org-block-end-line ((t (:inherit fixed-pitch
 				       :foreground ,gray-silver
 				       :background ,gray-light
-				       :height 0.9
 				       :extend t))))
 
     '(org-checkbox ((t (:inherit (mindre-default fixed-pitch)))))
@@ -684,7 +681,7 @@ Takes care of adding or removing hooks when the
     '(org-default ((t (:inherit mindre-faded))))
     '(org-document-info ((t (:inherit mindre-faded))))
     '(org-document-info-keyword ((t (:inherit (mindre-faded fixed-pitch)))))
-    '(org-document-title ((t (:inherit mindre-strong :height 1.8 :weight semibold))))
+    '(org-document-title ((t (:inherit mindre-strong :weight semibold))))
     '(org-done ((t (:foreground "#585c60"))))
     '(org-drawer ((t (:inherit (mindre-faded fixed-pitch)))))
     '(org-ellipsis ((t (:inherit mindre-faded))))
@@ -706,7 +703,7 @@ Takes care of adding or removing hooks when the
     `(org-link ((t (:inherit link))))
     '(org-list-dt ((t (:inherit mindre-faded))))
     '(org-macro ((t (:inherit mindre-faded))))
-    '(org-meta-line ((t (:inherit (mindre-faded fixed-pitch) :height 0.9))))
+    '(org-meta-line ((t (:inherit (mindre-faded fixed-pitch)))))
     '(org-mode-line-clock ((t (:inherit mindre-faded))))
     '(org-mode-line-clock-overrun ((t (:inherit mindre-faded))))
     '(org-priority ((t (:inherit mindre-faded))))
@@ -931,7 +928,7 @@ Takes care of adding or removing hooks when the
     `(font-latex-bold-face ((t (:inherit bold))))
     `(font-latex-warning-face ((t (:inherit (mindre-note fixed-pitch)))))
     `(font-latex-script-char-face ((t (:inherit mindre-default))))
-    `(font-latex-sectioning-2-face ((t (:inherit bold :height 1.4))))
+    `(font-latex-sectioning-2-face ((t (:inherit bold))))
 
     ;; --- Geiser ----------------------------------------------------
     `(geiser-font-lock-autodoc-current-arg ((t :inherit mindre-verbatim)))
