@@ -5,7 +5,7 @@ import = ["~/.config/alacritty/themes/paradise.toml"]
 shell = "/opt/homebrew/bin/fish"
 
 [font]
-normal = { family = "Iosevka" }
+normal = { family = "Iosevka Term" }
 size = 15.0
 
 [window]

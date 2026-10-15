@@ -103,6 +103,7 @@ tesseract
 tokei
 tree
 ttf-iosevka-nerd
+ttf-iosevkaterm-nerd
 typescript-language-server
 unzip
 vim

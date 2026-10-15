@@ -27,6 +27,7 @@ cask "alacritty"
 cask "font-maple-mono-nf"
 cask "steam"
 cask "font-iosevka"
+cask "font-iosevka-term"
 cask "font-symbols-only-nerd-font"
 
 # text editor
