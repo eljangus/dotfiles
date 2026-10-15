@@ -89,7 +89,7 @@
    `(orderless-match-face-2 ((t (:foreground ,cyan :weight bold))))
    `(orderless-match-face-3 ((t (:foreground ,yellow :weight bold))))
    `(corfu-default ((t (:background ,black :foreground ,fg))))
-   `(corfu-current ((t (:background ,selection :foreground ,magenta))))
+   `(corfu-current ((t (:background ,blue :foreground ,bg :weight bold))))
    `(corfu-border ((t (:background ,gray))))
    `(corfu-bar ((t (:background ,gray))))
 
