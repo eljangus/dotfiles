@@ -666,10 +666,11 @@ screen_time_enabled = true
         variant = "destructive"
 
 [theme]
-builtin = "Tokyo-Night"
+builtin = "Nord"
 community_palette = "Paradise"
+custom_palette = "Sequoia Monochrome"
 mode = "light"
-source = "wallpaper"
+source = "custom"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -681,16 +682,16 @@ directory = "/home/elias/wallpapers/walls"
 transition = [ "disc", "fade", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/walls/cherry-blossoms-blue.png"
+    path = "/home/elias/wallpapers/walls/brutalism-grey.jpg"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/walls/cherry-blossoms-blue.png"
+    path = "/home/elias/wallpapers/walls/brutalism-grey.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/walls/cherry-blossoms-blue.png"
+    path = "/home/elias/wallpapers/walls/brutalism-grey.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/walls/cherry-blossoms-blue.png"
+    path = "/home/elias/wallpapers/walls/brutalism-grey.jpg"
 
 [widget.Clock-default]
 font_weight = 700
