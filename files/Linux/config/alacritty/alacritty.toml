@@ -12,8 +12,9 @@ decorations = "None"
 padding = { x = 20, y = 20 }
 
 [cursor]
-style = { blinking = "On" }
+style = { shape = "Beam", blinking = "On" }
 blink_timeout = 15
+blink_interval = 750
 
 [keyboard]
 bindings = [
