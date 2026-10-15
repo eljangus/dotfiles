@@ -45,6 +45,9 @@
 (set-face-attribute 'fixed-pitch-serif nil :family 'unspecified :inherit 'default)
 (set-face-attribute 'variable-pitch nil :family 'unspecified :inherit 'default)
 
+;; set cursor type
+(setq-default cursor-type 'bar)
+
 ;; font ligatures (disabled — Iosevka ligatures look rough at this DPI)
 ;; (use-package ligature
 ;;   :config
