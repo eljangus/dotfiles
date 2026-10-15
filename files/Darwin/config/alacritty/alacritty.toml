@@ -1,0 +1,26 @@
+[general]
+import = ["~/.config/alacritty/themes/paradise.toml"]
+
+[terminal]
+shell = "/opt/homebrew/bin/fish"
+
+[font]
+normal = { family = "Iosevka" }
+size = 15.0
+
+[window]
+opacity = 1.0
+blur = false
+decorations = "Transparent"
+padding = { x = 20, y = 20 }
+
+[cursor]
+style = { blinking = "On" }
+blink_timeout = 15
+
+[keyboard]
+bindings = [
+    { key = "Back",  mods = "Control|Shift", action = "ResetFontSize" },
+    { key = "Minus", mods = "Control|Shift", action = "DecreaseFontSize" },
+    { key = "Plus",  mods = "Control|Shift", action = "IncreaseFontSize" },
+]

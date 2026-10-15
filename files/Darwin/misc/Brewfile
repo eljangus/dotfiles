@@ -23,7 +23,7 @@ brew "cava"
 brew "rmpc"
 
 # terminal + fonts
-cask "kitty"
+cask "alacritty"
 cask "font-maple-mono-nf"
 cask "steam"
 cask "font-iosevka"

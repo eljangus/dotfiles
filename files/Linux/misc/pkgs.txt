@@ -1,5 +1,6 @@
 7zip
 adw-gtk-theme
+alacritty
 amd-ucode
 base
 base-devel
@@ -40,7 +41,6 @@ gst-plugin-pipewire
 hyprpicker
 imv
 inetutils
-kitty
 lazygit
 less
 lib32-vulkan-radeon

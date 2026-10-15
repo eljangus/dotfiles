@@ -21,10 +21,10 @@ hl.monitor({
 ---- MY PROGRAMS ----
 ---------------------
 
-local terminal    = "kitty"
+local terminal    = "alacritty"
 local fileManager = "nautilus --new-window"
 local browser     = "zen-beta"
-local sysmonitor  = "kitty -e 'btop'"
+local sysmonitor  = "alacritty -e btop"
 
 -------------------
 ---- AUTOSTART ----
