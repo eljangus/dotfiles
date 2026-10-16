@@ -20,7 +20,7 @@ order = [ "bar", "flush" ]
     capsule_padding = 7.0
     enabled = false
     end = [ "tray", "notifications", "volume", "recorder_3", "session" ]
-    font_family = "Iosevka Nerd Font"
+    font_family = "JetBrainsMono Nerd Font"
     font_scale = 1.0999999828636646
     margin_ends = 0
     padding = 5
@@ -36,7 +36,7 @@ order = [ "bar", "flush" ]
     concave_edge_corners = false
     enabled = false
     end = [ "group:g1", "seperator", "group:g2", "seperator", "group:g3", "seperator", "group:g4" ]
-    font_family = "Iosevka Nerd Font"
+    font_family = "JetBrainsMono Nerd Font"
     font_scale = 1.0999999828636646
     hover_highlight = false
     margin_ends = 0
@@ -598,7 +598,7 @@ button_borders = false
 card_borders = false
 clipboard_auto_paste = "ctrl_v"
 clipboard_image_action_command = "waytator {path}"
-font_family = "Iosevka Nerd Font"
+font_family = "JetBrainsMono Nerd Font"
 input_borders = false
 niri_overview_type_to_launch_enabled = true
 password_style = "random"
@@ -673,7 +673,7 @@ source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "alacritty", "btop", "cava", "gtk3", "gtk4", "hyprland", "kcolorscheme", "niri", "qt" ]
+    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "niri", "qt" ]
     community_ids = [ "zen-browser", "discord" ]
 
 [wallpaper]

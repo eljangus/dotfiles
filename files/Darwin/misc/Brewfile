@@ -23,11 +23,10 @@ brew "cava"
 brew "rmpc"
 
 # terminal + fonts
-cask "alacritty"
+cask "kitty"
 cask "font-maple-mono-nf"
 cask "steam"
-cask "font-iosevka"
-cask "font-iosevka-term"
+cask "font-jetbrains-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
 
 # text editor
