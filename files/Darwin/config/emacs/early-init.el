@@ -5,7 +5,7 @@
 (add-hook 'emacs-startup-hook
           (lambda () (setq gc-cons-threshold (* 32 1024 1024))))
 
-(push '(font . "JetBrainsMono Nerd Font-14") default-frame-alist)
+(push '(font . "JetBrains Mono-14") default-frame-alist)
 (push '(vertical-scroll-bars) default-frame-alist)
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)

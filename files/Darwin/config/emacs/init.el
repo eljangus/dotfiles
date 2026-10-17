@@ -37,7 +37,7 @@
   (tab-bar-show nil)
   :config
   (make-directory (locate-user-emacs-file "auto-save/") t)
-  (load-theme 'zenburn t)
+  (load-theme 'mindre t)
   (delete-selection-mode 1)
   (electric-pair-mode 1)
   (global-auto-revert-mode 1)
