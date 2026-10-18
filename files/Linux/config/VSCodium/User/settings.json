@@ -5,10 +5,10 @@
   "workbench.colorTheme": "NoctaliaTheme",
   "workbench.iconTheme": "material-icon-theme",
   "window.zoomLevel": 1.5,
-  "editor.fontFamily": "Iosevka Nerd Font",
+  "editor.fontFamily": "Iosevka Nerd Font Mono",
   "editor.fontSize": 15,
   "editor.lineHeight": 1.6,
-  "terminal.integrated.fontFamily": "Iosevka Nerd Font",
+  "terminal.integrated.fontFamily": "Iosevka Nerd Font Mono",
   "terminal.integrated.fontSize": 15,
   "editor.stickyScroll.enabled": true,
   // "native" (server-side) decorations render broken under niri, which
