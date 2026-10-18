@@ -23,11 +23,12 @@ brew "cava"
 brew "rmpc"
 
 # terminal + fonts
-cask "alacritty"
+# alacritty: cask disabled by Homebrew (fails Gatekeeper), install manually from
+# https://github.com/alacritty/alacritty/releases + xattr -dr com.apple.quarantine /Applications/Alacritty.app
 cask "font-maple-mono-nf"
 cask "steam"
 cask "font-iosevka-nerd-font"
-cask "font-iosevka-term"
+cask "font-iosevka-term-nerd-font"
 cask "font-symbols-only-nerd-font"
 
 # text editor
