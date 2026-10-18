@@ -21,7 +21,6 @@ direnv
 easyeffects
 efibootmgr
 emacs-wayland
-ex-vi-compat
 eza
 fastfetch
 fd
@@ -94,6 +93,7 @@ ruff
 rust
 sddm
 socat
+spotify-launcher
 starship
 steam
 stow
@@ -106,7 +106,6 @@ ttf-iosevka-nerd
 ttf-iosevkaterm-nerd
 typescript-language-server
 unzip
-vim
 vulkan-radeon
 vulkan-validation-layers
 wine
