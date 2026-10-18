@@ -136,12 +136,14 @@
   :ensure nil
   :mode "\\.md\\'")
 
-;; lsp: pyright, typescript-language-server, lua-language-server, qmlls6
+;; lsp: clangd, pyright, typescript-language-server, lua-language-server, qmlls6
 (use-package eglot
   :ensure nil
   :bind (:map eglot-mode-map
          ("C-c f" . eglot-format-buffer))
-  :hook ((python-ts-mode
+  :hook ((c-ts-mode
+          c++-ts-mode
+          python-ts-mode
           js-ts-mode
           typescript-ts-mode
           tsx-ts-mode
