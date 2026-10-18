@@ -1,0 +1,36 @@
+# Mindre Theme - matches ~/.config/emacs/themes/mindre-theme.el
+[colors.primary]
+background = "#F5F5F5"
+foreground = "#2e3338"
+
+[colors.cursor]
+text = "#F5F5F5"
+cursor = "#2e3338"
+
+[colors.selection]
+text = "#2e3338"
+background = "#CFD8DC"
+
+[colors.hints.start]
+foreground = "#F5F5F5"
+background = "#0071bc"
+
+[colors.normal]
+black   = "#171A1C"
+red     = "#9E0000"
+green   = "#3c763d"
+yellow  = "#54433a"
+blue    = "#23457f"
+magenta = "#5c3e99"
+cyan    = "#537469"
+white   = "#CFD8DC"
+
+[colors.bright]
+black   = "#585c60"
+red     = "#9E0000"
+green   = "#16524F"
+yellow  = "#d47500"
+blue    = "#0071bc"
+magenta = "#AB47BC"
+cyan    = "#585c60"
+white   = "#ECEFF1"

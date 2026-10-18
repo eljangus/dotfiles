@@ -5,11 +5,11 @@
   "workbench.colorTheme": "NoctaliaTheme",
   "workbench.iconTheme": "material-icon-theme",
   "window.zoomLevel": 1.5,
-  "editor.fontFamily": "JetBrainsMono Nerd Font",
-  "editor.fontSize": 14,
+  "editor.fontFamily": "Iosevka Nerd Font",
+  "editor.fontSize": 15,
   "editor.lineHeight": 1.6,
-  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "Iosevka Nerd Font",
+  "terminal.integrated.fontSize": 15,
   "editor.stickyScroll.enabled": true,
   // "native" (server-side) decorations render broken under niri, which
   // doesn't draw SSD itself — use a custom title bar and hide it entirely

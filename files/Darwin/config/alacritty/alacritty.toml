@@ -1,0 +1,27 @@
+[general]
+import = ["~/.config/alacritty/themes/mindre.toml"]
+
+[terminal]
+shell = "/opt/homebrew/bin/fish"
+
+[font]
+normal = { family = "Iosevka Term" }
+size = 15.0
+
+[window]
+opacity = 1.0
+blur = false
+decorations = "Transparent"
+padding = { x = 20, y = 20 }
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+blink_timeout = 15
+blink_interval = 750
+
+[keyboard]
+bindings = [
+    { key = "Back",  mods = "Control|Shift", action = "ResetFontSize" },
+    { key = "Minus", mods = "Control|Shift", action = "DecreaseFontSize" },
+    { key = "Plus",  mods = "Control|Shift", action = "IncreaseFontSize" },
+]

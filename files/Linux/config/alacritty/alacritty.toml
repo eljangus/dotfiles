@@ -1,0 +1,24 @@
+[general]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
+
+[font]
+normal = { family = "IosevkaTerm Nerd Font" }
+size = 15.0
+
+[window]
+opacity = 0.8
+blur = false
+decorations = "None"
+padding = { x = 20, y = 20 }
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+blink_timeout = 15
+blink_interval = 750
+
+[keyboard]
+bindings = [
+    { key = "Back",  mods = "Control|Shift", action = "ResetFontSize" },
+    { key = "Minus", mods = "Control|Shift", action = "DecreaseFontSize" },
+    { key = "Plus",  mods = "Control|Shift", action = "IncreaseFontSize" },
+]
