@@ -57,27 +57,7 @@
 (set-face-attribute 'variable-pitch nil :family 'unspecified :inherit 'default)
 
 ;; set cursor type
-(setq-default cursor-type 'bar)
-
-;; font ligatures (disabled)
-;; (use-package ligature
-;;   :config
-;;   (ligature-set-ligatures
-;;    'prog-mode
-;;    '("<---" "<--" "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<!--"
-;;      "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>"
-;;      "==" "===" "!=" "!==" "=/=" "=!=" "|=" "||" "&&" "::" ":::" "::="
-;;      ":=" "=:" "..." ".." ".=" "..<" "?." "??" "?:" "//" "///" "/*" "*/"
-;;      "/=" "++" "+++" "--" "---" "<<" ">>" "<<<" ">>>" "<<=" ">>=" "|>" "<|"
-;;      "<|>" "<>" "</" "/>" "</>" "#{" "#[" "#(" "#!" "##" "###" "__" "~~"
-;;      "~>" "<~" "~-" "-~" "~=" "%%"))
-;;   (global-ligature-mode 1))
-
-;; keybind cheatsheet
-(defun open-keys ()
-  (interactive)
-  (find-file (locate-user-emacs-file "keys.org")))
-(keymap-global-set "C-c k" #'open-keys)
+(setq-default cursor-type 'box)
 
 ;; completion
 (use-package vertico
@@ -124,24 +104,9 @@
               ([remap move-end-of-line]       . nil))
   :init (global-corfu-mode 1))
 
-;; actions on whatever is at point / in the minibuffer
-(use-package embark
-  :bind (("C-." . embark-act)
-         ("C-;" . embark-dwim)
-         ("C-h B" . embark-bindings)))
-
-;; export consult-ripgrep results to a grep buffer (e to edit, built in since 31)
-(use-package embark-consult
-  :after (embark consult)
-  :hook (embark-collect-mode . consult-preview-at-point-mode))
-
 ;; tree-sitter, grammars get installed on first use
 (setq treesit-auto-install-grammar 'always)
 (setopt treesit-enabled-modes t)        ; needs setopt, not setq
-
-(add-to-list 'auto-mode-alist '("\\.lua\\'" . lua-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
 
 ;; not autoloaded
 (use-package markdown-ts-mode
@@ -198,6 +163,7 @@
 
 (use-package eat
   :bind (("C-c t" . eat)
+         ("C-x 4 t" . eat-other-window)
          :map project-prefix-map
          ("t" . eat-project)))
 

@@ -19,7 +19,7 @@ decorations = "Full"
 padding = { x = 20, y = 20 }
 
 [cursor]
-style = { shape = "Beam", blinking = "On" }
+style = { shape = "Block", blinking = "On" }
 blink_timeout = 15
 blink_interval = 750
 
