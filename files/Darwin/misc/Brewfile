@@ -1,3 +1,4 @@
+
 # Homebrew dependencies for these dotfiles on macOS
 # Install with: brew bundle --file files/Darwin/misc/Brewfile
 
@@ -33,6 +34,9 @@ cask "font-symbols-only-nerd-font"
 
 # text editor
 cask "emacs-app"
+
+# VM
+cask "utm"
 
 # pdf-tools (epdfinfo build)
 brew "poppler"

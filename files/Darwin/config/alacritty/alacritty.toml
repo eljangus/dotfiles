@@ -13,8 +13,8 @@ normal = { family = "IosevkaTerm Nerd Font Mono" }
 size = 15.0
 
 [window]
-opacity = 1.0
-blur = false
+opacity = 0.8
+blur = true
 decorations = "Full"
 padding = { x = 20, y = 20 }
 
