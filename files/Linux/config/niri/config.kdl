@@ -277,6 +277,13 @@ layer-rule {
   }
 }
 
+layer-rule {
+  match namespace="^lily-frame"
+  background-effect {
+    xray false
+  }
+}
+
 blur {
     passes 4 // (set to 1 to remove seam between attached panels and the bar for noctalia)
     offset 4

@@ -161,12 +161,6 @@
   (delete-by-moving-to-trash t)
   :init (require 'ls-lisp))
 
-(use-package eat
-  :bind (("C-c t" . eat)
-         ("C-x 4 t" . eat-other-window)
-         :map project-prefix-map
-         ("t" . eat-project)))
-
 (use-package envrc
   :hook (after-init . envrc-global-mode))
 

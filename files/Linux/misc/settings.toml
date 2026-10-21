@@ -1,4 +1,4 @@
-config_version = 14
+config_version = 15
 
 [accessibility]
 ui_scale = 1.1000000089406967
@@ -118,7 +118,6 @@ width = 800
 auto_hide = true
 background_opacity = 0.99999997764825821
 cross_axis_padding = 12
-enabled = true
 inactive_opacity = 0.99999997764825821
 inactive_scale = 1.0
 item_spacing = 10
