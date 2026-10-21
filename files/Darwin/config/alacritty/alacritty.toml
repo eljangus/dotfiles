@@ -3,7 +3,7 @@
 #   undo: defaults delete org.alacritty AppleFontSmoothing
 
 [general]
-import = ["~/.config/alacritty/themes/mindre.toml"]
+import = ["~/.config/alacritty/themes/paradise.toml"]
 
 [terminal]
 shell = "/opt/homebrew/bin/fish"
