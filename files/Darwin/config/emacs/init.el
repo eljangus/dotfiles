@@ -37,7 +37,7 @@
   (tab-bar-show nil)
   :config
   (make-directory (locate-user-emacs-file "auto-save/") t)
-  (load-theme 'zenburn t)
+  ;(load-theme 'molokai t) ; comment out when using doom-themes
   (delete-selection-mode 1)
   (electric-pair-mode 1)
   (global-auto-revert-mode 1)
@@ -50,6 +50,26 @@
   (deactivate-mark-hook . (lambda () (when (derived-mode-p 'prog-mode) (hl-line-mode +1))))
   (prog-mode . (lambda () (hl-line-mode +1)))
   (prog-mode . display-line-numbers-mode))
+
+(use-package doom-themes
+  :ensure t
+  :custom
+  ;; Global settings (defaults)
+  (doom-themes-enable-bold t)   ; if nil, bold is universally disabled
+  (doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  ;; for treemacs users
+  (doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+  :config
+  (load-theme 'doom-horizon t)
+
+  ;; Enable flashing mode-line on errors
+  ;(doom-themes-visual-bell-config)
+  ;; Enable custom neotree theme (nerd-icons must be installed!)
+  ;(doom-themes-neotree-config)
+  ;; or for treemacs users
+  ;(doom-themes-treemacs-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 
 ;; make sure the font stays consistent
 (set-face-attribute 'fixed-pitch nil :family 'unspecified :inherit 'default)

@@ -17,6 +17,7 @@ files/Linux/config/emacs/*
 files/Linux/config/emacs/themes/*
 !files/Linux/config/emacs/themes/mindre-theme.el
 !files/Linux/config/emacs/themes/zenburn-theme.el
+!files/Linux/config/emacs/themes/molokai-theme.el
 files/Darwin/config/emacs/*
 !files/Darwin/config/emacs/early-init.el
 !files/Darwin/config/emacs/init.el
@@ -24,3 +25,4 @@ files/Darwin/config/emacs/*
 files/Darwin/config/emacs/themes/*
 !files/Darwin/config/emacs/themes/mindre-theme.el
 !files/Darwin/config/emacs/themes/zenburn-theme.el
+!files/Darwin/config/emacs/themes/molokai-theme.el
