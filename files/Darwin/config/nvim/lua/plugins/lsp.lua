@@ -1,5 +1,5 @@
 -- language servers
-local servers = { "clangd", "pyright", "ts_ls", "lua_ls", "qmlls" }
+local servers = { "clangd", "pyright", "ruff", "ts_ls", "lua_ls", "qmlls" }
 
 return {
     {
