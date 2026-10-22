@@ -72,6 +72,7 @@ opencode
 openrgb
 openssh
 pacman-contrib
+pandoc-cli
 papirus-icon-theme
 patch
 pipewire

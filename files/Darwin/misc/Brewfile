@@ -34,6 +34,10 @@ cask "font-symbols-only-nerd-font"
 brew "neovim"
 brew "tree-sitter-cli" # nvim-treesitter builds parsers with it
 
+# notes (~/Uni is an Obsidian vault)
+cask "obsidian"
+brew "pandoc"
+
 # VM
 cask "utm"
 
