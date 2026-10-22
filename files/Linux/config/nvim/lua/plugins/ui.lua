@@ -81,7 +81,8 @@ return {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         event = { "BufReadPost", "BufNewFile" },
-        opts = {},
+        -- scope stays highlighted on the bar; drop the underlines at its start/end lines
+        opts = { scope = { show_start = false, show_end = false } },
     },
     {
         "karb94/neoscroll.nvim",
