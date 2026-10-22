@@ -1,9 +1,40 @@
+-- always in the project switcher, next to every git repo opened in nvim
+local pinned = { "~/dotfiles", "~/Uni", "~/org", "~/.config/quickshell/Lily" }
+
+-- project switcher
+local function projects()
+    local list = {}
+    for _, dir in ipairs(pinned) do
+        dir = vim.fs.normalize(dir)
+        if vim.fn.isdirectory(dir) == 1 then -- skip what this machine doesn't have
+            list[#list + 1] = dir
+        end
+    end
+    Snacks.picker.projects({
+        projects = list,
+        -- cd into it, then find a file with telescope
+        confirm = function(picker, item)
+            picker:close()
+            if item then
+                vim.fn.chdir(item.file)
+                require("telescope.builtin").find_files()
+            end
+        end,
+    })
+end
+
 return {
     -- dashboard, animated indent guides, smooth scrolling
     {
         "folke/snacks.nvim",
         lazy = false,
         priority = 1000,
+        keys = {
+            { "<leader>pp", projects,                         desc = "Switch project" },
+            -- terminal split at the bottom; 2<A-t> etc. opens a second one
+            { "<leader>t",  function() Snacks.terminal() end, desc = "Terminal" },
+            { "<A-t>",      function() Snacks.terminal() end, desc = "Terminal",         mode = { "n", "t" } },
+        },
         opts = {
             dashboard = {
                 preset = {
@@ -12,7 +43,7 @@ return {
                         { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
                         { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
                         { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-                        { icon = " ", key = "p", desc = "Projects", action = function() Snacks.picker.projects() end },
+                        { icon = " ", key = "p", desc = "Projects", action = projects },
                         { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
                         { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
                         { icon = " ", key = "q", desc = "Quit", action = ":qa" },
@@ -101,6 +132,7 @@ return {
                 { "<leader>c", group = "code" },
                 { "<leader>f", group = "find" },
                 { "<leader>g", group = "git" },
+                { "<leader>p", group = "project" },
                 { "<leader>w", group = "window" },
             },
         },
@@ -112,7 +144,7 @@ return {
         dependencies = { "MunifTanjim/nui.nvim" },
         opts = {
             presets = {
-                bottom_search = true, -- / and ? stay at the bottom
+                bottom_search = true,   -- / and ? stay at the bottom
                 command_palette = true, -- cmdline and its completion menu together
                 long_message_to_split = true,
                 lsp_doc_border = true,

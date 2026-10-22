@@ -77,7 +77,7 @@ return {
                     map("<leader>cf", function() vim.lsp.buf.format({ bufnr = buf }) end, "Format")
                     map("<leader>cd", vim.diagnostic.open_float, "Line diagnostics")
 
-                    -- format on save, like the eglot hook; one per buffer so :lsp restart doesn't stack them
+                    -- format on save; one per buffer so :lsp restart doesn't stack them
                     if client and client:supports_method("textDocument/formatting") then
                         vim.api.nvim_create_autocmd("BufWritePre", {
                             group = vim.api.nvim_create_augroup("lsp_format_" .. buf, { clear = true }),
