@@ -104,29 +104,6 @@
          ("M-s r" . consult-ripgrep)
          ("M-s f" . consult-fd)))
 
-(use-package corfu
-  :custom
-  (corfu-auto t)
-  (corfu-auto-prefix 2)
-  (corfu-cycle t)            ; wrap around at the end of the list
-  (corfu-preselect 'first)   ; first candidate selected, C-<return> takes it
-  (global-corfu-modes '((not org-mode) t)) ; no popup in org buffers
-  :bind (:map corfu-map
-              ;; TAB-and-Go: TAB/S-TAB cycle, the selection is inserted as you go
-              ("TAB"       . corfu-next)
-              ("<tab>"     . corfu-next)
-              ("S-TAB"     . corfu-previous)
-              ("<backtab>" . corfu-previous)
-              ("<escape>"  . corfu-quit)
-              ("C-<return>" . corfu-insert) ; keep the TAB'd candidate, then close
-              ("RET" . nil)
-              ;; keep C-n/C-p/C-a/C-e as normal movement while the popup is open
-              ([remap next-line]              . nil)
-              ([remap previous-line]          . nil)
-              ([remap move-beginning-of-line] . nil)
-              ([remap move-end-of-line]       . nil))
-  :init (global-corfu-mode 1))
-
 ;; tree-sitter, grammars get installed on first use
 (setq treesit-auto-install-grammar 'always)
 (setopt treesit-enabled-modes t)        ; needs setopt, not setq
@@ -184,59 +161,25 @@
 
 (use-package magit)
 
-;; discord rich presence
-(use-package elcord
-  :config
-  (if (not (daemonp))
-      (elcord-mode)
-    ;; daemon: only show presence while a client frame is open
-    (add-hook 'server-after-make-frame-hook
-              (lambda () (unless elcord-mode (elcord-mode +1))))
-    (add-hook 'delete-frame-functions
-              (lambda (frame)
-                (unless (seq-some (lambda (f) (and (not (eq f frame))
-                                                   (frame-parameter f 'client)))
-                                  (frame-list))
-                  (elcord-mode -1))))))
-
 (use-package org
   :ensure nil
   :custom
   (org-directory "~/org")
   (org-default-notes-file "~/org/inbox.org")
+  (org-agenda-files '("~/org"))        ; read by the dashboard's agenda
   (org-startup-indented t)
   (org-hide-emphasis-markers t)
   (org-log-done 'time)
+  (org-startup-with-latex-preview t)
   (org-capture-templates
    '(("t" "Todo" entry (file "inbox.org") "* TODO %?\n%U\n")
-     ("n" "Note" entry (file "inbox.org") "* %?\n%U\n")
-     ("u" "Uni")
-     ("ue" "Eingang" entry (file+headline "~/Uni/aufgaben.org" "Eingang")
-      "** %?\n   %U")
-     ("ua" "Abgabe" entry (file+headline "~/Uni/aufgaben.org" "Abgaben")
-      "** TODO %?\n   DEADLINE: %^t")
-     ("uk" "Klausur" entry (file+headline "~/Uni/aufgaben.org" "Klausuren")
-      "** %? :klausur:\n   %^T")))
-  (org-refile-targets '((org-agenda-files :maxlevel . 2)))
-  (org-refile-use-outline-path 'file)
-  (org-outline-path-complete-in-steps nil)
-  (org-startup-with-latex-preview t)
+     ("n" "Note" entry (file "inbox.org") "* %?\n%U\n")))
   :bind (("C-c a" . org-agenda)
          ("C-c c" . org-capture)
          ("C-c l" . org-store-link))
   :hook (org-mode . visual-line-mode)
   :config
   (require 'org-tempo)                  ; <s TAB, <q TAB, …
-  ;; ~/org plus Uni tasks and every module's notizen.org,
-  ;; rescanned before each agenda call so new modules show up
-  (defun uni/refresh-agenda-files (&rest _)
-    (setq org-agenda-files
-          (seq-filter #'file-exists-p
-                      (append '("~/org" "~/Uni/aufgaben.org")
-                              (when (file-directory-p "~/Uni/semester/")
-                                (directory-files-recursively "~/Uni/semester/" "\\.org\\'"))))))
-  (uni/refresh-agenda-files)
-  (advice-add 'org-agenda :before #'uni/refresh-agenda-files)
   (org-babel-do-load-languages
    'org-babel-load-languages '((emacs-lisp . t) (python . t) (R . t)))
   ;; open PDF links in pdf-tools instead of the system viewer
@@ -295,6 +238,16 @@
   (indent-bars-display-on-blank-lines t)
   :hook
   (prog-mode . indent-bars-mode))
+
+;; compile: C-c m runs a command in the file's directory, C-c r reruns it
+;; (C-x p c does the same from the project root)
+(use-package compile
+  :ensure nil
+  :custom
+  (compilation-scroll-output 'first-error) ; follow output, stop at first error
+  (compilation-ask-about-save nil)         ; save buffers silently before compiling
+  :bind (("C-c m" . compile)
+         ("C-c r" . recompile)))
 
 (use-package pdf-tools
   :config
