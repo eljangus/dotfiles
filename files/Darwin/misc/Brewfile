@@ -32,6 +32,7 @@ cask "font-symbols-only-nerd-font"
 
 # text editor
 brew "neovim"
+brew "tree-sitter-cli" # nvim-treesitter builds parsers with it
 
 # VM
 cask "utm"
