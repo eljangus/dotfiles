@@ -37,7 +37,7 @@
   (tab-bar-show nil)
   :config
   (make-directory (locate-user-emacs-file "auto-save/") t)
-  ;(load-theme 'molokai t) ; comment out when using doom-themes
+  ;(load-theme 'nox t) ; comment out when using doom-themes
   (delete-selection-mode 1)
   (electric-pair-mode 1)
   (global-auto-revert-mode 1)
@@ -60,7 +60,7 @@
   ;; for treemacs users
   (doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
   :config
-  (load-theme 'doom-tokyo-night t)
+  (load-theme 'doom-tomorrow-night t)
 
   ;; Enable flashing mode-line on errors
   ;(doom-themes-visual-bell-config)
