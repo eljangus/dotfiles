@@ -32,11 +32,9 @@ alias i='brew install'
 alias u='brew update && brew upgrade'
 alias r='brew uninstall'
 alias s='brew search'
-alias ek='emacsclient -e "(kill-emacs)"'
-alias em='emacs -q -nw'
 
-set -gx EDITOR "emacsclient -t -a ''"
-set -gx VISUAL "emacsclient -c -a ''"
+set -gx EDITOR nvim
+set -gx VISUAL nvim
 
 /opt/homebrew/bin/starship init fish | source
 fish_add_path ~/.local/bin

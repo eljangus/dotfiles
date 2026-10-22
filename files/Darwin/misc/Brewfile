@@ -31,7 +31,7 @@ cask "font-jetbrains-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
 
 # text editor
-cask "emacs-app"
+brew "neovim"
 
 # VM
 cask "utm"

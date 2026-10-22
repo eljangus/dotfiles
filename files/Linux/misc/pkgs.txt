@@ -20,6 +20,7 @@ direnv
 easyeffects
 efibootmgr
 emacs-wayland
+neovim
 eza
 fastfetch
 fd
