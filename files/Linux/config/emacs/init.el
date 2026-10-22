@@ -26,7 +26,7 @@
   (tab-bar-show nil)
   :config
   (make-directory (locate-user-emacs-file "auto-save/") t)
-  ; (load-theme 'molokai t) ; comment out if using doom-themes or base16
+  ; (load-theme 'molokai t) ; comment out if using doom-themes
   (delete-selection-mode 1)
   (electric-pair-mode 1)
   (global-auto-revert-mode 1)
@@ -49,7 +49,7 @@
   ;; for treemacs users
   (doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
   :config
-  ;(load-theme 'doom-horizon t)
+  (load-theme 'doom-tokyo-night t)
 
   ;; Enable flashing mode-line on errors
   ;(doom-themes-visual-bell-config)
@@ -59,13 +59,6 @@
   ;(doom-themes-treemacs-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
-
-(use-package base16-theme
-  :ensure t
-  :config
-  (load-theme 'base16-oxocarbon-dark t)
-  ;; base16 underlines widget-button, which the dashboard items inherit
-  (set-face-attribute 'widget-button nil :underline nil))
 
 ;; make sure the font stays consistent
 (set-face-attribute 'fixed-pitch nil :family 'unspecified :inherit 'default)
@@ -216,8 +209,14 @@
   (org-log-done 'time)
   (org-capture-templates
    '(("t" "Todo" entry (file "inbox.org") "* TODO %?\n%U\n")
-     ("n" "Note" entry (file "inbox.org") "* %?\n%U\n")))
-  (org-agenda-files '("~/org"))
+     ("n" "Note" entry (file "inbox.org") "* %?\n%U\n")
+     ("u" "Uni")
+     ("ue" "Eingang" entry (file+headline "~/Uni/aufgaben.org" "Eingang")
+      "** %?\n   %U")
+     ("ua" "Abgabe" entry (file+headline "~/Uni/aufgaben.org" "Abgaben")
+      "** TODO %?\n   DEADLINE: %^t")
+     ("uk" "Klausur" entry (file+headline "~/Uni/aufgaben.org" "Klausuren")
+      "** %? :klausur:\n   %^T")))
   (org-refile-targets '((org-agenda-files :maxlevel . 2)))
   (org-refile-use-outline-path 'file)
   (org-outline-path-complete-in-steps nil)
@@ -228,6 +227,16 @@
   :hook (org-mode . visual-line-mode)
   :config
   (require 'org-tempo)                  ; <s TAB, <q TAB, …
+  ;; ~/org plus Uni tasks and every module's notizen.org,
+  ;; rescanned before each agenda call so new modules show up
+  (defun uni/refresh-agenda-files (&rest _)
+    (setq org-agenda-files
+          (seq-filter #'file-exists-p
+                      (append '("~/org" "~/Uni/aufgaben.org")
+                              (when (file-directory-p "~/Uni/semester/")
+                                (directory-files-recursively "~/Uni/semester/" "\\.org\\'"))))))
+  (uni/refresh-agenda-files)
+  (advice-add 'org-agenda :before #'uni/refresh-agenda-files)
   (org-babel-do-load-languages
    'org-babel-load-languages '((emacs-lisp . t) (python . t) (R . t)))
   ;; open PDF links in pdf-tools instead of the system viewer

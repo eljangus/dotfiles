@@ -54,7 +54,6 @@ mkinitcpio
 mpd
 mpv
 nano
-neovim
 networkmanager
 ninja
 niri
@@ -71,7 +70,6 @@ opencode
 openrgb
 openssh
 pacman-contrib
-pandoc-cli
 papirus-icon-theme
 patch
 pipewire
@@ -102,7 +100,6 @@ syncthing
 tesseract
 tokei
 tree
-tree-sitter-cli
 ttf-iosevka-nerd
 ttf-iosevkaterm-nerd
 ttf-jetbrains-mono-nerd
