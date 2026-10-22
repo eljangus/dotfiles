@@ -20,7 +20,6 @@ direnv
 easyeffects
 efibootmgr
 emacs-wayland
-neovim
 eza
 fastfetch
 fd
@@ -95,7 +94,6 @@ ruff
 rust
 sddm
 socat
-spotify-launcher
 starship
 steam
 stow
@@ -104,6 +102,9 @@ syncthing
 tesseract
 tokei
 tree
+tree-sitter-cli
+ttf-iosevka-nerd
+ttf-iosevkaterm-nerd
 ttf-jetbrains-mono-nerd
 typescript-language-server
 unzip
