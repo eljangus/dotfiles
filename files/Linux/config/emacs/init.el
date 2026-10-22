@@ -26,7 +26,7 @@
   (tab-bar-show nil)
   :config
   (make-directory (locate-user-emacs-file "auto-save/") t)
-  ; (load-theme 'molokai t) ; comment out if using doom-themes
+  ; (load-theme 'molokai t) ; comment out if using doom-themes or base16
   (delete-selection-mode 1)
   (electric-pair-mode 1)
   (global-auto-revert-mode 1)
@@ -49,7 +49,7 @@
   ;; for treemacs users
   (doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
   :config
-  (load-theme 'doom-horizon t)
+  ;(load-theme 'doom-horizon t)
 
   ;; Enable flashing mode-line on errors
   ;(doom-themes-visual-bell-config)
@@ -59,6 +59,13 @@
   ;(doom-themes-treemacs-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
+
+(use-package base16-theme
+  :ensure t
+  :config
+  (load-theme 'base16-oxocarbon-dark t)
+  ;; base16 underlines widget-button, which the dashboard items inherit
+  (set-face-attribute 'widget-button nil :underline nil))
 
 ;; make sure the font stays consistent
 (set-face-attribute 'fixed-pitch nil :family 'unspecified :inherit 'default)
