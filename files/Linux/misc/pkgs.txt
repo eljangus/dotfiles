@@ -19,6 +19,7 @@ decibels
 direnv
 easyeffects
 efibootmgr
+emacs-wayland
 eza
 fastfetch
 fd
@@ -53,7 +54,6 @@ mkinitcpio
 mpd
 mpv
 nano
-neovim
 networkmanager
 ninja
 niri
@@ -65,12 +65,10 @@ noto-fonts-extra
 npm
 nwg-look
 obs-studio
-obsidian
 opencode
 openrgb
 openssh
 pacman-contrib
-pandoc-cli
 papirus-icon-theme
 patch
 pipewire
@@ -101,7 +99,8 @@ syncthing
 tesseract
 tokei
 tree
-tree-sitter-cli
+ttf-iosevka-nerd
+ttf-iosevkaterm-nerd
 ttf-jetbrains-mono-nerd
 typescript-language-server
 unzip

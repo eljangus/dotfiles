@@ -32,12 +32,7 @@ cask "font-jetbrains-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
 
 # text editor
-brew "neovim"
-brew "tree-sitter-cli" # nvim-treesitter builds parsers with it
-
-# notes (~/Uni is an Obsidian vault)
-cask "obsidian"
-brew "pandoc"
+cask "emacs-app"
 
 # VM
 cask "utm"

@@ -26,6 +26,7 @@ class Install:
                 self.home / ".local/state/noctalia/community-templates"
             ),  # incase I ever want to symlink custom noctalia templates
             (self.home / ".backup"),
+            (self.home / "org"),
         ]
 
     def check_dirs(self):
@@ -42,6 +43,8 @@ class Install:
                     Path(self.home / ".config").mkdir(parents=True, exist_ok=True)
                 if Path(self.home / ".backup").is_dir() == False:
                     Path(self.home / ".backup").mkdir(parents=True, exist_ok=True)
+                if Path(self.home / "org").is_dir() == False:
+                    Path(self.home / "org").mkdir(parents=True, exist_ok=True)
 
     # entries of a source dir, or nothing if it doesn't exist (git doesn't track empty dirs)
     def _scan(self, path):
@@ -132,15 +135,6 @@ class Install:
             shutil.move(dest, self.home / f".backup/settings.toml.{int(time.time())}")
         os.symlink(src, dest)
 
-    def symlink_clang_format(self):
-        src = self.rootdir / f"files/{self.platform}/misc/.clang-format"
-        dest = self.home / ".clang-format"
-        if dest.is_symlink() and dest.resolve() == src.resolve():
-            return
-        if dest.is_symlink() or dest.exists():
-            shutil.move(dest, self.home / f".backup/.clang-format.{int(time.time())}")
-        os.symlink(src, dest)
-
 
 # Run the functions if this file is executed as script
 if __name__ == "__main__":
@@ -148,7 +142,6 @@ if __name__ == "__main__":
     obj.check_dirs()
     obj.read_dotfiles()
     obj.symlink_dots(obj.dots)
-    obj.symlink_clang_format()
     if obj.platform == "Linux":
         obj.symlink_dots(obj.local_applications)
         obj.symlink_dots(obj.local_icons)
