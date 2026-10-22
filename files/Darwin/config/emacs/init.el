@@ -115,6 +115,29 @@
          ("M-s r" . consult-ripgrep)
          ("M-s f" . consult-fd)))
 
+(use-package corfu
+  :custom
+  (corfu-auto t)
+  (corfu-auto-prefix 2)
+  (corfu-cycle t)            ; wrap around at the end of the list
+  (corfu-preselect 'first)   ; first candidate selected, C-<return> takes it
+  (global-corfu-modes '((not org-mode) t)) ; no popup in org buffers
+  :bind (:map corfu-map
+              ;; TAB-and-Go: TAB/S-TAB cycle, the selection is inserted as you go
+              ("TAB"       . corfu-next)
+              ("<tab>"     . corfu-next)
+              ("S-TAB"     . corfu-previous)
+              ("<backtab>" . corfu-previous)
+              ("<escape>"  . corfu-quit)
+              ("C-<return>" . corfu-insert) ; keep the TAB'd candidate, then close
+              ("RET" . nil)
+              ;; keep C-n/C-p/C-a/C-e as normal movement while the popup is open
+              ([remap next-line]              . nil)
+              ([remap previous-line]          . nil)
+              ([remap move-beginning-of-line] . nil)
+              ([remap move-end-of-line]       . nil))
+  :init (global-corfu-mode 1))
+
 ;; tree-sitter, grammars get installed on first use
 (setq treesit-auto-install-grammar 'always)
 (setopt treesit-enabled-modes t)        ; needs setopt, not setq
