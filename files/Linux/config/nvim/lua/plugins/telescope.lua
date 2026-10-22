@@ -6,6 +6,7 @@ return {
         -- optional but recommended
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
+    cmd = 'Telescope',
     keys = {
         { '<leader>ff', function() require('telescope.builtin').find_files() end, desc = 'Telescope find files' },
         { '<leader>fg', function() require('telescope.builtin').live_grep() end,  desc = 'Telescope live grep' },

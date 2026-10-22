@@ -45,8 +45,18 @@ return {
             -- center vertically: header, gap, buttons (each followed by a blank line), footer
             local gap = 2
             local height = #header + gap + 2 * #dashboard.section.buttons.val + 1
+            -- measure alpha's own window, not the current one: alpha also redraws while
+            -- a telescope float is focused, which would collapse the padding
+            local function win_height()
+                for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+                    if vim.bo[vim.api.nvim_win_get_buf(win)].filetype == "alpha" then
+                        return vim.api.nvim_win_get_height(win)
+                    end
+                end
+                return vim.fn.winheight(0)
+            end
             dashboard.config.layout = {
-                { type = "padding", val = function() return math.max(2, math.floor((vim.fn.winheight(0) - height) / 2)) end },
+                { type = "padding", val = function() return math.max(2, math.floor((win_height() - height) / 2)) end },
                 dashboard.section.header,
                 { type = "padding", val = gap },
                 dashboard.section.buttons,
