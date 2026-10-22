@@ -36,6 +36,9 @@
   (display-line-numbers-type 'relative)
   (tab-bar-show nil)
   :config
+  (setq scroll-margin 10)
+  (setq scroll-conservatively 101)
+  (setq scroll-preserve-screen-position nil)    
   (make-directory (locate-user-emacs-file "auto-save/") t)
   ;(load-theme 'nox t) ; comment out when using doom-themes
   (delete-selection-mode 1)
@@ -304,3 +307,14 @@
 ;; pdf: link type for org-store-link, so links point at the current page
 (use-package org-pdftools
   :hook (org-mode . org-pdftools-setup-link))
+
+(defun my-scroll-quarter-up ()
+  (interactive)
+  (scroll-up-command (max 1 (/ (window-body-height) 4))))
+
+(defun my-scroll-quarter-down ()
+  (interactive)
+  (scroll-down-command (max 1 (/ (window-body-height) 4))))
+
+(global-set-key (kbd "C-v") #'my-scroll-quarter-up)
+(global-set-key (kbd "M-v") #'my-scroll-quarter-down)
