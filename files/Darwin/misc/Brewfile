@@ -15,6 +15,7 @@ brew "lazygit"
 brew "fzf"
 brew "node" # npm, for LSPs like pyright, tsserver, etc.
 brew "qt" # qmlls
+brew "ruff" # python lsp: formatting + linting next to pyright
 
 # shell / cli tools referenced in config.fish
 brew "eza"
