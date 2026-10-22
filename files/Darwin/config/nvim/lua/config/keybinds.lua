@@ -5,8 +5,8 @@ map("n", "<Esc>", "<cmd>nohlsearch<cr>")
 -- buffers (the "tabs" in bufferline)
 map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
 map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
-map("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete buffer" })
-map("n", "<leader>bo", function() Snacks.bufdelete.other() end, { desc = "Delete other buffers" })
+map("n", "<leader>bd", "<cmd>Bdelete<cr>", { desc = "Delete buffer" })
+map("n", "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", { desc = "Delete other buffers" })
 
 -- move between windows
 map("n", "<C-h>", "<C-w>h", { desc = "Window left" })

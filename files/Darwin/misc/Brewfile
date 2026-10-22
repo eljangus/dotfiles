@@ -31,7 +31,8 @@ cask "font-jetbrains-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
 
 # text editor
-cask "emacs-app"
+brew "neovim"
+brew "tree-sitter-cli" # nvim-treesitter builds parsers with it
 
 # VM
 cask "utm"

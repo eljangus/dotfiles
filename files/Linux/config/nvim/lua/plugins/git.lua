@@ -1,14 +1,23 @@
 return {
-    -- lazygit in a float, themed to match the colorscheme
+    -- lazygit in a float
     {
-        "folke/snacks.nvim",
-        opts = { lazygit = {} },
+        "kdheepak/lazygit.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        cmd = { "LazyGit", "LazyGitFilter", "LazyGitFilterCurrentFile" },
         keys = {
-            { "<leader>gg", function() Snacks.lazygit() end,          desc = "Lazygit" },
-            { "<leader>gl", function() Snacks.lazygit.log() end,      desc = "Git log" },
-            { "<leader>gf", function() Snacks.lazygit.log_file() end, desc = "Git log (file)" },
-            { "<leader>gB", function() Snacks.gitbrowse() end,        desc = "Open in browser", mode = { "n", "x" } },
+            { "<leader>gg", "<cmd>LazyGit<cr>",                  desc = "Lazygit" },
+            { "<leader>gl", "<cmd>LazyGitFilter<cr>",            desc = "Git log" },
+            { "<leader>gf", "<cmd>LazyGitFilterCurrentFile<cr>", desc = "Git log (file)" },
         },
+    },
+    -- open the file (or selected lines) on the forge
+    {
+        "linrongbin16/gitlinker.nvim",
+        cmd = "GitLink",
+        keys = {
+            { "<leader>gB", "<cmd>GitLink!<cr>", desc = "Open in browser", mode = { "n", "x" } },
+        },
+        opts = {},
     },
     {
         "lewis6991/gitsigns.nvim",

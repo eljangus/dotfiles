@@ -33,7 +33,7 @@ return {
             },
         },
     },
-    -- knows about vim.*, Snacks and plugin types when editing this config
+    -- knows about vim.* and plugin types when editing this config
     {
         "folke/lazydev.nvim",
         ft = "lua",
@@ -47,8 +47,7 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities() })
-            -- brew's qt keeps qmlls in opt/qt/bin, which isn't on PATH
-            vim.lsp.config("qmlls", { cmd = { "/opt/homebrew/opt/qt/bin/qmlls" } })
+            vim.lsp.config("qmlls", { cmd = { "qmlls6" } })
 
             -- only enable what's installed, so a missing server stays quiet
             for _, name in ipairs(servers) do
