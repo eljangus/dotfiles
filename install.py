@@ -26,7 +26,6 @@ class Install:
                 self.home / ".local/state/noctalia/community-templates"
             ),  # incase I ever want to symlink custom noctalia templates
             (self.home / ".backup"),
-            (self.home / "org"),
         ]
 
     def check_dirs(self):
@@ -43,8 +42,6 @@ class Install:
                     Path(self.home / ".config").mkdir(parents=True, exist_ok=True)
                 if Path(self.home / ".backup").is_dir() == False:
                     Path(self.home / ".backup").mkdir(parents=True, exist_ok=True)
-                if Path(self.home / "org").is_dir() == False:
-                    Path(self.home / "org").mkdir(parents=True, exist_ok=True)
 
     # entries of a source dir, or nothing if it doesn't exist (git doesn't track empty dirs)
     def _scan(self, path):
